@@ -3,13 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-<<<<<<< HEAD
 gem 'mailjet'
 gem 'jquery-rails'
-=======
-gem 'jquery-rails'
-
->>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
 group :test, :development do
   gem 'rspec-rails'
 end
@@ -20,17 +15,8 @@ gem 'faker'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'stripe'
-<<<<<<< HEAD
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
-=======
-
-
-
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
->>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
