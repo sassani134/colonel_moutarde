@@ -1,48 +1,62 @@
 <!-- ***** Header Area Start ***** -->
 <header class="header_area" id="header">
-    <div class="container-fluid h-100">
-        <div class="row h-100">
-            <div class="col-12 h-100">
-                <nav class="h-100 navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html"><%=image_tag("logo.png", :style => "width: 130; height: 120;")%></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
-                    <!-- Nav -->
-                    <div class="collapse navbar-collapse" id="dorneNav">
-                        <ul class="navbar-nav mr-auto" id="dorneMenu">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.html">Accueil</a>
-                                    <a class="dropdown-item" href="listing.html">Liste des jeux</a>
-                                    <a class="dropdown-item" href="contact.html">Contact</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Liste des jeux</a>
-                            </li>
-                        </ul>
-                        <!-- Search btn -->
-                        <div class="dorne-search-btn">
-                            <a id="search-btn" href="/"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
-                        </div>
-                        <!-- Signin btn -->
-                        <div class="dorne-signin-btn">
-                            <a data-toggle="modal" href="#modalUp">S'enregister</a>
-                        </div>
-                        <div class="dorne-signin-btn">
-                            <a data-toggle="modal" href="#modalIn">Se connecter</a>
-                        </div>
-                        <!-- Add listings btn -->
-                        <div class="dorne-add-listings-btn">
-                            <a href="/" class="btn dorne-btn">Mes favoris</a>
-                        </div>
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-12 h-100">
+        <nav class="h-100 navbar navbar-expand-lg">
+          <a class="navbar-brand" href="index.html"><%=image_tag("logo.png", :style => "width: 130; height: 120;")%></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+          <!-- Nav -->
+          <div class="collapse navbar-collapse" id="dorneNav">
+            <ul class="navbar-nav mr-auto" id="dorneMenu">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="index.html">Accueil</a>
+                    <a class="dropdown-item" href="listing.html">Liste des jeux</a>
+                    <a class="dropdown-item" href="contact.html">Contact</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Liste des jeux</a>
+              </li>
+              </ul>
+            <!-- Search btn -->
+            <div class="dorne-search-btn">
+              <a id="search-btn" href="/"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
+              </div>
+
+              <% if user_signed_in? %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="index.html">Historique</a>
+                      <a class="dropdown-item" href="listing.html">Modifier mes infos</a>
+                      <a class="dropdown-item" href="contact.html">Me déconnecter</a>
                     </div>
-                </nav>
+                </li>
+
+              <% else %>
+                <!-- Signin btn -->
+                <div class="dorne-signin-btn">
+                  <a data-toggle="modal" href="#modalUp">S'enregister</a>
+                </div>
+                <div class="dorne-signin-btn">
+                  <a data-toggle="modal" href="#modalIn">Se connecter</a>
+                </div>
+              <% end %>
+
+            <!-- Add listings btn -->
+            <div class="dorne-add-listings-btn">
+              <a href="/" class="btn dorne-btn">Mes favoris</a>
             </div>
-        </div>
+          </div>
+        </nav>
+      </div>
     </div>
+  </div>
 </header>
 <!-- ***** Header Area End ***** -->
