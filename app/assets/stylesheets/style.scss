@@ -81,9 +81,26 @@
     }
 }
 
+/* modif pour footer */
 body {
     font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    margin: 0;
 }
+
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+  
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    margin-bottom: -50px;
+  }
+/* fin modif pour footer */
 
 h1,
 h2,
@@ -959,7 +976,7 @@ li {
 /* Footer Area CSS */
 
 .dorne-footer-area {
-    padding: 50px 35px;
+    padding: 15px 35px;
     border-top: 1px solid #bec0cc;
 }
 
