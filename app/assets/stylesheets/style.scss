@@ -5,19 +5,22 @@
 :: Version: v1.0.0
 :: Last Updated: 12-23-2017
 ---------------------------------------------- */
-
+/*
+*= require_tree .
+*= require_self
+*/
 /* Fonts */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
 /* Import CSS */
 
-@import 'css/bootstrap/bootstrap.min.css';
-@import 'css/others/animate.css';
-@import 'css/others/magnific-popup.css';
-@import 'css/others/owl.carousel.min.css';
-@import 'css/others/font-awesome.min.css';
-@import 'css/others/pe-icon-7-stroke.css';
+@import 'bootstrap/bootstrap.min.css';
+@import 'others/animate.css';
+@import 'others/magnific-popup.css';
+@import 'others/owl.carousel.min.css';
+@import 'others/font-awesome.min.css';
+@import 'others/pe-icon-7-stroke.css';
 
 /* Base CSS */
 
