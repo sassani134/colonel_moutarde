@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require wow
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
