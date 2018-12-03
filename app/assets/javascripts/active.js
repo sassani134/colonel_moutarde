@@ -27,6 +27,9 @@
         })
     }
 
+    $("a[href='#']").on('click', function ($) {
+        $.preventDefault();
+    });
     // Search Active Code
     $('#search-btn, #closeBtn').on('click', function () {
         $('body').toggleClass('search-form-on');
@@ -55,9 +58,7 @@
     }
 
     // PreventDefault a Click
-    $("a[href='#']").on('click', function ($) {
-        $.preventDefault();
-    });
+    
 
     // wow Active Code
     if ($.fn.init) {

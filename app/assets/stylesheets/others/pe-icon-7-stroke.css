@@ -1,17 +1,17 @@
 @font-face {
-	font-family: 'Pe-icon-7-stroke';
-	src:url('../../fonts/Pe-icon-7-stroke.eot?d7yf1v');
-	src:url('../../fonts/Pe-icon-7-stroke.eot?#iefixd7yf1v') format('embedded-opentype'),
-		url('../../fonts/Pe-icon-7-stroke.woff?d7yf1v') format('woff'),
-		url('../../fonts/Pe-icon-7-stroke.ttf?d7yf1v') format('truetype'),
-		url('../../fonts/Pe-icon-7-stroke.svg?d7yf1v#Pe-icon-7-stroke') format('svg');
+	font-family: 'Pe_icon_7_stroke';
+	src:url('../../fonts/Pe_icon_7_stroke.eot?d7yf1v');
+	src:url('../../fonts/Pe_icon_7_stroke.eot?#iefixd7yf1v') format('embedded-opentype'),
+		url('../../fonts/Pe_icon_7_stroke.woff?d7yf1v') format('woff'),
+		url('../../fonts/Pe_icon_7_stroke.ttf?d7yf1v') format('truetype'),
+		url('../../fonts/Pe_icon_7_stroke.svg?d7yf1v#Pe_icon_7_stroke') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="pe-7s-"], [class*=" pe-7s-"] {
 	display: inline-block;
-	font-family: 'Pe-icon-7-stroke';
+	font-family: 'Pe_icon_7_stroke';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
