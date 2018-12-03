@@ -89,8 +89,11 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+<<<<<<< HEAD
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+=======
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
     dotenv (2.5.0)
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
@@ -109,8 +112,11 @@ GEM
       mail (>= 2.2.1)
     gmail_xoauth (0.4.2)
       oauth (>= 0.3.6)
+<<<<<<< HEAD
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+=======
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -130,6 +136,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+<<<<<<< HEAD
     mailjet (1.5.4)
       activesupport (>= 3.1.0)
       rack (>= 1.4.0)
@@ -140,6 +147,11 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
+=======
+    marcel (0.3.3)
+      mimemagic (~> 0.3.2)
+    method_source (0.9.2)
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
     mimemagic (0.3.2)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
@@ -149,7 +161,10 @@ GEM
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
+<<<<<<< HEAD
     netrc (0.11.0)
+=======
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
     nio4r (2.3.1)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
@@ -198,10 +213,13 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+<<<<<<< HEAD
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+=======
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -260,9 +278,12 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+<<<<<<< HEAD
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+=======
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -293,10 +314,16 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+<<<<<<< HEAD
   mailjet
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.1)
+=======
+  pg (>= 0.18, < 2.0)
+  puma (~> 3.11)
+  rails (~> 5.2.1, >= 5.2.1.1)
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
   rails-controller-testing
   rspec-rails
   sass-rails (~> 5.0)
@@ -313,4 +340,8 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.16.6
+=======
+   1.16.2
+>>>>>>> 3ae1af20ff28ea30025644113e4390f75c042e86
