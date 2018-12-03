@@ -281,6 +281,7 @@ GEM
     websocket-extensions (0.1.3)
     wow (0.0.5)
       httparty (~> 0)
+    wow-rails (0.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -318,6 +319,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   wow
+  wow-rails
 
 RUBY VERSION
    ruby 2.5.1p57

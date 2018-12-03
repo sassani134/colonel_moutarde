@@ -7,6 +7,7 @@ gem 'mailjet'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'wow'
+gem 'wow-rails'
 group :test, :development do
   gem 'rspec-rails'
 end
