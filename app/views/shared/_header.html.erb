@@ -35,8 +35,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.html">Historique</a>
-                        <a class="dropdown-item" href="listing.html">Modifier mes infos</a>
-                        <a class="dropdown-item" href="contact.html">Se déconnecter</a>
+                        <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
+                        <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
                       </div>
                   </li>
                 </ul>
