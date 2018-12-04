@@ -10,15 +10,15 @@
           <div class="collapse navbar-collapse" id="dorneNav">
             <ul class="navbar-nav mr-auto" id="dorneMenu">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">Liste des jeux</a>
+                <a class="nav-link" href="/listing">Liste des jeux</a>
               </li>
             </ul>
             <!-- Search btn -->
             <div class="dorne-search-btn">
-              <a id="search-btn" href="/"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
+              <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
             </div>
               
               <% if current_user%>
@@ -28,7 +28,7 @@
                       <a class="nav-link" href="/">Proposer un jeu</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/">Historique locations (admin)</a>
+                      <a class="nav-link" href="/">Résumé admin</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
