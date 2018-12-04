@@ -11,7 +11,7 @@ end
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'gmail'
 gem 'rails-controller-testing'
-gem 'faker'
+gem 'faker', :require => false
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'stripe'
