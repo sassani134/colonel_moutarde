@@ -9,5 +9,6 @@ class HomeController < ApplicationController
   end
 
   def listing
+    @copies = Copy.all
   end
 end
