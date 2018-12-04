@@ -6,7 +6,7 @@ end
 
 10.times do
   game = Game.offset(rand(Category.count)).first
-  game = Game.create!(title: Faker::Name.first_name, description: Faker::Lorem.sentences(4), code: Faker::Code.isbn)
+  game = Game.create!(title: Faker::Name.first_name, description: Faker::Lorem.paragraph, code: Faker::Code.isbn)
 end
 
 10.times do
