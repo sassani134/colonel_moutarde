@@ -1,0 +1,13 @@
+
+
+<h1>Votre espace personnel</h1>
+
+
+<h2>Les jeux que vous louez</h2>
+<%@copies.each do |copy|%>
+  <p><%=copy.game.title%> <%=copy.available%></p>
+<%end%>  
+
+
+<h2>Les jeux que vous avez emprunté</h2>
+
