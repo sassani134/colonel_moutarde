@@ -22,11 +22,13 @@
   </head>
 
   <body>
-    <%= render 'shared/search_form' %>
-    <%= render 'shared/header' %>
-    <%= render 'shared/modalin'  %>
-    <%= render 'shared/modalup'  %>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render 'shared/search_form' %>
+      <%= render 'shared/header' %>
+      <%= render 'shared/modalin'  %>
+      <%= render 'shared/modalup'  %>
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>

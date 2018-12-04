@@ -4,42 +4,56 @@
     <div class="row h-100">
       <div class="col-12 h-100">
         <nav class="h-100 navbar navbar-expand-lg">
-          <a class="navbar-brand" href="index.html"><%=image_tag("logo.png", :style => "width: 130; height: 120;")%></a>
+          <a class="navbar-brand" href="/"><%=image_tag("logo.png", :style => "width: 130; height: 120;")%></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
           <!-- Nav -->
           <div class="collapse navbar-collapse" id="dorneNav">
             <ul class="navbar-nav mr-auto" id="dorneMenu">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index.html">Accueil</a>
-                    <a class="dropdown-item" href="listing.html">Liste des jeux</a>
-                    <a class="dropdown-item" href="contact.html">Contact</a>
-                  </div>
+                <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">Liste des jeux</a>
+                <a class="nav-link" href="/listing">Liste des jeux</a>
               </li>
             </ul>
             <!-- Search btn -->
             <div class="dorne-search-btn">
-              <a id="search-btn" href="/"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
-              </div>
-
-              <% if user_signed_in? %>
-                <ul class="navbar-nav mr-auto" id="dorneMenu">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.html">Historique</a>
-                        <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
-                        <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
-                      </div>
-                  </li>
-                </ul>
+              <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
+            </div>
+              
+              <% if current_user%>
+                <% if current_user.admin?%>
+                  <ul class="navbar-nav mr-auto" id="dorneMenu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Proposer un jeu</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Résumé admin</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="index.html">Mon historique</a>
+                            <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
+                            <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
+                          </div>
+                    </li>
+                  </ul>
+                <% else user_signed_in? %>
+                  <ul class="navbar-nav mr-auto" id="dorneMenu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/">Proposer un jeu</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="index.html">Mon historique</a>
+                          <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
+                          <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
+                        </div>
+                    </li>
+                  </ul>
+                <% end %>
 
               <% else %>
                 <!-- Signin btn -->
