@@ -1,21 +1,27 @@
 
-<table class="table" style="color: white;">
+<table class="table">
   <thead>
 	  <tr>
       <td>Nom du jeu</td>
 	  	<td>Description</td>
+      <td>Prêt pendant:</td>
 			<td></td>
 		</tr>
 	</thead>
   <tbody id = "<%=@cart.id%>">
-  <%if @content%>
-    <% @content.each_with_index do |item, index| %>
-	    <tr id='element_<%=index%>', remote: true>
-        
-		    <td><%= item.game.title %></td>
-		    <td><%= item.game.description  %></td>
-       
-			  <td><%= link_to " Delete", cart_path(@cart, :id_delete => item.id), class: "btn btn-sm btn-danger bouton-d far fa-trash-alt", remote: true,  method: :delete, data: { confirm: "Are you sure?" } %></td>
+  <%if @cart.copies%>
+    <% @cart.copies.each_with_index do |copy, index| %>
+	    <tr id='element_<%=copy.id%>', remote: true>
+		    <td><%= copy.game.title %></td>
+		    <td><%= copy.game.description  %></td>
+        <td>
+        <div class="d-flex flex-row align-items-center justify-content-center">
+          <%= link_to " - ", cart_path(@cart, :id_modify => copy.id, :increase => false), class: "btn btn-sm btn-success", remote: true,  method: :patch%>
+          &nbsp;<%= @cart.number_week[index]%> semaines&nbsp;
+          <%= link_to " + ", cart_path(@cart, :id_modify => copy.id, :increase => true), class: "btn btn-sm btn-success", remote: true,  method: :patch%>
+        </div>
+        </td>
+			  <td><%= link_to " Delete", cart_path(@cart, :id_delete => copy.id), class: "btn btn-sm btn-danger bouton-d far fa-trash-alt", remote: true,  method: :delete, data: { confirm: "Are you sure?" } %></td>
 	    </tr>
     <% end %>
   <% end %>
