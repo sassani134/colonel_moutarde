@@ -9,11 +9,6 @@ end
   user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
 end
 
-20.times do
-  rand_user = User.offset(rand(User.count)).first
-  rand_game = Game.offset(rand(Game.count)).first
-  copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: Faker::Address.full_address, return: Time.now)
-end
 
 
 game_list = [
@@ -60,4 +55,11 @@ Comme d'habitude, l'éditeur Days of Wonder nous offre avec Five Trives un jeu a
 game_list.each do |name, description, code|
   Game.create!( title: name, description: description, code: code )
   Game.last.categories<< Category.offset(rand(Category.count)).first
+end
+
+
+20.times do
+  rand_user = User.offset(rand(User.count)).first
+  rand_game = Game.offset(rand(Game.count)).first
+  copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: Faker::Address.full_address, return: Time.now)
 end
