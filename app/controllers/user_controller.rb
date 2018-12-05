@@ -5,8 +5,8 @@ class UserController < ApplicationController
     #@unconfirmed_copies = @rented_copies.where(:rented => false)
     @renting_copies = current_user.copies.where(:rented => true)
     @cart=Cart.where(:user_id => current_user.id)
-    @orders=current_user.orders
-    
+    @past_orders=current_user.orders
+    @active_orders=@past_orders.where("'true' = ANY (renting)")
   end
 
   def add_game
