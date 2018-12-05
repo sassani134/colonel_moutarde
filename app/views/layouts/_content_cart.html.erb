@@ -2,18 +2,18 @@
 <table class="table" style="color: white;">
   <thead>
 	  <tr>
-      <td>Nom du chat trop mignon</td>
-	  	<td>Photographié par :</td>
+      <td>Nom du jeu</td>
+	  	<td>Description</td>
 			<td></td>
 		</tr>
 	</thead>
   <tbody id = "<%=@cart.id%>">
   <%if @content%>
     <% @content.each_with_index do |item, index| %>
-	    <tr id='element_<%=item.id%>', remote: true>
+	    <tr id='element_<%=index%>', remote: true>
         
-		    <td><%= item.title %></td>
-		    <td><%= item.description  %></td>
+		    <td><%= item.game.title %></td>
+		    <td><%= item.game.description  %></td>
        
 			  <td><%= link_to " Delete", cart_path(@cart, :id_delete => item.id), class: "btn btn-sm btn-danger bouton-d far fa-trash-alt", remote: true,  method: :delete, data: { confirm: "Are you sure?" } %></td>
 	    </tr>
