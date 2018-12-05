@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_104858) do
+ActiveRecord::Schema.define(version: 2018_12_05_123158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number_week", default: [], array: true
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "carts_copies", id: false, force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "copy_id", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -24,8 +58,6 @@ ActiveRecord::Schema.define(version: 2018_12_03_104858) do
   create_table "categories_games", id: false, force: :cascade do |t|
     t.bigint "game_id", null: false
     t.bigint "category_id", null: false
-    t.index ["category_id", "game_id"], name: "index_categories_games_on_category_id_and_game_id"
-    t.index ["game_id", "category_id"], name: "index_categories_games_on_game_id_and_category_id"
   end
 
   create_table "copies", force: :cascade do |t|
@@ -36,8 +68,14 @@ ActiveRecord::Schema.define(version: 2018_12_03_104858) do
     t.date "return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "rented"
     t.index ["game_id"], name: "index_copies_on_game_id"
     t.index ["user_id"], name: "index_copies_on_user_id"
+  end
+
+  create_table "copies_orders", id: false, force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "copy_id", null: false
   end
 
   create_table "games", force: :cascade do |t|
@@ -46,6 +84,15 @@ ActiveRecord::Schema.define(version: 2018_12_03_104858) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number_week", default: [], array: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

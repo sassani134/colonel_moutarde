@@ -1,0 +1,13 @@
+<div class ='space'>
+<br/><br/><br/><br/>  
+</div>
+<div class="section">
+  <% if user_signed_in? %>
+    <div id = "<%=@cart.id%>">
+      <%= render 'layouts/content_cart' %>
+    </div>
+    
+  <% else%>
+  <p>Enregistrez vous pour avoir un panier</p>
+  <% end %>
+</div>
