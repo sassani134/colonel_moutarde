@@ -5,10 +5,4 @@ class HomeController < ApplicationController
   def contact
   end
 
-  def explore
-  end
-
-  def listing
-    @games = Game.all
-  end
 end

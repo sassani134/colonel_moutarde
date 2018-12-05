@@ -1,31 +1,4 @@
-<<<<<<< HEAD
-    <!-- ***** Search Form Area ***** -->
-    <div class="dorne-search-form d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="search-close-btn" id="closeBtn">
-                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
-                    </div>
-                    <form action="#" method="get">
-                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Desire Destinations or Events">
-                        <input type="submit" class="d-none" value="submit">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
-
-=======
->>>>>>> 476b769ee376b33d02d2d9cc54a170f06ef0b7ba
-    <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area height-100 bg-img bg-overlay">
-    </div>
-    <!-- ***** Breadcumb Area End ***** -->
-
-    <!-- ***** Single Listing Area Start ***** -->
+<!-- ***** Single Listing Area Start ***** -->
     <section class="dorne-single-listing-area section-padding-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -34,15 +7,14 @@
                     <div class="single-listing-content">
 
                         <div class="listing-title">
-                            <h4>NOM DU JEU</h4>
-                            <h6>Code du jeu</h6>
+                            <h1><%= @game.title %></h1>
+                            <h6><%= @game.code %></h6>
                             <h4>IMAGES DU JEU</h4>
-                            <h6>Tags</h6>
                             <h6>Catégories</h6>
                         </div>
 
                         <div class="overview-content mt-50">
-                            <p>Description du jeu : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum.</p>
+                            <p><%= @game.description %></p>
                         </div>
 
                     <h4>Disponibilité :</h4>
