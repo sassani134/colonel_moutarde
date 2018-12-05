@@ -83,7 +83,8 @@ class CartController < ApplicationController
       @price = 3.5 * @content.count
       if @cart.copy_ids != []
         @order = Order.create!(user: @cart.user, number_week: @cart.number_week, price: @price)
-        @order.copy_ids = @cart.copy_ids*
+        @order.copy_ids = @cart.copy_ids
+        @order.rented = Array.new(@cart.copy_ids.count, true)
         @order.copies.each do |copy|
           copy.rented=true
           copy.save
