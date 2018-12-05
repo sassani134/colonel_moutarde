@@ -1,0 +1,39 @@
+
+<table class="table" style="color: white;">
+  <thead>
+	  <tr>
+      <td>Nom du chat trop mignon</td>
+	  	<td>Photographié par :</td>
+			<td></td>
+		</tr>
+	</thead>
+  <tbody id = "<%=@cart.id%>">
+  <%if @content%>
+    <% @content.each_with_index do |item, index| %>
+	    <tr id='element_<%=item.id%>', remote: true>
+        
+		    <td><%= item.title %></td>
+		    <td><%= item.description  %></td>
+       
+			  <td><%= link_to " Delete", cart_path(@cart, :id_delete => item.id), class: "btn btn-sm btn-danger bouton-d far fa-trash-alt", remote: true,  method: :delete, data: { confirm: "Are you sure?" } %></td>
+	    </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+<p id="price">Votre total actuel est de <%=@price%> $</p>
+
+<% if @price !=0 %>
+  <div class="row justify-content-between">
+    <div class="col-6" >
+      <%= link_to "Vider le panier", "/empty", class: "btn btn-sm btn-warning bouton-d far fa-trash-alt" %>
+    </div>
+    <div class="col-6">
+        <%= link_to "Payer", "/charges/new", class: "btn btn-lg btn-info bouton-d far fa-trash-alt" %>
+    </div>
+  </div>
+<% end %>
+
+</div>
+<p>&nbsp;</p>
+    

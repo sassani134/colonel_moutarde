@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'order/index'
+  get 'order/destroy'
   devise_for :users
   get 'home/index'
   root to: "home#index"
