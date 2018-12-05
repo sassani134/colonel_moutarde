@@ -19,5 +19,9 @@ class UserController < ApplicationController
 
   def save_game
   end
+  
+  def toggle_past
+  @order = Order.find(params[:id])
+  end
 end
 

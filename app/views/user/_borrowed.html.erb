@@ -20,3 +20,19 @@
   </div>
 <%end%>
 <h2 class ="text-light">Les jeux que vous avez emprunté</h2>
+  <div class="container">
+  <div class="row viewer">  
+    <%if @past_orders[0] %>
+      <div class='liste col-3'>
+        <p>&nbsp;</p>
+        <%= render 'list' %>
+      </div>
+      <div class='resume col-9'>
+        <% order = [] %>
+        <% if !order[0].nil? %>
+          <%= render 'hist_order' %>
+        <% end %>
+      </div>
+    <%end%>
+  </div>
+  </div>
