@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/addgame', to: "user#add_game"
   resources :charges
   get '/cart', to: "cart#index"
+  get '/show_orders/:id', to: 'user#toggle_past'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

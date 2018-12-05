@@ -1,0 +1,6 @@
+$(document).ready(function() {
+function renderPage() {
+    $(".resume").html("<%= j render 'hist_order', id: @order.id %>");
+};
+renderPage();
+});

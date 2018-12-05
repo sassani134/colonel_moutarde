@@ -1,0 +1,7 @@
+<ul class = "Commandes">
+<% @past_orders.each do |order| %>
+    <li class='orders'>
+    <%= link_to "Commande #{order.id}", "/show_orders/#{order.id}", class: 'show list-group-item list-group-item-action', id: order.id, remote: true %>
+    </li>
+<% end %>
+</ul>
