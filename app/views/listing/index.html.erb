@@ -5,25 +5,35 @@
 			<!-- Tabs Content -->
 			<div class="tab-content" id="nav-tabContent">
 				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-					<h6>Choisis un jeu par nom ou par catégorie</h6>
-					<form action="#" method="get">
-
-							<select class="custom-select">
-								<option selected>Nom du jeu</option>
-								<% @games.each do |game| %>
-									<option value="game.id"><%= game.title %></option>
-								<% end %>
-							</select>
-							<select class="custom-select">
-								<option selected>Catégorie</option>
-								<% @games.each do |game| %>
-									<% game.categories.each do |category| %>
-										<option value="category.id"><%= category.title %></option>
+				  <div class="row">
+    				<div class="col">
+							<h6>Choisis un jeu</h6>
+							<form action="#" method="get">
+								<select class="custom-select">
+									<option selected>Nom du jeu</option>
+									<% @games.each do |game| %>
+										<option value="game.id"><%= game.title %></option>
 									<% end %>
-								<% end %>
-							</select>
-						<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
-					</form>
+								</select>
+								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
+							</form>
+						</div>
+
+						<div class="col">
+							<h6>Choisis une catégorie</h6>
+							<form action="#" method="get">
+								<select class="custom-select">
+									<option selected>Catégorie</option>
+									<% @games.each do |game| %>
+										<% game.categories.each do |category| %>
+											<option value="category.id"><%= category.title %></option>
+										<% end %>
+									<% end %>
+								</select>
+								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -48,20 +58,17 @@
 			<%@games.each do |game|%>
 				<div class="col-12 col-sm-6 col-lg-4">
 					<div class="single-features-area mb-50">
-						<img src="/assets/bg-img/feature-1.jpg" alt="">
+						<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
 						<!-- Availability -->
 						<div class="price-start">
 							<p><%= game.copy_ids.count %> disponible(s)</p>
 						</div>
 						<div class="feature-content d-flex align-items-center justify-content-between">
 							<div class="feature-title">
-								<h5><%= game.title %></h5>
+								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
 									<p><% game.categories.each do |category| %>
 										<%= category.title %>
-									<% end%></p>
-							</div>
-							<div class="feature-favourite">
-								<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+									<% end%></p></a>
 							</div>
 						</div>
 					</div>
