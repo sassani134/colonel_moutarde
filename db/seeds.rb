@@ -5,8 +5,8 @@ require 'faker'
 end
 
 10.times do
-  game = Game.offset(rand(Category.count)).first
   game = Game.create!(title: Faker::Name.first_name, description: Faker::Lorem.paragraph, code: Faker::Code.isbn)
+  Game.last.categories<< Category.offset(rand(Category.count)).first
 end
 
 10.times do

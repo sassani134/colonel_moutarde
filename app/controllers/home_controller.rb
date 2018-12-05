@@ -9,6 +9,6 @@ class HomeController < ApplicationController
   end
 
   def listing
-    @copies = Copy.all
+    @games = Game.all
   end
 end
