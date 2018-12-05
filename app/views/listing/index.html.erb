@@ -1,3 +1,35 @@
+<div class="row h-100 align-items-center justify-content-center">
+  <div class="col-12 col-md-10">
+		<!-- Hero Search Form -->
+		<div class="hero-search-form">
+			<!-- Tabs Content -->
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+					<h6>Choisis un jeu par nom ou par catégorie</h6>
+					<form action="#" method="get">
+
+							<select class="custom-select">
+								<option selected>Nom du jeu</option>
+								<% @games.each do |game| %>
+									<option value="game.id"><%= game.title %></option>
+								<% end %>
+							</select>
+							<select class="custom-select">
+								<option selected>Catégorie</option>
+								<% @games.each do |game| %>
+									<% game.categories.each do |category| %>
+										<option value="category.id"><%= category.title %></option>
+									<% end %>
+								<% end %>
+							</select>
+						<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- ***** Listing Destinations Area Start ***** -->
 <section class="dorne-listing-destinations-area section-padding-100-50">
 	<div class="container">
