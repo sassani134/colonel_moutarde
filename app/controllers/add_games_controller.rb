@@ -26,7 +26,7 @@ class AddGamesController < ApplicationController
   # POST /add_games.json
   def create
     @add_game = Game.new(title: params[:title], description: params[:description])
-    
+    #image.attach(params[:image])
     respond_to do |format|
       if @add_game.save
         Game.last.image.attach(params[:image])
