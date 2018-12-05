@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'aws-sdk-s3'
+gem 'image_processing', '~> 1.2'
 gem 'mailjet'
 gem 'jquery-rails'
 gem "font-awesome-rails"
