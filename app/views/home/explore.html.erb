@@ -1,4 +1,5 @@
- <!-- ***** Search Form Area ***** -->
+<<<<<<< HEAD
+    <!-- ***** Search Form Area ***** -->
     <div class="dorne-search-form d-flex align-items-center">
         <div class="container">
             <div class="row">
@@ -17,230 +18,186 @@
 
   
 
+=======
+>>>>>>> 476b769ee376b33d02d2d9cc54a170f06ef0b7ba
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg)">
+    <div class="breadcumb-area height-100 bg-img bg-overlay">
     </div>
     <!-- ***** Breadcumb Area End ***** -->
 
-    <!-- Explore Area -->
-    <section class="dorne-explore-area d-md-flex">
-        <!-- Explore Search Area -->
-        <div class="explore-search-area d-md-flex">
-            <!-- Explore Search Form -->
-            <div class="explore-search-form">
-                <h6>What are you looking for?</h6>
-                <!-- Tabs -->
-                <div class="nav nav-tabs" id="heroTab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Places</a>
-                    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
-                </div>
-                <!-- Tabs Content -->
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                        <form action="#" method="get">
-                            <select class="custom-select" id="destinations">
-                                <option selected>Your Destinations</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
-                            </select>
-                            <select class="custom-select" id="catagories">
-                                <option selected>All Catagories</option>
-                                <option value="1">Catagories 1</option>
-                                <option value="2">Catagories 2</option>
-                                <option value="3">Catagories 3</option>
-                                <option value="3">Catagories 4</option>
-                            </select>
-                            <select class="custom-select" id="price-range">
-                                <option selected>Price Range</option>
-                                <option value="1">$100 - $499</option>
-                                <option value="2">$500 - $999</option>
-                                <option value="3">$1000 - $4999</option>
-                                <option value="3">$5000+</option>
-                            </select>
-                            <select class="custom-select" id="proximity">
-                                <option selected>Proximity</option>
-                                <option value="1">Proximity 1</option>
-                                <option value="2">Proximity 2</option>
-                                <option value="3">Proximity 3</option>
-                                <option value="3">Proximity 4</option>
-                                <option value="3">Proximity 5</option>
-                            </select>
-                            <div class="row mt-md-5 mt-0">
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Accepts Credit Cards</span>
-                                    </label>
+    <!-- ***** Single Listing Area Start ***** -->
+    <section class="dorne-single-listing-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Listing Content -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-listing-content">
+
+                        <div class="listing-title">
+                            <h4>NOM DU JEU</h4>
+                            <h6>Code du jeu</h6>
+                            <h4>IMAGES DU JEU</h4>
+                            <h6>Tags</h6>
+                            <h6>Catégories</h6>
+                        </div>
+
+                        <div class="overview-content mt-50">
+                            <p>Description du jeu : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum.</p>
+                        </div>
+
+                    <h4>Disponibilité :</h4>
+                    <div id="map2"style="width: 700px; height: 500px;" ></div>
+                        <script>
+                          // Note: This example requires that you consent to location sharing when
+                          // prompted by your browser. If you see the error "The Geolocation service
+                          // failed.", it means you probably did not give permission for the browser to
+                          // locate you.
+                          var map, infoWindow;
+                          function initMap() {
+                            map = new google.maps.Map(document.getElementById('map2'), {
+                              center: {lat: 48.8566, lng: 2.3522},
+                              zoom: 15
+                            });
+                            infoWindow = new google.maps.InfoWindow;
+
+                            // Try HTML5 geolocation.
+                            if (navigator.geolocation) {
+                              navigator.geolocation.getCurrentPosition(function(position) {
+                                var pos = {
+                                  lat: position.coords.latitude,
+                                  lng: position.coords.longitude
+                                };
+
+                                infoWindow.open(map);
+                                map.setCenter(pos);
+                              }, function() {
+                                handleLocationError(true, infoWindow, map.getCenter());
+                              });
+                            } else {
+                              // Browser doesn't support Geolocation
+                              handleLocationError(false, infoWindow, map.getCenter());
+                            }
+                          }
+
+                          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent(browserHasGeolocation ?
+                                                  'Error: The Geolocation service failed.' :
+                                                  'Error: Your browser doesn\'t support geolocation.');
+                            infoWindow.open(map);
+                          }
+                        </script>
+                        <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
+                        </script>
+
+
+                        <div class="listing-reviews-area mt-100">
+                            <h4>Avis des joueurs</h4>
+                            <div class="single-review-area">
+                                <div class="reviewer-meta d-flex align-items-center">
+                                    <img src="img/clients-img/1.jpg" alt="">
+                                    <div class="reviewer-content">
+                                        <div class="review-title-ratings d-flex justify-content-between">
+                                            <h5>“The best Burger in town”</h5>
+                                            <div class="ratings">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Bike Parking</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wireless Internet</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Reservations</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Privat Parking</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Smoking Area</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wheelchair Accesible</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Coupons</span>
-                                    </label>
+                                <div class="reviewer-name">
+                                    <h6>Christinne Smith</h6>
+                                    <p>12 November 2017</p>
                                 </div>
                             </div>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
-                        </form>
+                            <div class="single-review-area">
+                                <div class="reviewer-meta d-flex align-items-center">
+                                    <img src="img/clients-img/1.jpg" alt="">
+                                    <div class="reviewer-content">
+                                        <div class="review-title-ratings d-flex justify-content-between">
+                                            <h5>“Quality ingredients”</h5>
+                                            <div class="ratings">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-unfill.png" alt="">
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div>
+                                </div>
+                                <div class="reviewer-name">
+                                    <h6>Michael Brown</h6>
+                                    <p>12 November 2017</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                        <form action="#" method="get">
-                            <select class="custom-select" id="events-destinations">
-                                <option selected>Your Destinations</option>
+                </div>
+
+                <!-- Listing Sidebar -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="listing-sidebar">
+
+                        <!-- Listing Verify -->
+                        <div class="listing-verify">
+                            <a href="#" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i> Ajouter aux favoris</a>
+                        </div>
+
+                        <!-- Book A Table Widget -->
+                        <div class="book-a-table-widget mt-50">
+                            <h6>Chercher une autre catégorie</h6>
+                            <form action="#" method="get">
+                                <select class="custom-select" id="destinations">
+                                <option selected>Who will be arriving</option>
                                 <option value="1">New York</option>
                                 <option value="2">Latvia</option>
                                 <option value="3">Dhaka</option>
                                 <option value="4">Melbourne</option>
                                 <option value="5">London</option>
                             </select>
-                            <select class="custom-select" id="events-catagories">
-                                <option selected>All Catagories</option>
-                                <option value="1">Catagories 1</option>
-                                <option value="2">Catagories 2</option>
-                                <option value="3">Catagories 3</option>
-                                <option value="3">Catagories 4</option>
+                                <select class="custom-select" id="catagories">
+                                <option selected>Guest 1</option>
+                                <option value="1">Guest 2</option>
+                                <option value="3">Guest 3</option>
+                                <option value="3">Guest 4</option>
                             </select>
-                            <select class="custom-select" id="events-price-range">
-                                <option selected>Price Range</option>
-                                <option value="1">$100 - $499</option>
-                                <option value="2">$500 - $999</option>
-                                <option value="3">$1000 - $4999</option>
-                                <option value="3">$5000+</option>
+                                <button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                            </form>
+                        </div>
+
+                        <!-- Book A Table Widget -->
+                        <div class="book-a-table-widget mt-50">
+                            <h6>Ajouter un avis</h6>
+                            <form action="#" method="get">
+                                <select class="custom-select" id="destinations">
+                                <option selected>Titre</option>
+                                <option value="1">New York</option>
+                                <option value="2">Latvia</option>
+                                <option value="3">Dhaka</option>
+                                <option value="4">Melbourne</option>
+                                <option value="5">London</option>
                             </select>
-                            <select class="custom-select" id="events-proximity">
-                                <option selected>Proximity</option>
-                                <option value="1">Proximity 1</option>
-                                <option value="2">Proximity 2</option>
-                                <option value="3">Proximity 3</option>
-                                <option value="3">Proximity 4</option>
-                                <option value="3">Proximity 5</option>
+                                <select class="custom-select" id="catagories">
+                                <option selected>Commentaire</option>
+                                <option value="1">Guest 2</option>
+                                <option value="3">Guest 3</option>
+                                <option value="3">Guest 4</option>
                             </select>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
-                        </form>
+                                <button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Envoyer</button>
+                            </form>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
-            
-            <!-- Explore Search Result -->
-            <div class="explore-search-result">
-                <!-- Single Features Area -->
-                <div class="single-features-area">
-                    <img src="img/bg-img/feature-1.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p>FROM $59/night</p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>Ibiza</h5>
-                            <p>Party</p>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Features Area -->
-                <div class="single-features-area">
-                    <img src="img/bg-img/feature-2.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p>FROM $59/night</p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>Paris</h5>
-                            <p>Luxury</p>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Features Area -->
-                <div class="single-features-area">
-                    <img src="img/bg-img/feature-3.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p>FROM $59/night</p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>Lake Como</h5>
-                            <p>Spectacular</p>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Features Area -->
-                <div class="single-features-area">
-                    <img src="img/bg-img/feature-4.jpg" alt="">
-                    <!-- Price -->
-                    <div class="price-start">
-                        <p>FROM $59/night</p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>Greece</h5>
-                            <p>Sunny</p>
-                        </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Explore Map Area -->
-        <div class="explore-map-area">
-            <div id="exploreGoogleMap"></div>
         </div>
     </section>

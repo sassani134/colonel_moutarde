@@ -9,5 +9,6 @@ class HomeController < ApplicationController
   end
 
   def listing
+    @games = Game.all
   end
 end
