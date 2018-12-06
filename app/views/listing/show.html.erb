@@ -40,13 +40,29 @@
                                   lng: position.coords.longitude
                                 };
 
+                            // Marker à la postition
+                                var marker = new google.maps.Marker ({
+                                    position: pos,
+                                    map: map,
+                                    animation: google.maps.Animation.DROP,
+
+                            });
+
+                           var yourContent = new google.maps.InfoWindow({
+                                content: '<a href="http://localhost:3000/listing/"> <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button></a>'
+                            });
+
+                            google.maps.event.addListener(marker, 'click', function() {
+                              yourContent.open(map2,marker);
+                            });
+                            // FIN marker à la postition
                                 infoWindow.open(map);
                                 map.setCenter(pos);
                               }, function() {
                                 handleLocationError(true, infoWindow, map.getCenter());
                               });
                             } else {
-                              // Browser doesn't support Geolocation
+                            // Browser doesn't support Geolocation
                               handleLocationError(false, infoWindow, map.getCenter());
                             }
                           }
