@@ -2,8 +2,12 @@
   <div class="container h-100">
   <div class="row h-100 align-items-center justify-content-center">
 
-    <%= form_for :anything, url: "user#save_game", method: :post do |form| %>
-      <%= form.select(:to, options_for_select(@title)) %>
+    <%= form_for :anything, url: "/addgame", method: :post do |form| %>
+      Jeu        : <%= form.select(:game, options_for_select(@title)) %>
+      Rue        : <%= form.text_field :street %>
+      Ville      : <%= form.text_field :city %>
+      Code postal: <%= form.text_field :postal_code %>
+      Pays       : <%= form.text_field :country %>
       <%= form.submit value="Confirme ici!" %>
     <% end  %>
   </div>
