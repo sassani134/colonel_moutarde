@@ -12,26 +12,11 @@
       </div>
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-          <h2 class ="text-light">Les jeux que vous louez</h2>
-          <br/>
-          <div class='d-flex flex-wrap rented'>
-            <br/>
-            <%@copies.each do |copy|%>
-              <div class='card col-3'>
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title"><%=copy.game.title%></h5>
-                  <p class='card-text'><%=copy.game.description%></p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            <%end%>  
-          </div>
+          <%= render 'rented'%>
         </div>
         <br/>
         <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-
-          <h2 class ="text-light">Les jeux que vous avez emprunté</h2>
+          <%= render 'borrowed'%>
 
         </div>
       </div>

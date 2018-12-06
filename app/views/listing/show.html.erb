@@ -1,0 +1,175 @@
+<!-- ***** Single Listing Area Start ***** -->
+    <section class="dorne-single-listing-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Listing Content -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-listing-content">
+
+                        <div class="listing-title">
+                            <h1><%= @game.title %></h1>
+                            <h6><%= @game.code %></h6>
+                            <h4>IMAGES DU JEU</h4>
+                            <h6>Catégories</h6>
+                        </div>
+
+                        <div class="overview-content mt-50">
+                            <p><%= @game.description %></p>
+                        </div>
+
+                    <h4>Disponibilité :</h4>
+                    <div id="map2"style="width: 700px; height: 500px;" ></div>
+                        <script>
+                          // Note: This example requires that you consent to location sharing when
+                          // prompted by your browser. If you see the error "The Geolocation service
+                          // failed.", it means you probably did not give permission for the browser to
+                          // locate you.
+                          var map, infoWindow;
+                          function initMap() {
+                            map = new google.maps.Map(document.getElementById('map2'), {
+                              center: {lat: 48.8566, lng: 2.3522},
+                              zoom: 15
+                            });
+                            infoWindow = new google.maps.InfoWindow;
+
+                            // Try HTML5 geolocation.
+                            if (navigator.geolocation) {
+                              navigator.geolocation.getCurrentPosition(function(position) {
+                                var pos = {
+                                  lat: position.coords.latitude,
+                                  lng: position.coords.longitude
+                                };
+
+                                infoWindow.open(map);
+                                map.setCenter(pos);
+                              }, function() {
+                                handleLocationError(true, infoWindow, map.getCenter());
+                              });
+                            } else {
+                              // Browser doesn't support Geolocation
+                              handleLocationError(false, infoWindow, map.getCenter());
+                            }
+                          }
+
+                          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent(browserHasGeolocation ?
+                                                  'Error: The Geolocation service failed.' :
+                                                  'Error: Your browser doesn\'t support geolocation.');
+                            infoWindow.open(map);
+                          }
+                        </script>
+                        <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
+                        </script>
+
+
+                        <div class="listing-reviews-area mt-100">
+                            <h4>Avis des joueurs</h4>
+                            <div class="single-review-area">
+                                <div class="reviewer-meta d-flex align-items-center">
+                                    <img src="img/clients-img/1.jpg" alt="">
+                                    <div class="reviewer-content">
+                                        <div class="review-title-ratings d-flex justify-content-between">
+                                            <h5>“The best Burger in town”</h5>
+                                            <div class="ratings">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div>
+                                </div>
+                                <div class="reviewer-name">
+                                    <h6>Christinne Smith</h6>
+                                    <p>12 November 2017</p>
+                                </div>
+                            </div>
+                            <div class="single-review-area">
+                                <div class="reviewer-meta d-flex align-items-center">
+                                    <img src="img/clients-img/1.jpg" alt="">
+                                    <div class="reviewer-content">
+                                        <div class="review-title-ratings d-flex justify-content-between">
+                                            <h5>“Quality ingredients”</h5>
+                                            <div class="ratings">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-unfill.png" alt="">
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div>
+                                </div>
+                                <div class="reviewer-name">
+                                    <h6>Michael Brown</h6>
+                                    <p>12 November 2017</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing Sidebar -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="listing-sidebar">
+
+                        <!-- Listing Verify -->
+                        <div class="listing-verify">
+                            <a href="#" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i> Ajouter aux favoris</a>
+                        </div>
+
+                        <!-- Book A Table Widget -->
+                        <div class="book-a-table-widget mt-50">
+                            <h6>Chercher une autre catégorie</h6>
+                            <form action="#" method="get">
+                                <select class="custom-select" id="destinations">
+                                <option selected>Who will be arriving</option>
+                                <option value="1">New York</option>
+                                <option value="2">Latvia</option>
+                                <option value="3">Dhaka</option>
+                                <option value="4">Melbourne</option>
+                                <option value="5">London</option>
+                            </select>
+                                <select class="custom-select" id="catagories">
+                                <option selected>Guest 1</option>
+                                <option value="1">Guest 2</option>
+                                <option value="3">Guest 3</option>
+                                <option value="3">Guest 4</option>
+                            </select>
+                                <button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                            </form>
+                        </div>
+
+                        <!-- Book A Table Widget -->
+                        <div class="book-a-table-widget mt-50">
+                            <h6>Ajouter un avis</h6>
+                            <form action="#" method="get">
+                                <select class="custom-select" id="destinations">
+                                <option selected>Titre</option>
+                                <option value="1">New York</option>
+                                <option value="2">Latvia</option>
+                                <option value="3">Dhaka</option>
+                                <option value="4">Melbourne</option>
+                                <option value="5">London</option>
+                            </select>
+                                <select class="custom-select" id="catagories">
+                                <option selected>Commentaire</option>
+                                <option value="1">Guest 2</option>
+                                <option value="3">Guest 3</option>
+                                <option value="3">Guest 4</option>
+                            </select>
+                                <button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Envoyer</button>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
