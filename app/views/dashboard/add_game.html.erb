@@ -2,7 +2,7 @@
   <div class="container h-100">
   <div class="row h-100 align-items-center justify-content-center">
 
-    <%= form_for :anything, url: "/addgame", method: :post do |form| %>
+    <%= form_for :anything, url: "/add_game", method: :post do |form| %>
       Jeu        : <%= form.select(:game, options_for_select(@title)) %>
       Rue        : <%= form.text_field :street %>
       Ville      : <%= form.text_field :city %>

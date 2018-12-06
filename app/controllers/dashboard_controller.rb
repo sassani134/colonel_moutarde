@@ -19,13 +19,13 @@ class DashboardController < ApplicationController
   end
 
   def save_game
-    @address = [params[:anything][:street], params[:anything][:city], params[:anything][:postal_code], params[:anything][:country].compact.join(', ')
-    @game = Game.where(:title => params[:anything][:game])
-    @copy = Copy.new(user:current_user, game: @game, address:@address, available: true, return:nul, rented:false)
+    @address = [params[:anything][:street], params[:anything][:city], params[:anything][:postal_code], params[:anything][:country]].compact.join(', ')
+    @game = Game.where(:title => params[:anything][:game])[0]
+    @copy = Copy.new(user:current_user, game: @game, address:@address, available: true, return:nil, rented:false)
     if @copy.save
       redirect_to root_path
     else 
-      redirect-to "/add_game"
+      redirect_to "/add_game"
     end
   end
   
