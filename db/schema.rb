@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_125427) do
+ActiveRecord::Schema.define(version: 2018_12_06_190252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,19 +42,38 @@ ActiveRecord::Schema.define(version: 2018_12_06_125427) do
     t.index ["key"], name: "index_active_storage_postgresql_files_on_key", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "title"
+  create_table "ages", force: :cascade do |t|
+    t.integer "minimum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "age"
-    t.string "style"
   end
 
-  create_table "categories_games", id: false, force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id", "game_id"], name: "index_categories_games_on_category_id_and_game_id"
-    t.index ["game_id", "category_id"], name: "index_categories_games_on_game_id_and_category_id"
+  create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "number_week", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "carts_copies", id: false, force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "copy_id", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "player_number_id"
+    t.bigint "style_id"
+    t.bigint "genre_id"
+    t.bigint "age_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["age_id"], name: "index_categories_on_age_id"
+    t.index ["game_id"], name: "index_categories_on_game_id"
+    t.index ["genre_id"], name: "index_categories_on_genre_id"
+    t.index ["player_number_id"], name: "index_categories_on_player_number_id"
+    t.index ["style_id"], name: "index_categories_on_style_id"
   end
 
   create_table "copies", force: :cascade do |t|
@@ -62,12 +81,12 @@ ActiveRecord::Schema.define(version: 2018_12_06_125427) do
     t.bigint "game_id"
     t.boolean "available"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.boolean "rented"
     t.date "return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "rented"
-    t.float "latitude"
-    t.float "longitude"
     t.index ["game_id"], name: "index_copies_on_game_id"
     t.index ["user_id"], name: "index_copies_on_user_id"
   end
@@ -80,19 +99,37 @@ ActiveRecord::Schema.define(version: 2018_12_06_125427) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
+    t.integer "number_week", default: [], array: true
+    t.boolean "renting", default: [], array: true
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "number_week", default: [], array: true
-    t.boolean "renting", default: [], array: true
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "player_numbers", force: :cascade do |t|
+    t.integer "number_low"
+    t.integer "number_high"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
