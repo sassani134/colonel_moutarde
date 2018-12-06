@@ -71,16 +71,8 @@ game_list.each do |name, description, code|
   Game.last.categories<< Category.offset(rand(Category.count)).first
 end
 
-<<<<<<< HEAD
 20.times do
   rand_user = User.offset(rand(User.count)).first
   rand_game = Game.offset(rand(Game.count)).first
   copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: address[rand(7)], return: nil, rented:false)
-=======
-
-20.times do
-  rand_user = User.offset(rand(User.count)).first
-  rand_game = Game.offset(rand(Game.count)).first
-  copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: Faker::Address.full_address, return: Time.now)
->>>>>>> 674fc0df5b756baa88c82f41a0f12e1628dc4be9
 end
