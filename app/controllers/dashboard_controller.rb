@@ -1,4 +1,5 @@
-class UserController < ApplicationController
+class DashboardController < ApplicationController
+
   def index
     @rented_copies = current_user.copies.where(:rented => false)
     #@confirmed_copies = @rented_copies.orders.where(:rented => false)
@@ -18,6 +19,14 @@ class UserController < ApplicationController
   end
 
   def save_game
+    @address = [params[:anything][:street], params[:anything][:city], params[:anything][:postal_code], params[:anything][:country]].compact.join(', ')
+    @game = Game.where(:title => params[:anything][:game])[0]
+    @copy = Copy.new(user:current_user, game: @game, address:@address, available: true, return:nil, rented:false)
+    if @copy.save
+      redirect_to root_path
+    else 
+      redirect_to "/add_game"
+    end
   end
   
   def toggle_past

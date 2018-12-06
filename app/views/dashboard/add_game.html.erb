@@ -1,0 +1,17 @@
+<section class="dorne-welcome-area bg-img bg-overlay" style="background-image: url(hero-1.jpg);">
+  <div class="container h-100">
+  <div class="row h-100 align-items-center justify-content-center">
+
+    <%= form_for :anything, url: "/add_game", method: :post do |form| %>
+      Jeu        : <%= form.select(:game, options_for_select(@title)) %>
+      Rue        : <%= form.text_field :street %>
+      Ville      : <%= form.text_field :city %>
+      Code postal: <%= form.text_field :postal_code %>
+      Pays       : <%= form.text_field :country %>
+      <%= form.submit value="Confirme ici!" %>
+    <% end  %>
+  </div>
+  </div>
+</section>
+
+ 

@@ -61,14 +61,22 @@
 						<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
 						<!-- Availability -->
 						<div class="price-start">
-							<p><%= game.copy_ids.count %> disponible(s)</p>
+							<p><%= game.copies.where.not(:user_id => current_user.id).count %> disponible(s)</p>
 						</div>
 						<div class="feature-content d-flex align-items-center justify-content-between">
 							<div class="feature-title">
 								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
 									<p><% game.categories.each do |category| %>
+<<<<<<< HEAD
+										<%= category.title %>,<%= category.style %>,<%= category.age %>
+									<% end%></p>
+							</div>
+							<div class="feature-favourite">
+								<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+=======
 										<%= category.title %>
 									<% end%></p></a>
+>>>>>>> 674fc0df5b756baa88c82f41a0f12e1628dc4be9
 							</div>
 						</div>
 					</div>
