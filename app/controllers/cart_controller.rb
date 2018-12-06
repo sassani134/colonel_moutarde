@@ -28,14 +28,14 @@ class CartController < ApplicationController
         Cart.where(:user_id => current_user.id)[0].copy_ids = @new_cart
         @new_cart = Cart.where(:user_id => current_user.id)[0].copy_ids
         @order = @new_cart.index(params[:id_add].to_i)
-        @cart.quantities.insert(@order, 1)
+        @cart.number_week.insert(@order, 1)
         @cart.save
         redirect_to "/listing"
         flash[:success] = "You successfully added the product to your cart"
       else
-        @quant = @cart.quantities[@cart.copy_ids.index(params[:id_add].to_i)].to_i
+        @quant = @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)].to_i
         @quant += 1
-        @cart.quantities[@cart.copy_ids.index(params[:id_add].to_i)] = @quant.to_s
+        @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)] = @quant.to_s
         @cart.save
         redirect_to "/listing" 
         flash[:alert] = "You successfully added the product to your cart"
