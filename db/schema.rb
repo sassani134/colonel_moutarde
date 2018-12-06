@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2018_12_06_125427) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "age"
+    t.string "style"
   end
 
   create_table "categories_games", id: false, force: :cascade do |t|
@@ -63,8 +65,16 @@ ActiveRecord::Schema.define(version: 2018_12_06_125427) do
     t.date "return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "rented"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["game_id"], name: "index_copies_on_game_id"
     t.index ["user_id"], name: "index_copies_on_user_id"
+  end
+
+  create_table "copies_orders", id: false, force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "copy_id", null: false
   end
 
   create_table "games", force: :cascade do |t|
@@ -73,6 +83,16 @@ ActiveRecord::Schema.define(version: 2018_12_06_125427) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number_week", default: [], array: true
+    t.boolean "renting", default: [], array: true
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

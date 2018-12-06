@@ -1,10 +1,15 @@
+<!-- ***** Breadcumb Area Start ***** -->
+<div class="breadcumb-area bg-img bg-overlay">
+</div>
+<!-- ***** Breadcumb Area End ***** -->
+
 <!-- ***** Header Area Start ***** -->
 <header class="header_area" id="header">
   <div class="container-fluid h-100">
     <div class="row h-100">
       <div class="col-12 h-100">
         <nav class="h-100 navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/"><%=image_tag("logo.png", :style => "width: 130; height: 120;")%></a>
+          <a class="navbar-brand" href="/home/index"><%=image_tag("logo.png", :style => "width: 130; height: 120;")%></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
           <!-- Nav -->
           <div class="collapse navbar-collapse" id="dorneNav">
@@ -57,17 +62,19 @@
 
               <% else %>
                 <!-- Signin btn -->
-                <div class="dorne-signin-btn">
-                  <a data-toggle="modal" href="#modalUp">S'enregister</a>
-                </div>
-                <div class="dorne-signin-btn">
-                  <a data-toggle="modal" href="#modalIn">Se connecter</a>
-                </div>
+                <ul class="navbar-nav mr-auto" id="dorneMenu">
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" href="#modalUp">S'enregistrer</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" href="#modalIn">Se connecter</a>
+                  </li>
+                </ul>
               <% end %>
 
             <!-- Add listings btn -->
             <div class="dorne-add-listings-btn">
-              <a href="/" class="btn dorne-btn">Mes favoris</a>
+              <a href="/" class="btn dorne-btn">Mes jeux</a>
             </div>
           </div>
         </nav>

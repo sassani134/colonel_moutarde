@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'active_storage-postgresql'
 gem "aws-sdk-s3", require: false
 gem 'image_processing', '~> 1.2'
+gem 'geocoder'
 gem 'mailjet'
 gem 'jquery-rails'
 gem "font-awesome-rails"

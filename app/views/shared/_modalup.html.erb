@@ -13,17 +13,17 @@
           <%= devise_error_messages! %>
 
           <div class="field">
-            <%= f.label :username %><br />
-            <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "user" %>
+            <%= f.label :pseudo %><br />
+            <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Nom" %>
           </div>
 
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "user@example.com" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "nom@exemple.com" %>
           </div>
 
           <div class="field">
-            <%= f.label :password %>
+            <%= f.label :mot_de_passe %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
@@ -31,19 +31,19 @@
           </div>
 
           <div class="field">
-            <%= f.label :password_confirmation %><br />
+            <%= f.label :confirmation_du_mot_de_passe %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmation" %>
           </div>
 
-          <div class="actions">
-            <%= f.submit "Sign up" %>
+          <div class="actions"><br />
+            <%= f.submit "S'enregistrer" , :class => 'dorne-btn' %>
           </div>
         <% end %>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <a>Tu as déjà un compte ?</a>
-        <a data-dismiss="modal" data-toggle="modal" href="#modalIn">Connecte-toi !</a>
+        <p>Tu as déjà un compte ?</p>
+        <p data-dismiss="modal" data-toggle="modal" href="#modalIn">Connecte-toi !</p>
       </div>
     </div>
   </div>
