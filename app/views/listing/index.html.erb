@@ -51,13 +51,13 @@
 						<img src="/assets/bg-img/feature-1.jpg" alt="">
 						<!-- Availability -->
 						<div class="price-start">
-							<p><%= game.copy_ids.count %> disponible(s)</p>
+							<p><%= game.copies.where.not(:user_id => current_user.id).count %> disponible(s)</p>
 						</div>
 						<div class="feature-content d-flex align-items-center justify-content-between">
 							<div class="feature-title">
 								<h5><%= game.title %></h5>
 									<p><% game.categories.each do |category| %>
-										<%= category.title %>
+										<%= category.title %>,<%= category.style %>,<%= category.age %>
 									<% end%></p>
 							</div>
 							<div class="feature-favourite">

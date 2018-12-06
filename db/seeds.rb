@@ -1,21 +1,5 @@
 require 'faker'
 
-5.times do
-  category = Category.create!(title: Faker::Commerce.material)
-end
-
-
-10.times do
-  user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
-end
-
-20.times do
-  rand_user = User.offset(rand(User.count)).first
-  rand_game = Game.offset(rand(Game.count)).first
-  copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: Faker::Address.full_address, return: Time.now)
-end
-
-
 game_list = [
   [ "Monopoly", "Le Monopoly est un jeu de société américain édité par Hasbro. Le but du jeu consiste à ruiner ses concurrents par des opérations immobilières. Il symbolise les aspects apparents et spectaculaires du capitalisme, les fortunes se faisant et se défaisant au fil des coups de dés. Ce jeu de société est mondialement connu, et il en existe de multiples versions.", "2 à 6 joueurs"  ],
   [ "Cluedo", "En début de partie on classe les différentes cartes indices par type (suspects / armes / lieux) et on en tire une de chaque au hasard que l'on met dans l'enveloppe prévue sans les regarder : il s'agit de la solution de l'énigme de cette partie. Chaque joueur choisit ensuite un pion. Les cartes indices restantes sont alors mélangées et distribuées faces cachées équitablement à tous les joueurs. Ces cartes servent alors d'alibi : si un joueur possède cette carte c'est qu'elle n'est pas parmi les trois cartes mises à part et donc que l'indice correspondant n'est pas la clef de l'énigme. C'est donc une carte qui a son alibi et qui n'est pas suspecte.", "3 à 6 joueurs" ],
@@ -54,10 +38,27 @@ Vous pourrez échanger des ressources avec vos adversaires, négocier mais aussi
 Catan, malgré sa simplicité, a une dimension tactique et stratégique très sympathique.Des extensions complémentaires au jeu de base vous permettent en apportant de nouvelles possibilités de renouveler le jeu et de le rendre encore plus passionnant.", "2 à 6 joueurs"  ],
   [ "Five Tribes", "Après des journées de voyage au cœur du pays des mille et une nuits, votre caravane arrive enfin au fabuleux sultanat de Naqala. Les rumeurs étaient vraies : le vieux sultan est mort... Les oracles prédisent la venue d'un étranger qui saurait gagner les faveurs des Cinq Tribus pour prendre sa place. Allez-vous accomplir la prophétie ? Invoquez les anciens Djinns, faites appel aux différentes tribus au moment opportun, et le trône sera à vous !  Dans le jeu Five Tribes, vous allez devoir gagner les faveurs des tribus locales et invoquer les anciens Djinns, rassemblant ainsi suffisamment d'influence pour obtenir le titre de Grand Sultan. Faites preuve de sens tactique pour utiliser les Vizirs, les Sages, les Marchands, les Bâtisseurs et les Assassins qui sont répartis sur le territoire du sultanat entre villages, marchés, oasis et lieux sacrés.  Fives Tribes est un jeu au mécanisme original. Votre objectif est d'obtenir un maximum de points en prenant le contrôle d'un maximum de tuiles formant le Sultanat de Naqala. Pour cela, vous allez utiliser les capacités des cinq tribus présentes sur le territoire en les déplaçant de tuiles en tuiles. Inspiré du système d'égrainage de l'awalé, les déplacements des tribus vous demanderont de la réflexion pour bien optimiser vos coups.  Avec ses règles accessibles, Five Tribes est un jeu de société qui s'adresse à tous types de joueurs. Il faudra cependant plusieurs parties et un réel investissement cérébral pour profiter de toute la richesse du jeu. Le système de déplacement et les nombreux moyens de remporter des points en fin de partie rendent le jeu assez exigeant. 
 Comme d'habitude, l'éditeur Days of Wonder nous offre avec Five Trives un jeu avec un matériel de qualité, superbement illustré par Clément Masson. ","2 à 6 joueurs"  ]
-
 ]
+address=["10 rue du Vercors, Grenoble, 38000, France","80 avenue de Constantine, Grenoble, 38100, France","35 chemin des sources, Meylan, 38240", "14 chemin de l'église, Grenoble, 38000, France", "4 avenue Paul Cocat, Grenoble, 38100, France", "13 rue de la saoupe,Marseille, 13011, France", "56 Traverse de la Buzine, Marseille,13011, France" ]
+age = ["3+", "6+", "8+", "12+", "18+"]
+style = ["Coopératif", "Compétitif"]
+genre = ["Carte", "Narration", "Stratégie"]
+
+5.times do
+  category = Category.create!(title: genre[rand(3)], age: age[rand(5)], style: style[rand(2)])
+end
+
+10.times do
+  user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
+end
 
 game_list.each do |name, description, code|
   Game.create!( title: name, description: description, code: code )
   Game.last.categories<< Category.offset(rand(Category.count)).first
+end
+
+20.times do
+  rand_user = User.offset(rand(User.count)).first
+  rand_game = Game.offset(rand(Game.count)).first
+  copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: address[rand(7)], return: nil, rented:false)
 end
