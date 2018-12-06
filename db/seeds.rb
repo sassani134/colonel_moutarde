@@ -1,19 +1,5 @@
 require 'faker'
 
-<<<<<<< HEAD
-=======
-5.times do
-  category = Category.create!(title: Faker::Commerce.material)
-end
-
-
-10.times do
-  user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
-end
-
-
-
->>>>>>> 674fc0df5b756baa88c82f41a0f12e1628dc4be9
 game_list = [
   [ "Monopoly", "Le Monopoly est un jeu de société américain édité par Hasbro. Le but du jeu consiste à ruiner ses concurrents par des opérations immobilières. Il symbolise les aspects apparents et spectaculaires du capitalisme, les fortunes se faisant et se défaisant au fil des coups de dés. Ce jeu de société est mondialement connu, et il en existe de multiples versions.", "2 à 6 joueurs"  ],
   [ "Cluedo", "En début de partie on classe les différentes cartes indices par type (suspects / armes / lieux) et on en tire une de chaque au hasard que l'on met dans l'enveloppe prévue sans les regarder : il s'agit de la solution de l'énigme de cette partie. Chaque joueur choisit ensuite un pion. Les cartes indices restantes sont alors mélangées et distribuées faces cachées équitablement à tous les joueurs. Ces cartes servent alors d'alibi : si un joueur possède cette carte c'est qu'elle n'est pas parmi les trois cartes mises à part et donc que l'indice correspondant n'est pas la clef de l'énigme. C'est donc une carte qui a son alibi et qui n'est pas suspecte.", "3 à 6 joueurs" ],
