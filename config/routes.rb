@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   post '/add', to: "dashboard#save_game"
   resources :charges
   resources :listing
-  get '/add_game', to: "add_game#new"
-  
+  get '/new', to:"add_games#new"
+  post '/new', to:"add_games#create"
+  get '/gameshow', to: 'add_games#show'
   get '/cart', to: "cart#index"
   get '/show_orders/:id', to: 'dashboard#toggle_past'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
