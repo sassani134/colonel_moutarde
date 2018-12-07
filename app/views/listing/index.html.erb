@@ -58,7 +58,7 @@
 					<div class="single-features-area mb-50">
 						<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
 						<!-- Availability -->
-						<div class="price-start">
+						<div data-toggle="modal" href="#modalChoice" class="price-start">
 							<p><%= game.copies.where.not(:user_id => current_user.id).count %> disponible(s)</p>
 						</div>
 						<div class="feature-content d-flex align-items-center justify-content-between">
