@@ -2,8 +2,6 @@ class DashboardController < ApplicationController
 
   def index
     @rented_copies = current_user.copies.where(:rented => false)
-    #@confirmed_copies = @rented_copies.orders.where(:rented => false)
-    #@unconfirmed_copies = @rented_copies.where(:rented => false)
     @renting_copies = current_user.copies.where(:rented => true)
     @unconfirmed_copies = @renting_copies.where(:return => nil)
     @confirmed_copies = @renting_copies.where.not(:return => nil)
@@ -17,7 +15,7 @@ class DashboardController < ApplicationController
     end
   end
 
-  def add_game
+  def rent_game
     @games = Game.all
     @title=[]
     @games.each do |game|
@@ -32,10 +30,39 @@ class DashboardController < ApplicationController
     if @copy.save
       redirect_to root_path
     else 
-      redirect_to "/add_game"
+      redirect_to "/rent_game"
     end
   end
   
+  def available_copy
+
+  end
+
+  def confirm_copy
+    @copy = Copy.find(params[:id])
+    if @copy.user == current_user && @copy.rented ==true
+      @ind = @copy.order.copy_ids.index(params[:id].to_i)
+      @weeks=@copy.order.number_week[@ind]
+      @copy.return = (Time.now + @week.week).to_date
+      @copy.save
+      redirect_to '/dashboard'
+    else
+      redirect_to root_path
+    end
+  end
+
+  def return_copy
+    @copy = Copy.find(params[:id])
+    if @copy.user == current_user && @copy.rented ==true
+      @copy.rented = false
+      @copy.return = nil
+      @copy.save
+      redirect_to '/dashboard'
+    else
+      redirect_to root_path
+    end
+  end
+
   def toggle_past
   @order = Order.find(params[:id])
   end
