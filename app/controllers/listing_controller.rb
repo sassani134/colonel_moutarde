@@ -19,7 +19,7 @@ class ListingController < ApplicationController
 
   def show
     @copies = Copy.all
-    @copies = @game.copies.where.not(:user_id => current_user.id)
+    #@copies = @game.copies.where.not(:user_id => current_user.id)
     @users = User.all
     @game = Game.find(params[:id])
     @long = []
