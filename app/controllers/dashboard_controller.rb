@@ -5,9 +5,16 @@ class DashboardController < ApplicationController
     #@confirmed_copies = @rented_copies.orders.where(:rented => false)
     #@unconfirmed_copies = @rented_copies.where(:rented => false)
     @renting_copies = current_user.copies.where(:rented => true)
+    @unconfirmed_copies = @renting_copies.where(:return => nil)
+    @confirmed_copies = @renting_copies.where.not(:return => nil)
     @cart=Cart.where(:user_id => current_user.id)
     @past_orders=current_user.orders
     @active_orders=@past_orders.where("'true' = ANY (renting)")
+    @games = Game.all
+    @title=[]
+    @games.each do |game|
+      @title << game.title
+    end
   end
 
   def add_game

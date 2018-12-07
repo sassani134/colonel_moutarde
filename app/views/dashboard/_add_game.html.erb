@@ -1,0 +1,13 @@
+
+<%= form_for :anything, url: "/add_game", method: :post do |form| %>
+  <div class='text-light'>
+  Jeu        : <%= form.select(:game, options_for_select(@title)) %>
+  Rue        : <%= form.text_field :street %>
+  Ville      : <%= form.text_field :city %>
+  Code postal: <%= form.text_field :postal_code %>
+  Pays       : <%= form.text_field :country %>
+  <%= form.submit value="Confirme ici!" %>
+  </div>
+<% end  %>
+
+ 

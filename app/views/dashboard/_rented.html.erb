@@ -1,35 +1,21 @@
-
-<h2 class ="text-light">Les jeux actuellement empruntés</h2>
-<br/>
-  <div class='d-flex flex-wrap rented'>
-  <br/>
-  <%@renting_copies.each do |copy|%>
-    <div class='card col-3'>
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%=copy.game.title%></h5>
-        <p class='card-text'><%=copy.game.description%></p>
-        <a href="#" class="btn btn-primary">Confirmez l'échange</a>
-      </div>
-    </div>
-  <%end%>  
-  </div>
-<h2 class ="text-light">Les jeux que vous louez</h2>
+<%if @renting_copies[0]%>
+  <h2 class ="text-light">Les jeux actuellement empruntés</h2>
   <br/>
   <div class='d-flex flex-wrap rented'>
   <br/>
-  <%@rented_copies.each do |copy|%>
-    <div class='card col-3'>
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%=copy.game.title%></h5>
-        <p class='card-text'><%=copy.game.description%></p>
-        <%if copy.available%>
-        <a href="#" class="btn btn-warning">Rendre indisponible</a>
-        <%else %>
-        <a href="#" class="btn btn-danger">Rendre disponible</a>
-        <%end%>
-      </div>
-    </div>
-  <%end%>  
+    <%if @unconfirmed_copies[0]%>
+      <%= render 'unconfirmed_copies'%>
+    <%end%>
+    <%if @confirmed_copies[0]%>  
+      <%= render 'confirmed_copies'%>
+    <%end%>
   </div>
+<%end%>
+<%if @rented_copies[0]%>
+  <%render 'rent_copies'%>
+<%else%>
+  <h2 class ="text-light">Vous voulez louer des jeux?</h2>
+  <br/>
+  <h4 class ="text-light">Ajoutez un jeu que vous possedez grace au formulaire ci-dessous!</h4>
+  <%= render 'add_game'%>
+<%end%>

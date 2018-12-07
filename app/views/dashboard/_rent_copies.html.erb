@@ -1,0 +1,20 @@
+<h2 class ="text-light">Les jeux que vous louez</h2>
+  <br/>
+  
+  <div class='d-flex flex-wrap rented'>
+    <br/>
+    <%@rented_copies.each do |copy|%>
+      <div class='card col-3'>
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=copy.game.title%></h5>
+          <p class='card-text'><%=copy.game.description%></p>
+          <%if copy.available%>
+          <a href="#" class="btn btn-warning">Rendre indisponible</a>
+          <%else %>
+          <a href="#" class="btn btn-danger">Rendre disponible</a>
+          <%end%>
+        </div>
+      </div>
+    <%end%>  
+  </div>
