@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_190252) do
+ActiveRecord::Schema.define(version: 2018_12_07_193627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,29 +69,11 @@ ActiveRecord::Schema.define(version: 2018_12_06_190252) do
     t.bigint "age_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
-    t.string "age"
-    t.string "style"
-  end
-
-  create_table "categories_games", id: false, force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id", "game_id"], name: "index_categories_games_on_category_id_and_game_id"
-    t.index ["game_id", "category_id"], name: "index_categories_games_on_game_id_and_category_id"
-=======
-=======
->>>>>>> map
     t.index ["age_id"], name: "index_categories_on_age_id"
     t.index ["game_id"], name: "index_categories_on_game_id"
     t.index ["genre_id"], name: "index_categories_on_genre_id"
     t.index ["player_number_id"], name: "index_categories_on_player_number_id"
     t.index ["style_id"], name: "index_categories_on_style_id"
-<<<<<<< HEAD
->>>>>>> 50d92d8dbf41d7d7558a4e7fb02ed99cfa636c83
-=======
->>>>>>> map
   end
 
   create_table "copies", force: :cascade do |t|
@@ -119,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_190252) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "confirm"
   end
 
   create_table "genres", force: :cascade do |t|

@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
     end
   end
 
-  def rent_game
+  def rent_copy
     @games = Game.all
     @title=[]
     @games.each do |game|
@@ -23,14 +23,14 @@ class DashboardController < ApplicationController
     end
   end
 
-  def save_game
+  def save_copy
     @address = [params[:anything][:street], params[:anything][:city], params[:anything][:postal_code], params[:anything][:country]].compact.join(', ')
     @game = Game.where(:title => params[:anything][:game])[0]
     @copy = Copy.new(user:current_user, game: @game, address:@address, available: true, return:nil, rented:false)
     if @copy.save
       redirect_to root_path
     else 
-      redirect_to "/rent_game"
+      redirect_to "/rent_copy"
     end
   end
   

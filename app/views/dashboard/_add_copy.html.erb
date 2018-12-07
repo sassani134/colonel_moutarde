@@ -1,5 +1,5 @@
 
-<%= form_for :anything, url: "/add_game", method: :post do |form| %>
+<%= form_for :anything, url: "/add_copy", method: :post do |form| %>
   <div class='text-light'>
   Jeu        : <%= form.select(:game, options_for_select(@title)) %>
   Rue        : <%= form.text_field :street %>
