@@ -8,7 +8,7 @@
 
                         <div class="listing-title">
                             <h1><%= @game.title %></h1>
-                            <h6><%= @game.code %></h6>
+                            <h6><%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%> joueurs</h6>
                             <h4>IMAGES DU JEU</h4>
                             <h6>Catégories</h6>
                         </div>
@@ -148,7 +148,7 @@
 
                         <!-- Listing Verify -->
                         <div class="listing-verify">
-                            <a href="#" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i> Ajouter aux favoris</a>
+                            <a data-toggle="modal" href="#modalChoice" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i>Voir les disponibilités</a>
                         </div>
 
                         <!-- Book A Table Widget -->

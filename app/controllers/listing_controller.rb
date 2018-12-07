@@ -2,6 +2,7 @@ class ListingController < ApplicationController
 
   def index
     @games = Game.all
+    @genres = Genre.all
   end
 
   def show
