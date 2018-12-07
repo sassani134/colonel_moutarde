@@ -1,10 +1,10 @@
-<%= form_with(model: @add_games, local: true) do |form| %>
-  <% if @add_game.errors.any? %>
+<%= form_with(model: @new_games, local: true) do |form| %>
+  <% if @new_game.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(add_game.errors.count, "error") %> prohibited this add_game from being saved:</h2>
+      <h2><%= pluralize(new_game.errors.count, "error") %> prohibited this new_game from being saved:</h2>
 
       <ul>
-      <% add_game.errors.full_messages.each do |message| %>
+      <% new_game.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
