@@ -2,60 +2,27 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Disponibilité</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Disponibilité de <%= @game.title %></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body mx-3">
+         
         <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Jean</h6>
-              <p>10 avenue de la République - Grenoble</p>
+        
+        <% @game.copies.count do |copy| %>   	
+          <div class="single-listing-menu d-flex justify-content-between">
+            <!-- Listing Menu Title -->    
+
+            <div class="listing-menu-title">
+                <h6><%= copy.user.username %></h6>
+                <p><%= copy.address %></p>
+            </div> 
+            <!-- Listing Menu Price -->
+            <%= link_to "Louer", "/cart?id_add="+ copy.id.to_s, class: "btn dorne-btn",  method: :post%>
           </div>
-          <!-- Listing Menu Price -->
-            <div class="dorne-add-listings-btn">
-              <a href="#" class="btn dorne-btn">Louer</a>
-            </div>
-        </div>
-        <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Hélène</h6>
-              <p>20 rue des alliés - Saint-Martin d'Hères</p>
-          </div>
-          <!-- Listing Menu Price -->
-          <div class="dorne-add-listings-btn">
-            <a href="#" class="btn dorne-btn">Louer</a>
-          </div>
-        </div>
-        <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Michel</h6>
-              <p>40 avenue de la République - Lyon</p>
-          </div>
-          <!-- Listing Menu Price -->
-          <div class="dorne-add-listings-btn">
-            <a href="#" class="btn dorne-btn">Louer</a>
-          </div>
-        </div>
-        <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Francois</h6>
-              <p>10 avenue des Champs Elysées - Paris</p>
-          </div>
-          <!-- Listing Menu Price -->
-          <div class="dorne-add-listings-btn">
-            <a href="#" class="btn dorne-btn">Louer</a>
-          </div>
-        </div>
+          <% end %>
       </div>
     </div>
   </div>
