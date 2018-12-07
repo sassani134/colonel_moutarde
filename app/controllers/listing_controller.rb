@@ -18,8 +18,12 @@ class ListingController < ApplicationController
   end
 
   def show
-    @copies = Copy.all
-    #@copies = @game.copies.where.not(:user_id => current_user.id)
+    @game= Game.find(params[:id])
+    if user_signed_in?
+      @copies = @game.copies.where.not(:user_id => current_user.id)
+    else
+      @copies = game.copies
+    end
     @users = User.all
     @game = Game.find(params[:id])
     @long = []
@@ -30,8 +34,6 @@ class ListingController < ApplicationController
     	@long << copy.longitude
       @proprio << copy.user.username
     end
-    
-    @copy= Copy.find(params[:id])
     if user_signed_in?
       @cart=Cart.where(:user_id => current_user.id)[0]
     end
