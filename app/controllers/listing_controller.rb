@@ -3,10 +3,10 @@ class ListingController < ApplicationController
   require 'bigdecimal/util'
 
   def index 
-    @games = Game.all
+    @games = Game.where(:confirm => true)
     @users = User.all
     @genres = Genre.all
-    @copies = Copy.order(1)
+    @copies = Copy.where(:available => true).order(1)
     if user_signed_in?
       @cart=Cart.where(:user_id => current_user.id)[0]
       if @cart
