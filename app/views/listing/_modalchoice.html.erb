@@ -8,54 +8,22 @@
         </button>
       </div>
       <div class="modal-body mx-3">
+         
         <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Jean</h6>
-              <p>10 avenue de la République - Grenoble</p>
-          </div>
-          <!-- Listing Menu Price -->
+        	
+        <% @copies.each do |copy|%>
+          <div class="single-listing-menu d-flex justify-content-between">
+            <!-- Listing Menu Title -->    
+            <div class="listing-menu-title">
+                <h6><%= copy.user_id %></h6>
+                <p><%= copy.address %></p>
+            </div> 
+            <!-- Listing Menu Price -->
             <div class="dorne-add-listings-btn">
               <a href="#" class="btn dorne-btn">Louer</a>
             </div>
-        </div>
-        <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Hélène</h6>
-              <p>20 rue des alliés - Saint-Martin d'Hères</p>
           </div>
-          <!-- Listing Menu Price -->
-          <div class="dorne-add-listings-btn">
-            <a href="#" class="btn dorne-btn">Louer</a>
-          </div>
-        </div>
-        <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Michel</h6>
-              <p>40 avenue de la République - Lyon</p>
-          </div>
-          <!-- Listing Menu Price -->
-          <div class="dorne-add-listings-btn">
-            <a href="#" class="btn dorne-btn">Louer</a>
-          </div>
-        </div>
-        <!-- Single Listing Menu -->
-        <div class="single-listing-menu d-flex justify-content-between">
-          <!-- Listing Menu Title -->
-          <div class="listing-menu-title">
-              <h6>Francois</h6>
-              <p>10 avenue des Champs Elysées - Paris</p>
-          </div>
-          <!-- Listing Menu Price -->
-          <div class="dorne-add-listings-btn">
-            <a href="#" class="btn dorne-btn">Louer</a>
-          </div>
-        </div>
+        <%end%>
       </div>
     </div>
   </div>
