@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Add Games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @add_games.each do |add_game| %>
+      <tr>
+        <td><%= link_to 'Show', add_game %></td>
+        <td><%= link_to 'Edit', edit_add_game_path(add_game) %></td>
+        <td><%= link_to 'Destroy', add_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Add Game', new_add_game_path %>

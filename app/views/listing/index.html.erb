@@ -24,10 +24,8 @@
 							<form action="#" method="get">
 								<select class="custom-select">
 									<option selected>Catégorie</option>
-									<% @games.each do |game| %>
-										<% game.categories.each do |category| %>
-											<option value="category.id"><%= category.title %></option>
-										<% end %>
+									<% @genres.each do |genre| %>
+										<option value="genre.id"><%= genre.title %></option>
 									<% end %>
 								</select>
 								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
@@ -66,9 +64,9 @@
 						<div class="feature-content d-flex align-items-center justify-content-between">
 							<div class="feature-title">
 								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
-									<p><% game.categories.each do |category| %>
-										<%= category.title %>,<%= category.style %>,<%= category.age %>
-									<% end%></p>
+									<p> <%=game.genres[0].title%>. Se joue de <%=game.player_numbers[0].number_low%> à <%= game.player_numbers[0].number_high%>
+									
+									</p>
 							</div>
 							<div class="feature-favourite">
 								<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
