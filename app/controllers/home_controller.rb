@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
+    @copies = Copy.all
+    @users = User.all
   end
 
   def contact
