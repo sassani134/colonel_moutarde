@@ -18,15 +18,20 @@
                         </div>
 
                     <h4>Disponibilité :</h4>
+
                     <div id="map2"style="width: 700px; height: 500px;" ></div>
                         <script>
                           // Note: This example requires that you consent to location sharing when
                           // prompted by your browser. If you see the error "The Geolocation service
                           // failed.", it means you probably did not give permission for the browser to
                           // locate you.
-                          var lat = "(<%= @lat %>)";
-                          var long = "(<%= @long %>)";
+                          var lat = <%= raw @lat %>;
+                          var long = <%= raw @long %>;
+                          var proprio = <%= raw @proprio %>;
                           var max = lat.lenght;
+                          console.log(proprio)
+                          console.log(proprio[0])
+                          console.log(typeof proprio[0])
                           var map, infoWindow, i, marker;
                           function initMap() {
                             map = new google.maps.Map(document.getElementById('map2'), {
@@ -43,24 +48,27 @@
                                   lng: position.coords.longitude
                                 };
                                 // Marker à la position
-                                for (i = 0; i < max; i++){
-                                    
-                                    marker = new google.maps.Marker ({
-                                        position: new google.maps.LatLng(lat[i],long[i]),
-                                        map: map,
-                                        animation: google.maps.Animation.DROP,
+                                    var locations =
+                                      [proprio, lat, long]
+                                    ;
+                                    console.log(locations)
+                                var infowindow = new google.maps.InfoWindow();
 
-                                    });
-                                };
+                                var marker, i;
 
+                                for (i = 0; i < locations.length; i++) {  
+                                  marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(locations[1][i], locations[2][i]),
+                                    map: map
+                                  });
 
-                               var yourContent = new google.maps.InfoWindow({
-                                    content: '<a href="http://localhost:3000/listing/"> <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button></a>'
-                                });
-
-                                google.maps.event.addListener(marker, 'click', function() {
-                                  yourContent.open(map2,marker);
-                                });
+                                  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                    return function() {
+                                      infowindow.setContent(locations[0][i]);
+                                      infowindow.open(map, marker);
+                                    }
+                                  })(marker, i));
+                                }
                         // FIN marker à la position
 
                                     infoWindow.open(map);

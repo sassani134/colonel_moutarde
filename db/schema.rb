@@ -69,23 +69,11 @@ ActiveRecord::Schema.define(version: 2018_12_06_190252) do
     t.bigint "age_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string "age"
-    t.string "style"
-  end
-
-  create_table "categories_games", id: false, force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id", "game_id"], name: "index_categories_games_on_category_id_and_game_id"
-    t.index ["game_id", "category_id"], name: "index_categories_games_on_game_id_and_category_id"
-=======
     t.index ["age_id"], name: "index_categories_on_age_id"
     t.index ["game_id"], name: "index_categories_on_game_id"
     t.index ["genre_id"], name: "index_categories_on_genre_id"
     t.index ["player_number_id"], name: "index_categories_on_player_number_id"
     t.index ["style_id"], name: "index_categories_on_style_id"
->>>>>>> 7bfd7c41a8306d53a8a321fa13f2cf88aec924ce
   end
 
   create_table "copies", force: :cascade do |t|
