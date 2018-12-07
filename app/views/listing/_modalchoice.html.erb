@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Disponibilité</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Disponibilité de <%= @game.title %></h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -10,20 +10,22 @@
       <div class="modal-body mx-3">
          
         <!-- Single Listing Menu -->
-        	
-        <% @copies.each do |copy|%>
+        
+        <% @game.copies.count do |copy| %>   	
           <div class="single-listing-menu d-flex justify-content-between">
             <!-- Listing Menu Title -->    
+
             <div class="listing-menu-title">
-                <h6><%= copy.user_id %></h6>
+                <h6><%= copy.user.username %></h6>
                 <p><%= copy.address %></p>
             </div> 
             <!-- Listing Menu Price -->
             <div class="dorne-add-listings-btn">
               <a href="#" class="btn dorne-btn">Louer</a>
             </div>
+
           </div>
-        <%end%>
+          <% end %>
       </div>
     </div>
   </div>

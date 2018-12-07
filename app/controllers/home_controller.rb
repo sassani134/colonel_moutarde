@@ -12,7 +12,6 @@ class HomeController < ApplicationController
 
   def listing
     @games = Game.all
-    @users = User.all
     @categories = Category.all
   end
 end
