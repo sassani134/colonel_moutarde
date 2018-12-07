@@ -20,10 +20,7 @@
                 <p><%= copy.address %></p>
             </div> 
             <!-- Listing Menu Price -->
-            <div class="dorne-add-listings-btn">
-              <a href="#" class="btn dorne-btn">Louer</a>
-            </div>
-
+            <%= link_to "Louer", "/cart?id_add="+ copy.id.to_s, class: "btn dorne-btn",  method: :post%>
           </div>
           <% end %>
       </div>
