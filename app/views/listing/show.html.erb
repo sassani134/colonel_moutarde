@@ -136,8 +136,17 @@
 
                         <!-- Listing Verify -->
                         <div class="listing-verify">
-                            <a data-toggle="modal" href="#modalChoice" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i>Voir les disponibilités</a>
+                            <a data-toggle="modal" href="#modalChoice" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i>
+                                <% if @game.copies.count==0 %>
+                                Aucune copie disponible</a>
+                                <% elsif @game.copies.count==1 %>
+                                Voir la copie disponible</a>
+                                <%= render 'modalchoice'  %>
+                                <% else %>
+                            Voir les <%= @game.copies.count %> copies disponibles</a>
                             <%= render 'modalchoice'  %>
+                                <%end%>
+                            
                         </div>
 
                         <!-- Book A Table Widget -->
