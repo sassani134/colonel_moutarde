@@ -3,9 +3,8 @@
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"><%=copy.game.title%></h5>
-      <p class='card-text'><%=copy.game.description%></p>
       <p class='card-text'><%=copy.orders.last.user.username%></p>
-      <a href="return/:id" class="btn btn-primary">Jeux rendu?</a>
+      <%= link_to "Jeux rendu?", "return/#{copy.id}", :class => "btn btn-primary", method: :put%>
     </div>
   </div>
 <%end%>

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get '/contact', to: "home#contact"
   get '/explore', to: "home#explore"
   get '/dashboard', to: "dashboard#index"
-  get '/add', to: "dashboard#rent_copy"
+  get '/add_copy', to: "dashboard#rent_copy"
   get '/show_orders/:id', to: 'dashboard#toggle_past'
-  post '/add', to: "dashboard#save_copy"
+  post '/add_copy', to: "dashboard#save_copy"
   patch 'confirm/:id', to: 'dashboard#confirm_copy'
   put 'return/:id', to: 'dashboard#return_copy'
   resources :charges

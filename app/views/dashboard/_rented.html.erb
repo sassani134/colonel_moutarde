@@ -11,8 +11,8 @@
     <%end%>
   </div>
 <%end%>
-<%if @rented_copies[0]%>
-  <%render 'rent_copies'%>
+<%if @all_copies[0]%>
+  <%=render 'rent_copies'%>
 <%else%>
   <h2 class ="text-light">Vous voulez louer des jeux?</h2>
   <br/>

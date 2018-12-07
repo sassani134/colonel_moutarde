@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
 
   def index
-    @rented_copies = current_user.copies.where(:rented => false)
+    @all_copies = current_user.copies
     @renting_copies = current_user.copies.where(:rented => true)
     @unconfirmed_copies = @renting_copies.where(:return => nil)
     @confirmed_copies = @renting_copies.where.not(:return => nil)
@@ -41,9 +41,9 @@ class DashboardController < ApplicationController
   def confirm_copy
     @copy = Copy.find(params[:id])
     if @copy.user == current_user && @copy.rented ==true
-      @ind = @copy.order.copy_ids.index(params[:id].to_i)
-      @weeks=@copy.order.number_week[@ind]
-      @copy.return = (Time.now + @week.week).to_date
+      @ind = @copy.orders.last.copy_ids.index(params[:id].to_i)
+      @weeks=@copy.orders.last.number_week[@ind]
+      @copy.return = (Time.now + @weeks.week).to_date
       @copy.save
       redirect_to '/dashboard'
     else
@@ -57,6 +57,10 @@ class DashboardController < ApplicationController
       @copy.rented = false
       @copy.return = nil
       @copy.save
+      @order = @copy.orders.last
+      @ind = @order.copy_ids.index(params[:id].to_i)
+      @order.renting[@ind] = false
+      @order.save
       redirect_to '/dashboard'
     else
       redirect_to root_path
