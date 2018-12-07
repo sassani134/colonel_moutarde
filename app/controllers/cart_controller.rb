@@ -78,7 +78,7 @@ class CartController < ApplicationController
       @cart.number_week.delete_at(@ind)
       @cart.save
       @cart.copy_ids = @array
-      @content = @cart.copys
+      @content = @cart.copies
       @price = 0
       @content.each_with_index do |content, index| 
         @price += content.price * @cart.number_week[index]
