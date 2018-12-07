@@ -24,7 +24,10 @@
                           // prompted by your browser. If you see the error "The Geolocation service
                           // failed.", it means you probably did not give permission for the browser to
                           // locate you.
-                          var map, infoWindow;
+                          var lat = "(<%= @lat %>)";
+                          var long = "(<%= @long %>)";
+                          var max = lat.lenght;
+                          var map, infoWindow, i, marker;
                           function initMap() {
                             map = new google.maps.Map(document.getElementById('map2'), {
                               center: {lat: 48.8566, lng: 2.3522},
@@ -39,28 +42,33 @@
                                   lat: position.coords.latitude,
                                   lng: position.coords.longitude
                                 };
+                                // Marker à la position
+                                for (i = 0; i < max; i++){
+                                    
+                                    marker = new google.maps.Marker ({
+                                        position: new google.maps.LatLng(lat[i],long[i]),
+                                        map: map,
+                                        animation: google.maps.Animation.DROP,
 
-                            // Marker à la postition
-                                var marker = new google.maps.Marker ({
-                                    position: pos,
-                                    map: map,
-                                    animation: google.maps.Animation.DROP,
+                                    });
+                                };
 
-                            });
 
-                           var yourContent = new google.maps.InfoWindow({
-                                content: '<a href="http://localhost:3000/listing/"> <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button></a>'
-                            });
+                               var yourContent = new google.maps.InfoWindow({
+                                    content: '<a href="http://localhost:3000/listing/"> <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button></a>'
+                                });
 
-                            google.maps.event.addListener(marker, 'click', function() {
-                              yourContent.open(map2,marker);
-                            });
-                            // FIN marker à la postition
-                                infoWindow.open(map);
-                                map.setCenter(pos);
-                              }, function() {
-                                handleLocationError(true, infoWindow, map.getCenter());
-                              });
+                                google.maps.event.addListener(marker, 'click', function() {
+                                  yourContent.open(map2,marker);
+                                });
+                        // FIN marker à la position
+
+                                    infoWindow.open(map);
+                                    map.setCenter(pos);
+                                  }, function() {
+                                    handleLocationError(true, infoWindow, map.getCenter());
+                                });
+
                             } else {
                             // Browser doesn't support Geolocation
                               handleLocationError(false, infoWindow, map.getCenter());
@@ -74,7 +82,11 @@
                                                   'Error: Your browser doesn\'t support geolocation.');
                             infoWindow.open(map);
                           }
+
+                         
+
                         </script>
+                        
                         <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
                         </script>
