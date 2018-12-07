@@ -44,16 +44,12 @@ Comme d'habitude, l'éditeur Days of Wonder nous offre avec Five Trives un jeu a
 @player=["1","2","3","4","5","6","10","16"]
 @style = ["Coopératif", "Compétitif", "Peut être compétitif ou coopératif"]
 @genre = ["Adresse", "Traditionnel", "Stratégie", "Tout public", "Ambiance", "Dés", "Cartes"]
-
-
 3.times do |i|
   Style.create!(sort: @style[i])
 end
-
 5.times do |i|
   age = Age.create!(minimum:@age[i])
 end
-
 j=@player.count
 k=j
 j.times do |i|
@@ -62,15 +58,12 @@ j.times do |i|
   end
   k=k-1
 end
-
 7.times do |i|
   Genre.create!(title: @genre[i])
 end
-
 10.times do
   user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
 end
-
 @game_list.each do |name, description|
   rand_age = Age.offset(rand(Age.count)).first
   rand_genre= Genre.offset(rand(Genre.count)).first
@@ -79,7 +72,6 @@ end
   game = Game.create!( title: name, description: description)
   cat = Category.create!(age: rand_age, game: game, genre: rand_genre,player_number: rand_player, style: rand_style) 
 end
-
 20.times do
   rand_user = User.offset(rand(User.count)).first
   rand_game = Game.offset(rand(Game.count)).first
