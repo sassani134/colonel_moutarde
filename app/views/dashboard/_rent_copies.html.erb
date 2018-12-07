@@ -10,9 +10,9 @@
           <h5 class="card-title"><%=copy.game.title%></h5>
           <%unless copy.rented%>
             <%if copy.available%>
-            <a href="#" class="btn btn-warning">Rendre indisponible</a>
+              <%= link_to "Rendre indisponible?", "available/#{copy.id}", :class => "btn btn-danger", method: :put, :data => {:confirm => 'Le jeu ne sera plus louable par les autres utilisateurs'}%>
             <%else %>
-            <a href="#" class="btn btn-danger">Rendre disponible</a>
+              <%= link_to "Rendre disponible?", "available/#{copy.id}", :class => "btn btn-warning", method: :put, :data => {:confirm => 'Le jeu redeviendra accessible à tous les utilisateurs'}%>
             <%end%>
           <%end%>
         </div>

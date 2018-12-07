@@ -35,7 +35,17 @@ class DashboardController < ApplicationController
   end
   
   def available_copy
-
+    @copy = Copy.find(params[:id])
+    if @copy.user == current_user && @copy.rented ==false
+      @copy.toggle(:available)
+      if @copy.save
+        redirect_to '/dashboard'
+      else
+        redirect_to '/dashboard'
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def confirm_copy

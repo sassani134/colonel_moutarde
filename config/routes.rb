@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/add_copy', to: "dashboard#save_copy"
   patch 'confirm/:id', to: 'dashboard#confirm_copy'
   put 'return/:id', to: 'dashboard#return_copy'
+  put 'available/:id', to: 'dashboard#available_copy'
   resources :charges
   resources :listing
   resources :new_games
