@@ -1,0 +1,4 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag url_for(@games.image) %>
+<%= link_to @games.image.filename, rails_blob_path(@games.image, disposition: "attachment") %>

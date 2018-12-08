@@ -30,7 +30,7 @@
                 <% if current_user.admin?%>
                   <ul class="navbar-nav mr-auto" id="dorneMenu">
                     <li class="nav-item">
-                      <a class="nav-link" href="/">Proposer un jeu</a>
+                      <a class="nav-link" href="/new_game">Proposer un jeu</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/">Résumé admin</a>
@@ -73,9 +73,12 @@
               <% end %>
 
             <!-- Add listings btn -->
+            <%if user_signed_in?%>
             <div class="dorne-add-listings-btn">
-              <a href="/" class="btn dorne-btn">Mes jeux</a>
+              <a href="/cart" class="btn dorne-btn">Mes futures locations</a>
+              <a href="/dashboard" class="btn dorne-btn">Mes jeux</a>
             </div>
+            <%end%>
           </div>
         </nav>
       </div>

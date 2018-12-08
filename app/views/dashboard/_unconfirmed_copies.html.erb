@@ -1,0 +1,9 @@
+<%@unconfirmed_copies.each do |copy|%>
+  <div class='card col-3'>
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%=copy.game.title%></h5>
+      <%= link_to "Jeu prêté?", "confirm/#{copy.id}", :class => "btn btn-primary", method: :patch, :data => {:confirm => 'Vous avez bien remis le jeu?'}%>
+    </div>
+  </div>
+<%end%>
