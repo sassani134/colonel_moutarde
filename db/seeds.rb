@@ -69,7 +69,7 @@ end
   rand_genre= Genre.offset(rand(Genre.count)).first
   rand_player = PlayerNumber.offset(rand(PlayerNumber.count)).first
   rand_style = Style.offset(rand(Style.count)).first
-  game = Game.create!( title: name, description: description)
+  game = Game.create!( title: name, description: description, confirm: true)
   cat = Category.create!(age: rand_age, game: game, genre: rand_genre,player_number: rand_player, style: rand_style) 
 end
 20.times do

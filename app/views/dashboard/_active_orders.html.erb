@@ -1,0 +1,29 @@
+<h2 class ="text-light"> Les jeux que vous empruntez actuellement</h2>
+<div class='d-flex flex-wrap rented'>
+  <%@active_orders.each do |order|%>
+    <%order.renting.each_with_index do |rent, index|%>
+      <%if rent%>
+        <%@renting_copies.each do |copy|%>
+          <%if copy.return > Time.now%>
+            <div class='card col-3'>
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%=order.copies[index].game.title%></h5>
+                <p class='card-text'><%=order.copies[index].game.description%></p>
+              </div>
+            </div>
+          <%else%>
+            <div class='card col-3 bg-dark text-white'>
+              <img class="card-img-top" src="..." alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%=order.copies[index].game.title%></h5>
+                <p class='card-text'><%=order.copies[index].game.description%><br/>
+                                     Jeu à rendre /!\</p>
+              </div>
+            </div>
+          <%end%>
+        <%end%> 
+      <%end%>
+    <%end%>
+  <%end%>
+</div>

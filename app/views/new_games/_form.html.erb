@@ -12,12 +12,20 @@
   <% end %>
 
 <div class="field">
-      <%= form.label :title %>
+    <%= form.label :title %>
     <%= form.text_field :title %>
     <%= form.label :description %>
     <%= form.text_area :description %>
     <%= form.label :image %>
     <%= form.file_field :image %>
+    <%= form.label :age %>
+    <%= form.collection_select :age_id, Age.all, :id, :minimum, :prompt => "Age minimum pour jouer" %>
+    <%= form.label :genre %>
+    <%= form.collection_select :genre_id, Genre.all, :id, :title, :prompt => "Genre du jeu" %>
+    <%= form.label :player_number %>
+    <%= form.collection_select :player_number_id, PlayerNumber.all, :id, :number_total, :prompt => "Nombre de joueur" %>
+    <%= form.label :style %>
+    <%= form.collection_select :style_id, Style.all, :id, :sort, :prompt => "Style de jeu" %>
 </div>
 
   <div class="actions">

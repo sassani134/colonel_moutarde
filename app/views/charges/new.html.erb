@@ -7,14 +7,14 @@
         </div>
       <% end %>
       <label class="amount">
-        <span>Amount: $5.00</span>
+        <h6>Montant de ta location : <%= @price %>€</h6>
       </label>
     </article>
 
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="A month's subscription"
-            data-amount="500"
+            data-description="Location de jeux"
+            data-amount="<%= @convert_price2 %>"
             data-locale="auto">
     </script>
   <% end %>
