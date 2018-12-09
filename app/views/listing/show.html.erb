@@ -36,7 +36,7 @@
                           function initMap() {
                             map = new google.maps.Map(document.getElementById('map2'), {
                               center: {lat: 48.8566, lng: 2.3522},
-                              zoom: 15
+                              zoom: 8
                             });
                             infoWindow = new google.maps.InfoWindow;
 
@@ -47,28 +47,33 @@
                                   lat: position.coords.latitude,
                                   lng: position.coords.longitude
                                 };
-                                // Marker à la position
+                        // Marker à la position
+
                                     var locations =
                                       [proprio, lat, long]
                                     ;
                                     console.log(locations)
                                 var infowindow = new google.maps.InfoWindow();
-
+                                var yourContent = new google.maps.InfoWindow({content: '<a href="http://localhost:3000/listing/"> <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button></a>'});
                                 var marker, i;
 
                                 for (i = 0; i < locations.length; i++) {  
                                   marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(locations[1][i], locations[2][i]),
-                                    map: map
+                                    map: map,
+                                    animation: google.maps.Animation.DROP
                                   });
+
 
                                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                     return function() {
-                                      infowindow.setContent(locations[0][i]);
+                                      yourContent.open(map,marker);
+                                      infowindow.setContent(locations[0][i], "test");
                                       infowindow.open(map, marker);
                                     }
                                   })(marker, i));
                                 }
+
                         // FIN marker à la position
 
                                     infoWindow.open(map);
