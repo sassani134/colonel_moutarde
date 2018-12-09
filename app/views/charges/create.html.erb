@@ -1,12 +1,16 @@
 <div class="rendering-center">
-  <h5>Ta location est validée ! <br />Merci pour ton paiement !</h5>
-  <div class="row justify-content-between">
-    <div class="col-6" >
-      <%= link_to "Voir mon historique", "/historique", class: "btn dorne-btn" %>
+  <div class="d-flex flex-column" >
+    <div class="row" >
+      <h5>Ta location est validée ! <br />Merci pour ton paiement !</h5>
     </div>
-    <div class="col-6">
-      <%= link_to "Voir de nouveau les jeux", "/listing", class: "btn dorne-btn" %>
+    <div class="row justify-content-between">
+      <div class="col-6" >
+        <%= link_to "Voir mon historique", "/historique", class: "btn dorne-btn" %>
       </div>
+      <div class="col-6">
+        <%= link_to "Voir de nouveau les jeux", "/listing", class: "btn dorne-btn" %>
+      </div>
+    </div>
   </div>
 </div>
 
