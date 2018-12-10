@@ -1,4 +1,36 @@
- <div class="under-navbar"> 
+<div class="dorne-contact-area d-md-flex" id="contact">
+        <!-- Contact Form Area -->
+        <div class="contact-form-area equal-height">
+            <div class="contact-form">
+                <div class="contact-form-title">
+                    <h6>Contact Business</h6>
+                </div>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="Your Message"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn dorne-btn">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Map Area -->
+        <div class="dorne-map-area equal-height">
+            <div id="googleMap"></div>
+        </div>
+    </div><div class="under-navbar"> 
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
