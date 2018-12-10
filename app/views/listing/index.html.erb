@@ -7,7 +7,7 @@
 				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
 				  <div class="row">
     				<div class="col">
-							<h6>Choisis un jeu</h6>
+							<h6>Choisir un jeu</h6>
 							<form action="#" method="get">
 								<select class="custom-select">
 									<option selected>Nom du jeu</option>
@@ -20,7 +20,7 @@
 						</div>
 
 						<div class="col">
-							<h6>Choisis une catégorie</h6>
+							<h6>Choisir une catégorie</h6>
 							<form action="#" method="get">
 								<select class="custom-select">
 									<option selected>Catégorie</option>
@@ -46,7 +46,7 @@
 				<div class="section-heading dark text-center">
 					<span></span>
 					<h4>Nos jeux</h4>
-					<p>Seulement 3.50 € le jeu en location !</p>
+					<p>Seulement 3.50 € le jeu en location par semaine !</p>
 				</div>
 			</div>
 		</div>
@@ -72,12 +72,8 @@
 						<div class="feature-content d-flex align-items-center justify-content-between">
 							<div class="feature-title">
 								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
-									<p> <%=game.genres[0].title%>. Se joue de <%=game.player_numbers[0].number_low%> à <%= game.player_numbers[0].number_high%>
-									
+									<p> <%=game.genres[0].title%>. Se joue de <%=game.player_numbers[0].number_low%> à <%= game.player_numbers[0].number_high%>					
 									</p>
-							</div>
-							<div class="feature-favourite">
-								<a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 							</div>
 						</div>
 					</div>
@@ -85,5 +81,6 @@
 			<% end %>
 		</div>
 	</div>
+	<%= render 'alert_location'  %>
 </section>
 <!-- ***** Listing Destinations Area End ***** -->

@@ -18,6 +18,5 @@
 //= require activestorage
 //= require turbolinks
 //= require active
-//= require underscore
 //= require_tree .
 

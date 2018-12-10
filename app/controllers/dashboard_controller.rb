@@ -13,6 +13,20 @@ class DashboardController < ApplicationController
     @games.each do |game|
       @title << game.title
     end
+    if user_signed_in?
+      @cart=Cart.where(:user_id => current_user.id)[0]
+      if @cart
+        @cart
+      else
+        @cart = Cart.create!(user_id: current_user.id)
+      end
+      @price = 0
+      @cart.copy_ids.each_with_index do |content, index| 
+        @price += 3.5 * @cart.number_week[index]
+      end
+      @price
+    else
+    end
   end
 
   def rent_copy
