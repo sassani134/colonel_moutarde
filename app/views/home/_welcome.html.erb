@@ -11,21 +11,78 @@
                     <div class="hero-search-form">
                         <!-- Tabs -->
                         <div class="nav nav-tabs" id="heroTab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">&nbsp;&nbsp;&nbsp;Louer des jeux&nbsp;&nbsp;&nbsp;</a>
-                            <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;Mettre en location&nbsp;&nbsp;&nbsp;</a>
+                            <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">&nbsp;&nbsp;&nbsp;Se connecter&nbsp;&nbsp;&nbsp;</a>
+                            <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;S'enregistrer&nbsp;&nbsp;&nbsp;</a>
                         </div>
                         <!-- Tabs Content -->
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                                <h6>Vous voulez louer ?</h6>
-                                <h6>C'est très simple, voici les étapes :</h6>
-                                <h6>Se connecter 💾&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choisir un jeu sur la carte =>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Régler 3,50€ =>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rencontrer le propriétaire</h6>
+                                <h5>Se connecter</h5>
+                                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                        <div class="field">
+                          <%= f.label :email %><br />
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                        </div>
+
+                        <div class="field">
+                          <%= f.label :password %><br />
+                          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                        </div>
+
+                        <% if devise_mapping.rememberable? -%>
+                          <div class="field">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                          </div>
+                        <% end -%>
+
+                        <div class="actions">
+                          <%= f.submit "Se connecter" , :class => 'dorne-btn' %>
+                        </div>
+                      <% end %>
                             </div>
                             <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                                 <h6>Vous avez des jeux à louer ?</h6>
-                                <h6>Vous gagnez 2 € lorsqu'un de vos jeux est loué</h6>
-                                <h6>Vous gagnez 2 € lorsqu'un de vos jeux est loué</h6>
-                                <h6>Vous gagnez 2 € lorsqu'un de vos jeux est loué</h6>
+                               <h5>S'enregistrer</h5>
+                              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                              <%= devise_error_messages! %>
+
+                              <div class="row">
+                                <div class="col-12 col-md-6">
+                                  <div class="field">
+                                    <%= f.label :pseudo %><br />
+                                    <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Nom", class: "form-control"  %>
+                                  </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                  <div class="field">
+                                    <%= f.label :email %><br />
+                                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "nom@exemple.com", class: "form-control"  %>
+                                  </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                  <div class="field">
+                                    <%= f.label :mot_de_passe %>
+                                    <% if @minimum_password_length %>
+                                      <em>(<%= @minimum_password_length %> caractères minimum)</em>
+                                    <% end %><br />
+                                    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Min. 6 caractères", class: "form-control" %>
+                                  </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                  <div class="field">
+                                    <%= f.label :confirmation_du_mot_de_passe %><br />
+                                    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmation", class: "form-control" %>
+                                  </div>
+                                </div>
+
+                              <div class="actions">
+                                <%= f.submit "S'enregistrer" , :class => 'dorne-btn' %>
+                              </div>
+                            </div>
+                            <% end %>
                             </div>
                         </div>
                     </div>
