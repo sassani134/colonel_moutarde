@@ -20,6 +20,7 @@
                     <h4>Disponibilité :</h4>
 
                     <div id="map2"style="width: 700px; height: 500px;" ></div>
+
                         <script>
                           // Note: This example requires that you consent to location sharing when
                           // prompted by your browser. If you see the error "The Geolocation service
@@ -27,6 +28,7 @@
                           // locate you.
                           var lat = <%= raw @lat %>;
                           var long = <%= raw @long %>;
+                          var copy = <%= raw @copy %>;
                           var proprio = <%= raw @proprio %>;
                           var max = lat.lenght;
                           console.log(proprio)
@@ -36,7 +38,7 @@
                           function initMap() {
                             map = new google.maps.Map(document.getElementById('map2'), {
                               center: {lat: 48.8566, lng: 2.3522},
-                              zoom: 8
+                              zoom: 14
                             });
                             infoWindow = new google.maps.InfoWindow;
 
@@ -54,7 +56,7 @@
                                     ;
                                     console.log(locations)
                                 var infowindow = new google.maps.InfoWindow();
-                                var yourContent = new google.maps.InfoWindow({content: '<a href="http://localhost:3000/listing/"> <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button></a>'});
+                                var yourContent = new google.maps.InfoWindow({content: '<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn dorne-btn",  method: :post%>'});
                                 var marker, i;
 
                                 for (i = 0; i < locations.length; i++) {  
@@ -64,11 +66,10 @@
                                     animation: google.maps.Animation.DROP
                                   });
 
-
                                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                     return function() {
-                                      yourContent.open(map,marker);
-                                      infowindow.setContent(locations[0][i], "test");
+                                      <% if user_signed_in? %>yourContent.open(map,marker) <%end%>;
+                                      infowindow.setContent(locations[0][i]);
                                       infowindow.open(map, marker);
                                     }
                                   })(marker, i));
