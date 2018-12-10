@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   
   get '/cart', to: "cart#index"
   get '/empty', to: 'cart#empty'
-  
+  resources :comment  
+  post '/listing/:id/comment', to: "comment#create"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

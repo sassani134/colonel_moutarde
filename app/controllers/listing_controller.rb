@@ -1,6 +1,7 @@
 class ListingController < ApplicationController
   require 'bigdecimal'
   require 'bigdecimal/util'
+  include SharedComment
 
   def index 
     @games = Game.where(:confirm => true)
@@ -18,6 +19,7 @@ class ListingController < ApplicationController
   end
 
   def show
+    @good_comment = Comment.new
     @game= Game.find(params[:id])
     if user_signed_in?
       @copies = @game.copies.where.not(:user_id => current_user.id)

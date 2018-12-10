@@ -26,4 +26,20 @@ class ApplicationController < ActionController::Base
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  module SharedComment
+    def new
+      @good_comment = Comment.new
+
+    end
+    
+    def create
+      @game= Game.find(params[:id])
+      if user_signed_in?
+        comment = @game.comments.create!(content: params[:comment][:content], user: user)
+        url="/listing/" + @game.id.to_s
+        redirect_to(url)
+      end
+    end
+  end
 end
