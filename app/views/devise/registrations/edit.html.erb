@@ -29,7 +29,7 @@
           <div class="field">
             <%= f.label :mot_de_passe %> <i>
               <% if @minimum_password_length %>
-              <em><%= @minimum_password_length %> caractères minimum</em>
+              <em>(<%= @minimum_password_length %> caractères minimum)</em>
               <% end %>
             </i><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
