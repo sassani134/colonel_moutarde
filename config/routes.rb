@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   patch 'confirm/:id', to: 'dashboard#confirm_copy'
   put 'return/:id', to: 'dashboard#return_copy'
   put 'available/:id', to: 'dashboard#available_copy'
+  
   resources :charges
   resources :listing
   resources :new_games

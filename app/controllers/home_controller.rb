@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   end
 
   def explore
+    @search= params[:caviarSearch]
+    
+    @result= Game.where("title ilike ?", "%#{@search}%")
   end
 
   def listing
