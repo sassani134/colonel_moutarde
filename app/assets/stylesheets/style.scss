@@ -306,8 +306,8 @@ li {
 
 .section-heading {
     position: relative;
-    z-index: 1;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
+    margin-top: 0px;
 }
 
 .section-heading span {
@@ -563,7 +563,7 @@ li {
 
 .dorne-welcome-area {
     width: 100%;
-    height: 945px;
+    height: 750px;
     position: relative;
     z-index: 1;
 }
@@ -571,6 +571,7 @@ li {
 .hero-content h2 {
     color: #fff;
     font-size: 72px;
+
 }
 
 .hero-content h4 {
@@ -607,13 +608,13 @@ li {
 
 .hero-search-form .nav-tabs .nav-link.active {
     color: #fff;
-    background-color: rgba(223,170,4, 0.65);
+    background-color: rgba(223,170,4, 0.9);
     border-color: transparent;
 }
 
 .hero-search-form .tab-content .tab-pane {
     padding: 35px;
-    background-color: rgba(223,170,4, 0.65);
+    background-color: rgba(223,170,4, 0.7);
 }
 
 .hero-search-form .tab-content .tab-pane h6 {
@@ -1438,4 +1439,42 @@ li {
 #locationMap {
     width: 100%;
     height: 380px;
+}
+
+
+.testimonial-box img {
+    display: inline-block;
+    width: 100px;
+    height:80px;
+    border-radius: 10% / 50%;
+    margin: 0 0 15px;
+    box-shadow: 2px 2px 2px 1px #ccc;
+    -webkit-transform: scale(0.8);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+
+}
+
+.testimonial-box:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+} 
+
+.testimonial-box p {
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 400;
+    color: white;
+}
+
+.style_image {
+  width : 150px;
+  height : 60px;
+}
+
+
+.style_image2 {
+  width : 100px;
+  height : 80px;
 }
