@@ -56,7 +56,7 @@
                                     ;
                                     console.log(locations)
                                 var infowindow = new google.maps.InfoWindow();
-                                var yourContent = new google.maps.InfoWindow({content: '<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn dorne-btn",  method: :post%>'});
+                                var yourContent = new google.maps.InfoWindow({content: '<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn dorne-btn",  method: :post%>'})
                                 var marker, i;
 
                                 for (i = 0; i < locations.length; i++) {  
@@ -69,8 +69,6 @@
                                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                     return function() {
                                       <% if user_signed_in? %>yourContent.open(map,marker) <%end%>;
-                                      infowindow.setContent(locations[0][i]);
-                                      infowindow.open(map, marker);
                                     }
                                   })(marker, i));
                                 }
