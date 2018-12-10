@@ -1,68 +1,38 @@
 <section class="dorne-welcome-area bg-img bg-overlay">
-<div class="row h-10 align-items-center justify-content-center">
-  <div class="col-12 col-md-10">
-    <!-- Hero Search Form -->
-    <div class="hero-search-form" >
-      <!-- Tabs Content -->
-      <div class="tab-content" id="nav-tabContent">
+  <div class="row h-10 align-items-center justify-content-center">
+    <div class="col-12 col-md-10">
+      <!-- Hero Search Form -->
+      <div class="hero-search-form" >
+        <!-- Tabs Content -->
+        <div class="tab-content" id="nav-tabContent">
           <div class="text_dash justify-content-center">Mon Tableau de bord</div>
             <!-- Explore Search Form -->
             <div class="explore-search-form" >
-                <!-- Tabs -->
-                <div class="nav nav-tabs" id="heroTab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-events" aria-selected="false">Demande de location</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Louer mes jeux&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="nav-item nav-link" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Historique des locations</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <!-- Tabs -->
+              <div class="nav nav-tabs" id="heroTab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-events" aria-selected="false">Demande de location</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Louer mes jeux&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="nav-item nav-link" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Historique des locations</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+              <!-- Tabs Content -->
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                  <%= render 'borrowed'%>
                 </div>
-                <!-- Tabs Content -->
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                      <%= render 'borrowed'%>
-                    </div>
-                    <div class="tab-pane fade"  id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
-                      <%= render 'rented'%>
-                    </div>
-                    <div class="tab-pane fade show active"  id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
-                      <%= render 'cart' %>
-
-                    </div>
+                <div class="tab-pane fade"  id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+                  <%= render 'rented'%>
                 </div>
-
+                <div class="tab-pane fade show active"  id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+                  <%= render 'cart' %>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
-
-<!-- ****** Footer Area Start ****** -->
-<footer class="dorne-footer-area">
-  <div class = "footer">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 d-md-flex align-items-center justify-content-between">
-          <div class="footer-text">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright 2018. All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-          <div class="footer-social-btns">
-            <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
-            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
-            <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- ****** Footer Area End ****** -->
