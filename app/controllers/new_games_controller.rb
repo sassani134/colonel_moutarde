@@ -4,13 +4,18 @@ class NewGamesController < ApplicationController
   # GET /new_games
   # GET /new_games.json
   def index
-    @add_games = Game.all
+    @new_games = Game.all
+    @new_game = Game.new
+    @new_genres = Genre.all
+    @new_categories = Category.all
+    @new_styles = Style.all
+    @new_ages = Age.all
   end
 
   # GET /new_games/1
   # GET /new_games/1.json
   def show
-    @games = Game.last
+    @games = Game.find(params[:id])
   end
 
   # GET /new_games/new
@@ -20,6 +25,7 @@ class NewGamesController < ApplicationController
 
   # GET /new_games/1/edit
   def edit
+    @new_game = Game.find(params[:id])
   end
 
   # POST /new_games

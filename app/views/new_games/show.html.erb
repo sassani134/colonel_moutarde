@@ -1,4 +1,32 @@
 <p id="notice"><%= notice %></p>
+<div>
+	<thead>
+		<tr>
+			<th>Jeux</th>
+			<th>Description</th>
+			<th>Image</th>
+		</tr>
+	</thead>
+</div>
+<div>
+	<tbody>
+		<tr>
+			<td><%= @games.title%></td>
+			<td><%= @games.description%></td>
+			<td>
+				<% if @games.image.attached? %>
+         	<%= image_tag(@game.image) %> 
+         	<%= link_to @games.image.filename, rails_blob_path(@games.image, disposition: "attachment") %>
+	 	<%else %>
+	 		<img src="../assets/no_photo.png", alt="pas de photos">
+         <% end %>
+			</td>
+		</tr>
 
-<%= image_tag url_for(@games.image) %>
-<%= link_to @games.image.filename, rails_blob_path(@games.image, disposition: "attachment") %>
+	</tbody>
+</div>
+
+
+
+
+         

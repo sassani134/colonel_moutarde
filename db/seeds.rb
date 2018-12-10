@@ -67,9 +67,9 @@ end
   Genre.create!(title: @genre[i])
 end
 
-10.times do
-  user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
-end
+# 10.times do
+#   user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
+# end
 
 @game_list.each do |name, description|
   rand_age = Age.offset(rand(Age.count)).first

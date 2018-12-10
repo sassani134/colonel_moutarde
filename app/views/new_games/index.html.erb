@@ -5,16 +5,29 @@
 <table>
   <thead>
     <tr>
+      <th>Jeux</th>
+      <th>Description</th>
+      <th>Image</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @new_games.each do |new_game| %>
       <tr>
-        <td><%= link_to 'Show', new_game %></td>
-        <td><%= link_to 'Edit', edit_new_game_path(new_game) %></td>
-        <td><%= link_to 'Destroy', new_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= new_game.title %></td>
+        <td><%= new_game.description%></td>
+        <td>
+          <% if new_game.image.attached? %>
+            <%= image_tag(new_game)%>
+          <% else %>
+                <img src="../assets/no_photo.png", alt="pas de photos">
+          <% end %>      
+        </td>
+        <td><%= link_to 'Show', "/new_games/"+new_game.id.to_s %></td>
+        <td><%= link_to 'Edit', edit_new_game_path(new_game.id) %></td>
+        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

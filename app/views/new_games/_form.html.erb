@@ -16,11 +16,31 @@
     <%= form.text_field :title %>
     <%= form.label :description %>
     <%= form.text_area :description %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= form.label :categories %></th>
+          <th><%= form.label :genre %></th>
+          <th><%= form.label :style %></th>
+          <th><%= form.label :age %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= form.select :categories, ['game_id', 'genre_id']%></td>
+          <td><%= form.collection_select :title, Genre.order(1),:id,:title, include_blank: true %></td>
+          <td><%= form.collection_select :sort, Style.order(1),:id,:sort, include_blank: true %></td>
+          <td><%= form.collection_select :minimum, Age.order(1),:id,:minimum, include_blank: true %></td>
+        </tr>
+      </tbody>
+    </table>
     <%= form.label :image %>
     <%= form.file_field :image %>
 </div>
 
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
