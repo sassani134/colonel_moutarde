@@ -31,18 +31,18 @@ class CartController < ApplicationController
         @cart.number_week.insert(@order, 1)
         @cart.save
         redirect_to "/listing"
-        flash[:success] = "You successfully added the product to your cart"
+        flash[:success] = "Votre jeu a bien été ajouté à votre panier !"
       else
         @quant = @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)].to_i
         @quant += 1
         @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)] = @quant.to_s
         @cart.save
         redirect_to "/listing" 
-        flash[:alert] = "You successfully added the product to your cart"
+        flash[:alert] = "Votre jeu a bien été ajouté à votre panier !"
       end
     else
       redirect_to "/listing" 
-      flash[:alert] = "You must be connected to have a cart"
+      flash[:alert] = "Vous devez être connecté pour accéder au panier"
     end
   end
 
