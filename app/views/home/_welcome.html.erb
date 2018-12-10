@@ -4,7 +4,7 @@
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-10">
                     <div class="hero-content">
-                        <h2>Louez vos jeux préférés  !</h2>
+                        <h2>Louez vos jeux préférés !</h2>
                         <h4>Entre particuliers, partout en France ! </h4>
                     </div>
                     <!-- Hero Search Form -->
@@ -19,25 +19,24 @@
                             <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
                                 <h5>Se connecter</h5>
                                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <div class="field">
-                          <%= f.label :email %><br />
-                          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                        <div class="">
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "nom@exemple.com", class: "form-control" %>
                         </div>
-
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="field">
-                          <%= f.label :password %><br />
-                          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Mot de passe", class: "form-control" %>
                         </div>
-
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <% if devise_mapping.rememberable? -%>
                           <div class="field">
                             <%= f.check_box :remember_me %>
                             <%= f.label :remember_me %>
                           </div>
                         <% end -%>
-
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="actions">
                           <%= f.submit "Se connecter" , :class => 'dorne-btn' %>
+                          <br/><br/>
                         </div>
                       <% end %>
                             </div>
@@ -75,9 +74,9 @@
                                   <div class="field">
                                     <%= f.label :confirmation_du_mot_de_passe %><br />
                                     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmation", class: "form-control" %>
+                                    <br>
                                   </div>
                                 </div>
-
                               <div class="actions">
                                 <%= f.submit "S'enregistrer" , :class => 'dorne-btn' %>
                               </div>
@@ -92,7 +91,7 @@
         <!-- Hero Social Btn -->
         <div class="hero-social-btn">
             <div class="social-title d-flex align-items-center">
-                <h6>Suivez-nous sur Facebook</h6>
+                <h6>Suivez-nous sur <a href="https://fr-fr.facebook.com/thehackingproject/">Facebook</a></h6>
                 <span></span>
             </div>
             <div class="social-btns">
