@@ -69,3 +69,30 @@ button.stripe-button-el>span {
   opacity: 0.8 !important;
   text-align: center;
 }
+
+.black-btn {
+  min-width: 180px !important;
+  height: 52px !important;
+  background-color: #2A2A2A !important;
+  border-radius: 0 !important;
+  padding: 0 15px !important;
+  line-height: 50px !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  -webkit-transition-duration: 500ms !important;
+          transition-duration: 500ms !important;
+}
+
+.black-btn:hover,
+.black-btn:focus {
+  color: #fff !important;
+  background-color: #2A2A2A !important;
+  font-weight: 600 !important;
+}
+
+
+.right {
+  display: flex;
+  justify-content: space-between;
+}

@@ -22,10 +22,10 @@
               </li>
             </ul>
             <!-- Search btn -->
-            <div class="dorne-search-btn">
+            <div class="right">
+            <div class="dorne-search-btn" style="padding-top:7px;">
               <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
             </div>
-              
               <% if current_user%>
                 <% if current_user.admin?%>
                   <ul class="navbar-nav mr-auto" id="dorneMenu">
@@ -36,7 +36,7 @@
                       <a class="nav-link" href="/">Résumé admin</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="index.html">Mon historique</a>
                             <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
@@ -46,8 +46,8 @@
                   </ul>
                 <% else user_signed_in? %>
                   <ul class="navbar-nav mr-auto" id="dorneMenu">
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <li class="nav-item dropdown" style="padding-right:10px;">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/new_game">Proposer un jeu</a>
                           <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
@@ -68,10 +68,10 @@
                   </li>
                 </ul>
               <% end %>
-
+              </div>
             <!-- Add listings btn -->
             <% if user_signed_in? %>
-              <div class="dorne-add-listings-btn">
+              <div class="dorne-add-listings-btn" >
                 <a href="/dashboard" class="btn dorne-btn">Mon tableau de bord</a>
               </div>
                 <div class="dorne-add-listings-btn">
@@ -79,9 +79,9 @@
               </div>
             <% end %>
           </div>
+          </div>
         </nav>
       </div>
     </div>
-  </div>
 </header>
 <!-- ***** Header Area End ***** -->

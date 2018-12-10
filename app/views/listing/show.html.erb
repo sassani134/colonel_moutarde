@@ -66,6 +66,7 @@
                                     animation: google.maps.Animation.DROP
                                   });
 
+
                                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                     return function() {
                                       <% if user_signed_in? %>yourContent.open(map,marker) <%end%>;

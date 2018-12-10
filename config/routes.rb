@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/gameshow', to: 'new_games#show'
   
   get '/cart', to: "cart#index"
+  get '/empty', to: 'cart#empty'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

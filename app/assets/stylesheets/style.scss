@@ -30,6 +30,7 @@
     font-family: 'pacificoregular', sans-serif;
     font-size: 60px;
     color : white;
+    padding :0;
 }
 
 /* Import CSS */
@@ -310,6 +311,7 @@ li {
     margin-top: 0px;
 }
 
+
 .section-heading span {
     width: 30px;
     height: 2px;
@@ -541,6 +543,11 @@ li {
     padding-right: 10px;
 }
 
+#search-btn:hover {
+    color: #DFAA04;
+}
+
+
 .dropdown-menu {
     border: none;
 }
@@ -563,7 +570,7 @@ li {
 
 .dorne-welcome-area {
     width: 100%;
-    height: 830px;
+    height: 750px;
     position: relative;
     z-index: 1;
 }
@@ -652,14 +659,15 @@ li {
 .hero-social-btn .social-title {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    margin-left: -145px;
+    margin-left: -190px;
+    margin-top: 0px;
+
 }
 
 .hero-social-btn .social-title h6 {
     margin-bottom: 0;
     color: #fff;
     line-height: 1;
-    margin-right: 30px;
 }
 
 .hero-social-btn .social-title span {
@@ -670,14 +678,13 @@ li {
 }
 
 .hero-social-btn .social-btns {
-    margin-top: 170px;
+    margin-top: 380px;
 }
 
 .hero-social-btn .social-btns > a {
     font-size: 15px;
     color: #fff;
     display: block;
-    margin-top: 30px;
 }
 
 /* Catagory Area CSS */
@@ -1441,40 +1448,110 @@ li {
     height: 380px;
 }
 
-
-.testimonial-box img {
-    display: inline-block;
-    width: 100px;
-    height:80px;
-    border-radius: 10% / 50%;
-    margin: 0 0 15px;
-    box-shadow: 2px 2px 2px 1px #ccc;
-    -webkit-transform: scale(0.8);
-    transform: scale(1);
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-
-}
-
-.testimonial-box:hover img {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-} 
-
-.testimonial-box p {
-    font-size: 17px;
-    font-style: italic;
-    font-weight: 400;
-    color: white;
-}
-
 .style_image {
-  width : 150px;
+  width : 170px;
   height : 60px;
 }
 
 
 .style_image2 {
-  width : 100px;
-  height : 80px;
+  width : 120px;
+  height : 100px;
+}
+
+/* Team
+---------------------------------*/
+.team-leader-block{
+    max-width:993px;
+    margin:0 auto;
+}
+.team-leader-box{
+    width:30.66%;
+    margin-right: 3.82979%;
+    height: 490px;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+}
+.team-leader-box span{
+    margin-bottom:24px;
+    display:block;
+}
+.team-leader-box:nth-of-type(3n+0){ margin:0;}
+.team-leader{
+    width:auto;
+    height:auto;
+    position:relative;
+    border-radius:50%;
+    margin:7px 7px 25px 7px;
+    
+}
+.team-leader-shadow{
+    transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
+    border-radius:50%;
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:10;
+    border-radius:50%;
+}
+.team-leader-shadow a{
+    display:block;
+    width:100%;
+    height:100%;
+}
+.team-leader:hover .team-leader-shadow{
+    box-shadow:inset 0px 0px 0px 7px rgba(241,241,241,0.80);
+}
+.team-leader:hover ul{ display:block; opacity:1}
+.team-leader img{
+    display:block;
+    border-radius:50%;
+}
+.team-leader ul{
+    display:block;
+    opacity:0;
+    padding:0;
+    margin:0;
+    list-style:none;
+    position:absolute;
+    left:0;
+    top:50%;
+    width:100%;
+    text-align:center;
+    margin-top:-14px;
+    z-index:15;
+    transition:all 0.6s ease-in-out;
+    -moz-transition:all 0.6s ease-in-out;
+    -webkit-transition:all 0.6s ease-in-out;
+}
+.team-leader ul li{
+    display:inline;
+    margin:0 11px;
+}
+.team-leader ul li a{
+    font-family: 'FontAwesome';
+    display:inline-block;
+    font-size:28px;
+    color:#fff; 
+    transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -webkit-transition:all 0.3s ease-in-out;
+}
+.team-leader ul li a:hover, .team-leader ul li a:focus{
+    text-decoration:none;
+}
+.team-leader ul li a.fa-twitter:hover{
+    color:#55acee;
+}
+.team-leader ul li a.fa-facebook:hover{
+    color:#3b5998;
+}
+.team-leader ul li a.fa-pinterest:hover{
+    color:#cb2026;
+}
+.team-leader ul li a.fa-google-plus:hover{
+    color:#dd4b39;
 }

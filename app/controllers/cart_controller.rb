@@ -116,6 +116,7 @@ class CartController < ApplicationController
   end
 
   def empty
+    @cart = Cart.where(:user_id => current_user.id)[0]
     @cart.number_week = []
     @cart.save
     Cart.where(:user_id => current_user.id)[0].copy_ids = []
