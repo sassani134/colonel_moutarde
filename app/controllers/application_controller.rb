@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  rescue_from ActionController::InvalidAuthenticityToken, with: :redirect_to_referer_or_path
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   protected
@@ -10,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
+ 
 
   def resource_name
     :user
@@ -25,5 +27,10 @@ class ApplicationController < ActionController::Base
  
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
+  
+  def redirect_to_referer_or_path
+    flash[:notice] = "Please try again."
+    redirect_to request.referer
   end
 end
