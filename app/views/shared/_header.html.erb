@@ -46,13 +46,10 @@
                   </ul>
                 <% else user_signed_in? %>
                   <ul class="navbar-nav mr-auto" id="dorneMenu">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="/">Devenir loueur</a>
-                    </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/dashboard">Mon tableau de bord</a>
+                          <a class="dropdown-item" href="/new_game">Proposer un jeu</a>
                           <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
                           <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
                         </div>
@@ -73,9 +70,17 @@
               <% end %>
 
             <!-- Add listings btn -->
-            <div class="dorne-add-listings-btn">
-              <a href="/cart" class="btn dorne-btn">Mes futures locations</a>
-            </div>
+            <% if user_signed_in? %>
+              <div class="dorne-add-listings-btn">
+                <a href="/dashboard" class="btn dorne-btn">Mon tableau de bord</a>
+              </div>
+                <div class="dorne-add-listings-btn">
+                      <a class="nav-link"> </a>
+              </div>
+              <div class="dorne-add-listings-btn">
+                <a href="/cart" class="btn dorne-btn">Mes futures locations</a>
+              </div>
+            <% end %>
           </div>
         </nav>
       </div>
