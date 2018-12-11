@@ -3,7 +3,7 @@
     <h5>Selection du <%=@order.created_at.to_s%></h5>
   </div>
 	<div class="card-body">
-    <p class="card-text">La commande contient :</p>
+    <p class="card-text">La location contient :</p>
     <%@order.copies.each_with_index do |copy, index|%>
       <h5 class="card-title" id='item_<%index%>'><%=@order.number_week[index]%> semaine avec  <%= copy.game.title  %></h5>
     <%end%>
