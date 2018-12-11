@@ -8,15 +8,12 @@
 				  <div class="row">
     				<div class="col">
 							<h6>Choisir un jeu</h6>
-							<form action="#" method="get">
-								<select class="custom-select">
-									<option selected>Nom du jeu</option>
+			
+									<select class="selectpicker custom-select" onchange="location = this.value;">
 									<% @games.each do |game| %>
-										<option value="game.id"><%= game.title %></option>
+										<option value="/listing/<%= game.id.to_s%>"><%= game.title %></option>
 									<% end %>
-								</select>
-								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
-							</form>
+							</select>
 						</div>
 
 						<div class="col">
