@@ -10,7 +10,7 @@ class NewGamesController < ApplicationController
   # GET /new_games/1
   # GET /new_games/1.json
   def show
-    @games = Game.last
+    @games= Game.find(params[:id])
   end
 
   # GET /new_games/new
@@ -26,6 +26,7 @@ class NewGamesController < ApplicationController
 
   # GET /new_games/1/edit
   def edit
+    @new_game = Game.find(params[:id])
   end
 
   # POST /new_games
