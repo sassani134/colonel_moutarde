@@ -1,107 +1,87 @@
- <!-- ***** Contact Area Start ***** -->
-    <div class="dorne-contact-area d-md-flex" id="contact">
-        <!-- Contact Form Area -->
-        <div class="contact-form-area equal-height">
-            <div class="contact-text">
-                <h4>Hello, Get in touch with us</h4>
-                    <div id="floating-panel">
-      <input id="address" type="textbox" value="Sydney, NSW">
-      <input id="submit" type="button" value="Geocode">
-    </div>
-    <div id="map" style="width: 500px; height: 500px;"></div>
-    
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur.</p>
-
-    <div id="map2"style="width: 500px; height: 500px;"></div>
-    <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map2'), {
-          center: {lat: 48.8566, lng: 2.3522},
-          zoom: 15
-        });
-        infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Vous êtes ici');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
-    </script>
-
-
-                <div class="contact-info d-lg-flex">
-                    <div class="single-contact-info">
-                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Main Avenue Soho, NY</h6>
-                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> No. 25-33</h6>
-                    </div>
-                    <div class="single-contact-info">
-                        <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> contact@yourbusiness.com</h6>
-                        <h6><i class="fa fa-phone" aria-hidden="true"></i> +34 567 22478 49567</h6>
+<!-- ***** Features Greanoble Area Start ***** -->
+    <section class="dorne-features-grenoble-area bg-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <span></span>
+                        <h4>CONTACT :</h4>
                     </div>
                 </div>
             </div>
-            <div class="contact-form">
-                <div class="contact-form-title">
-                    <h6>Contact Business</h6>
-                </div>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name">
+
+            <div class="row">
+                <div class="col-12">
+                  <div class="features-slides owl-carousel owl-loaded owl-drag">
+                        <!-- team Grenoble -->
+                        <div class="owl-stage-outer">
+                         <div class="owl-stage" style=";">
+                          <div class="owl-item cloned" style="width: 197.4px; margin-right: 50px;">
+                   
+                        <div class="single-features-area"> 
+                            <%=image_tag("feature-6.jpg" )%> 
+                            <!-- the team1 -->
+                            
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Guillaume Pichot</h5>
+                                    <p>Assistant manager</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <input type="email" name="email" class="form-control" placeholder="Email Address">
+
+                        <div class="single-features-area"> 
+                            <%=image_tag("feature-7.jpg" )%> 
+                            <!-- the team2 -->
+                            
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Samuel Assani</h5>
+                                    <p>Assistant manager</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <input type="text" name="subject" class="form-control" placeholder="Subject">
+
+                        <div class="single-features-area"> 
+                            <%=image_tag("feature-8.jpg" )%> 
+                            <!-- the team3 -->
+                            
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Romain Recher</h5>
+                                    <p>Assistant manager</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="Your Message"></textarea>
+                              
+                        <div class="single-features-area"> 
+                            <%=image_tag("feature-9.jpg" )%> 
+                            <!-- the team4 -->
+                            
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Hai Dang HA THUC</h5>
+                                    <p>Assistant manager</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn dorne-btn">Send</button>
+
+                        <div class="single-features-area"> 
+                            <%=image_tag("feature-10.jpg" )%> 
+                            <!-- the team5 -->
+                            
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Meghzili Fayçal</h5>
+                                    <p>Assistant manager</p>
+                                </div>
+                            </div>
+                        </div>
+                        
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-        <!-- Map Area -->
-        <div class="dorne-map-area equal-height">
-            <div id="googleMap"></div>
-        </div>
-    </div>
-    <!-- ***** Contact Area End ***** -->
-
-</body>
+    </section>
+    <!-- ***** Features grenoble Area End ***** -->
