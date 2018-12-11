@@ -15,7 +15,7 @@ class NewGamesController < ApplicationController
   # GET /new_games/1
   # GET /new_games/1.json
   def show
-    @games = Game.find(params[:id])
+    @games = Game.all
   end
 
   # GET /new_games/new

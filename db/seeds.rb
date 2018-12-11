@@ -44,44 +44,26 @@ Comme d'habitude, l'éditeur Days of Wonder nous offre avec Five Trives un jeu a
 @player=["1","2","3","4","5","6","10","16"]
 @style = ["Coopératif", "Compétitif", "Peut être compétitif ou coopératif"]
 @genre = ["Adresse", "Traditionnel", "Stratégie", "Tout public", "Ambiance", "Dés", "Cartes"]
+@photo = [
+
+          "https://www.regles-de-jeux.com/wp-content/uploads/2014/03/regle-monopoly.jpg",
+          "https://www.doudouplanet.com/media/product_images/Dujardin-Jeu-de-milles-bornes-grand-classique-31379.jpg",
+          "http://king-jouet.ma/wp-content/uploads/2017/12/730135960.jpg"," https://www.ludocortex.fr/boutique/images_produits/othello-jeu-z.jpg",
+          " https://www.ludocortex.fr/boutique/images_produits/othello-jeu-z.jpg" " https://www.ludocortex.fr/boutique/images_produits/othello-jeu-z.jpg",
+          " https://www.ludocortex.fr/boutique/images_produits/othello-jeu-z.jpg",
+          "http://ekladata.com/MqDzOslFuj9T8tZDshKReAIXxjA.jpg",
+          "https://images.king-jouet.com/6/GU024832_6.jpg"
+          ]
 
 
-3.times do |i|
-  Style.create!(sort: @style[i])
-end
 
-5.times do |i|
-  age = Age.create!(minimum:@age[i])
-end
+  game = Game.create(title: "Monopoly", description: @game_list[0] )
 
-j=@player.count
-k=j
-j.times do |i|
-  k.times do |y|
-    PlayerNumber.create!(number_low: @player[i], number_high:@player[k-y+i-1])
-  end
-  k=k-1
-end
+  game.image.attach(io: File.open('/home/ginaz/Téléchargements/monopoly1.jpg'), filename: 'monopoly1.jpg')
+  game.save
 
-7.times do |i|
-  Genre.create!(title: @genre[i])
-end
-
-# 10.times do
-#   user = User.create!(username: Faker::Name.first_name , email: Faker::Internet.email, password: Faker::Internet.password(8))
-# end
-
-@game_list.each do |name, description|
-  rand_age = Age.offset(rand(Age.count)).first
-  rand_genre= Genre.offset(rand(Genre.count)).first
-  rand_player = PlayerNumber.offset(rand(PlayerNumber.count)).first
-  rand_style = Style.offset(rand(Style.count)).first
-  game = Game.create!( title: name, description: description)
-  cat = Category.create!(age: rand_age, game: game, genre: rand_genre,player_number: rand_player, style: rand_style) 
-end
-
-20.times do
-  rand_user = User.offset(rand(User.count)).first
-  rand_game = Game.offset(rand(Game.count)).first
-  copy = Copy.create!(game: rand_game, user: rand_user, available: true, address: @address[rand(7)], return: nil, rented:false)
-end
+  category = Category.game_id.last
+  category.age(minimum: @age[3])
+  category.player_numbers(number_low:2, number_high:8)
+  category.styles(sort: @style[1])
+  category.genre(title: @genre[4])

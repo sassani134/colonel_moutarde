@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-<div class="field">
-      <%= form.label :title %>
+<div class="form-group">
+    <%= form.label :title %>
     <%= form.text_field :title %>
     <%= form.label :description %>
     <%= form.text_area :description %>
@@ -28,9 +28,11 @@
       <tbody>
         <tr>
           <td><%= form.select :categories, ['game_id', 'genre_id']%></td>
-          <td><%= form.collection_select :title, Genre.order(1),:id,:title, include_blank: true %></td>
-          <td><%= form.collection_select :sort, Style.order(1),:id,:sort, include_blank: true %></td>
-          <td><%= form.collection_select :minimum, Age.order(1),:id,:minimum, include_blank: true %></td>
+          <td><option><%= form_for(:genre) do |f| %>
+              <%= f.collection_select :title, Genre.order(:title), :title, :title, :include_blank => false, class: 'navbarDropdown' %></option></td>
+              <% end %>
+          <td><%= form.collection_select :sort, Style.order(:sort),:sort,:sort, include_blank: true %></td>
+          <td><%= form.collection_select :minimum, Age.order(1),:minimum, :minimum, include_blank: true %></td>
         </tr>
       </tbody>
     </table>
