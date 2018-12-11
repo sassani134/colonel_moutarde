@@ -10,10 +10,9 @@
                             <h1><%= @game.title %></h1>
                             <h6><%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%> joueurs</h6>
                             <h4>IMAGES DU JEU</h4>
-                            <h6>Catégories</h6>
                         </div>
-
                         <div class="overview-content mt-50">
+                        <h4>Description :</h4>
                             <p><%= @game.description %></p>
                         </div>
 
@@ -56,7 +55,7 @@
                                     ;
                                     console.log(locations)
                                 var infowindow = new google.maps.InfoWindow();
-                                var yourContent = new google.maps.InfoWindow({content: '<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn dorne-btn",  method: :post%>'})
+                                var yourContent = new google.maps.InfoWindow({content: '&nbsp;&nbsp;&nbsp;<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn btn-warning",  method: :post%>'})
                                 var marker, i;
 
                                 for (i = 0; i < locations.length; i++) {  
@@ -106,7 +105,7 @@
 
 
                         <div class="listing-reviews-area mt-100">
-                            <h4>Avis des joueurs</h4>
+                            <h4>Avis des joueurs : </h4>
                             <div class="single-review-area">
                                 <div class="reviewer-meta d-flex align-items-center">
                                     <img src="img/clients-img/1.jpg" alt="">
