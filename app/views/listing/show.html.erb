@@ -16,10 +16,11 @@
                             <p><%= @game.description %></p>
                         </div>
 
+                   
                     <h4>Disponibilité :</h4>
 
                     <div id="map2"style="width: 700px; height: 500px;"></div>
-
+                         <%if @copies[0]%>
                         <script>
                           // Note: This example requires that you consent to location sharing when
                           // prompted by your browser. If you see the error "The Geolocation service
@@ -103,6 +104,10 @@
                         src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
                         </script>
 
+                        <%else%>
+                        <h3>Le jeu n'a pour le moment pas de copies disponible</h3>
+
+                        <%end%>
 
                         <div class="listing-reviews-area mt-100">
                             <h4>Avis des joueurs : </h4>
