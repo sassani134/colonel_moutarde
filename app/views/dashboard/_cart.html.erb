@@ -1,0 +1,10 @@
+<div class="section">
+  <% if user_signed_in? %>
+    <div id = "<%=@cart.id%>">
+      <%= render 'content_cart' %>
+    </div>
+    
+  <% else%>
+  <p>Enregistrez vous pour avoir un panier</p>
+  <% end %>
+</div>

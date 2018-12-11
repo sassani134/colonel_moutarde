@@ -1,0 +1,34 @@
+<%= form_with(model: @new_games, local: true) do |form| %>
+  <% if @new_game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(new_game.errors.count, "error") %> prohibited this new_game from being saved:</h2>
+
+      <ul>
+      <% new_game.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <%= form.label :age %>
+    <%= form.collection_select :age_id, Age.all, :id, :minimum, :prompt => "Age minimum pour jouer" %>
+    <%= form.label :genre %>
+    <%= form.collection_select :genre_id, Genre.all, :id, :title, :prompt => "Genre du jeu" %>
+    <%= form.label :player_number %>
+    <%= form.collection_select :player_number_id, PlayerNumber.all, :id, :number_total, :prompt => "Nombre de joueur" %>
+    <%= form.label :style %>
+    <%= form.collection_select :style_id, Style.all, :id, :sort, :prompt => "Style de jeu" %>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

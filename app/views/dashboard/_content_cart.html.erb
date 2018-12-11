@@ -1,0 +1,41 @@
+<table class="table">
+  <thead>
+	  <tr>
+      <td>Nom du jeu :</td>
+      <td>Prêt pendant :</td>
+			<td></td>
+		</tr>
+	</thead>
+  <tbody id = "<%=@cart.id%>">
+  <%if @cart.copies%>
+    <% @cart.copies.each_with_index do |copy, index| %>
+	    <tr id='element_<%=copy.id%>', remote: true>
+		    <td><%= link_to "#{copy.game.title}", "/listing/#{copy.game.id}" %></td>
+        <td>
+        <div class="d-flex flex-row align-items-center">
+          <%= link_to " - ", cart_path(@cart, :id_modify => copy.id, :increase => false), class: "btn btn-sm btn-success", remote: true,  method: :patch%>
+          &nbsp;<%= @cart.number_week[index]%> semaines&nbsp;
+          <%= link_to " + ", cart_path(@cart, :id_modify => copy.id, :increase => true), class: "btn btn-sm btn-success", remote: true,  method: :patch%>
+        </div>
+        </td>
+			  <td><%= link_to " Delete", cart_path(@cart, :id_delete => copy.id), class: "btn btn-sm btn-danger bouton-d far fa-trash-alt", remote: true,  method: :delete, data: { confirm: "Are you sure?" } %></td>
+	    </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+<h6 id="price">Votre total actuel est de <%=@price%> €</h6>
+
+<% if @price !=0 %>
+  <div class="row justify-content-between">
+    <div class="col-6" >
+      <%= link_to "Vider le panier", "/empty", class: "btn dorne-btn" %>
+    </div>
+    <div class="col-6">
+        <%= link_to "Payer", "/charges/new", class: "btn black-btn" %>
+    </div>
+  </div>
+<% end %>
+
+</div>
+<p>&nbsp;</p>
