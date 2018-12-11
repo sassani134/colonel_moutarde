@@ -10,11 +10,10 @@
   </thead>
 
   <tbody>
-    <% @new_games.each do |new_game| %>
+    <% @add_games.each do |new_game| %>
       <tr>
-        <td><%= link_to 'Show', new_game %></td>
+        <td><%= link_to 'Show', new_game_path(new_game) %></td>
         <td><%= link_to 'Edit', edit_new_game_path(new_game) %></td>
-        <td><%= link_to 'Destroy', new_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<strong><%=@games.title %></strong>
+<p><%=@games.description %></p>
+<p><%@games.categories %></p>
+
 <%= image_tag url_for(@games.image) %>
-<%= link_to @games.image.filename, rails_blob_path(@games.image, disposition: "attachment") %>
+
