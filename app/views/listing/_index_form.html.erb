@@ -1,0 +1,31 @@
+<!-- Hero Search Form -->
+		<div class="hero-search-form">
+			<!-- Tabs Content -->
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+				  <div class="row">
+    				<div class="col">
+							<h6>Choisir un jeu</h6>
+							<%= form_with url: '/search_game' do |form| %>
+								<%= form.label :game %>
+    						<%= form.collection_select :game_id, Game.all, :id, :title, :prompt => "Titre du jeu" %>	
+								<%= form.button '<i class="fa fa-search pr-2" aria-hidden="true"></i>Valider'.html_safe ,class:"btn dorne-btn" %>
+							<%end%>
+						</div>
+
+						<div class="col">
+							<h6>Choisir une catégorie</h6>
+							<form action="#" method="get">
+								<select class="custom-select">
+									<option selected>Catégorie</option>
+									<% @genres.each do |genre| %>
+										<option value="genre.id"><%= genre.title %></option>
+									<% end %>
+								</select>
+								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

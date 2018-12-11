@@ -1,0 +1,27 @@
+<!-- Single Features Area -->
+			<%@games.each do |game|%>
+				<div class="col-12 col-sm-6 col-lg-4">
+					<div class="single-features-area mb-50">
+						<%if game.image.attached?%>
+							<a href="/listing/<%=game.id%>" class='img_game'><%= image_tag(game.image, class: "style_image") %></a>
+						<%else%>
+							<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
+						<%end%>
+						<!-- Availability -->
+						<div class="price-start">
+							<%if user_signed_in?%>
+								<p><%= game.copies.where.not(:user_id => current_user.id).count %> disponible(s)</p>
+							<%else%>
+								<p><%= game.copies.count %> disponible(s)</p>
+							<%end%>
+						</div>
+						<div class="feature-content d-flex align-items-center justify-content-between">
+							<div class="feature-title">
+								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
+									<p> <%=game.genres[0].title%>. Se joue de <%=game.player_numbers[0].number_low%> à <%= game.player_numbers[0].number_high%>					
+									</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>

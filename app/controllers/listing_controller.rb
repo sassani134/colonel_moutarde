@@ -1,6 +1,6 @@
 class ListingController < ApplicationController
-  require 'bigdecimal'
-  require 'bigdecimal/util'
+  
+  respond_to? :html, :js
 
   def index 
     @games = Game.where(:confirm => true)
@@ -17,6 +17,28 @@ class ListingController < ApplicationController
     end
   end
 
+  def search_game
+    @game = Game.find(params[:id])
+    if user_signed_in?
+      @copies_other_users = @game.copies.where.not(:user_id => current_user.id)
+      @copies = @copies_other_users.where(:available =>true)
+      @cart=Cart.where(:user_id => current_user.id)[0]
+    else
+      @copies = @game.copies.where(:available =>true)
+    end
+    @users = User.all
+    @genres = Genre.all
+    @long = []
+    @lat = []
+    @proprio = []
+    @copies.each do |copy|
+    	@lat << copy.latitude
+    	@long << copy.longitude
+      @proprio << copy.user.username
+      @copy = copy.id.to_s
+    end
+  end
+
   def show
     @game= Game.find(params[:id])
     if user_signed_in?
@@ -28,7 +50,6 @@ class ListingController < ApplicationController
     end
     @users = User.all
     @genres = Genre.all
-    @game = Game.find(params[:id])
     @long = []
     @lat = []
     @proprio = []
