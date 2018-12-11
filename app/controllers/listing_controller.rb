@@ -21,6 +21,7 @@ class ListingController < ApplicationController
     @game= Game.find(params[:id])
     if user_signed_in?
       @copies = @game.copies.where.not(:user_id => current_user.id)
+      @cart=Cart.where(:user_id => current_user.id)[0]
     else
       @copies = @game.copies
     end
@@ -30,15 +31,11 @@ class ListingController < ApplicationController
     @long = []
     @lat = []
     @proprio = []
-    @copy = []
     @copies.each do |copy|
     	@lat << copy.latitude
     	@long << copy.longitude
       @proprio << copy.user.username
       @copy = copy.id.to_s
-    end
-    if user_signed_in?
-      @cart=Cart.where(:user_id => current_user.id)[0]
     end
   end
 

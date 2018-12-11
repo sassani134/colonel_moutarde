@@ -18,7 +18,7 @@
 
                     <h4>Disponibilité :</h4>
 
-                    <div id="map2"style="width: 700px; height: 500px;" ></div>
+                    <div id="map2"style="width: 700px; height: 500px;"></div>
 
                         <script>
                           // Note: This example requires that you consent to location sharing when
@@ -55,7 +55,7 @@
                                     ;
                                     console.log(locations)
                                 var infowindow = new google.maps.InfoWindow();
-                                var yourContent = new google.maps.InfoWindow({content: '&nbsp;&nbsp;&nbsp;<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn btn-warning",  method: :post%>'})
+                                var yourContent = new google.maps.InfoWindow({content:'&nbsp;&nbsp;&nbsp;<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn btn-warning",  method: :post%>'});
                                 var marker, i;
 
                                 for (i = 0; i < locations.length; i++) {  
