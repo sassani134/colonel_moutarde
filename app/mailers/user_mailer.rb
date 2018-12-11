@@ -15,7 +15,8 @@ class UserMailer < ApplicationMailer
       mail(to: @user.email, subject: 'Location à confirmer')
   end
 
-  def client_receive(user)
+  def client_receive(user, copy)
+      @copies = copy
 			@user = user
       mail(to: @user.email, subject: 'Location du jeu confirmée')
   end

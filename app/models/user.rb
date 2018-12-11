@@ -15,7 +15,7 @@ class User < ApplicationRecord
     #UserMailer.welcome_email(self).deliver_now!
   end
   
-       
+
   def set_default_role
     self.role ||= :user
   end

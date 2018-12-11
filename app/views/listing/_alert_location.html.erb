@@ -1,6 +1,14 @@
 <% if user_signed_in? %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong><a href="/new_game" class="alert-link">Devenir loueur à mon tour !</a></strong>
+    <strong><a href="/new_games" class="alert-link" style="color: white">Devenir loueur à mon tour !</a></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<%else%>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong><a data-dismiss="modal" data-toggle="modal" href="#modalIn" style="color: white">Devenir loueur à mon tour !</a></strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

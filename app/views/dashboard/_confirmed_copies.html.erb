@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title"><%=copy.game.title%></h5>
       <p class='card-text'><%=copy.orders.last.user.username%></p>
-      <%= link_to "Jeux rendu?", "return/#{copy.id}", :class => "btn btn-primary", method: :put%>
+      <%= link_to "Jeu rendu?", "return/#{copy.id}", :class => "btn btn-primary", method: :put%>
     </div>
   </div>
 <%end%>

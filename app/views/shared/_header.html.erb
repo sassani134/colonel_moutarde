@@ -30,7 +30,7 @@
                 <% if current_user.admin?%>
                   <ul class="navbar-nav mr-auto" id="dorneMenu">
                     <li class="nav-item">
-                      <a class="nav-link" href="/new_game">Proposer un jeu</a>
+                      <a class="nav-link" href="/new_games">Proposer un jeu à louer</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/">Résumé admin</a>
@@ -38,7 +38,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="index.html">Mon historique</a>
+                            <a class="dropdown-item" href="/dashboard">Mon historique</a>
                             <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
                             <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
                           </div>
