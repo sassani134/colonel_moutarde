@@ -9,11 +9,8 @@
     <div class="row h-100">
       <div class="col-12 h-100">
         <nav class="h-100 navbar navbar-expand-lg">
-<<<<<<< HEAD
           <a class="navbar-brand" href="/home/index"><%=image_tag("logo.png", :style => "width: 90; height: 90;")%></a>
-=======
           <a class="navbar-brand" href="/home/index"><%=image_tag("custom/logo2.png", :style => "width: 160px; height: 150px;")%></a>
->>>>>>> e225cad52631a371d23abb22076dc3ad3e73b85d
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
           <!-- Nav -->
           <div class="collapse navbar-collapse" id="dorneNav">
@@ -34,7 +31,7 @@
                 <% if current_user.admin?%>
                   <ul class="navbar-nav mr-auto" id="dorneMenu">
                     <li class="nav-item">
-                      <a class="nav-link" href="/new_game">Proposer un jeu</a>
+                      <a class="nav-link" href="/new_games">Proposer un jeu à louer</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/">Résumé admin</a>
@@ -42,7 +39,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="index.html">Mon historique</a>
+                            <a class="dropdown-item" href="/dashboard">Mon historique</a>
                             <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
                             <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
                           </div>
@@ -53,7 +50,7 @@
                     <li class="nav-item dropdown" style="padding-right:10px;">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/new_game">Proposer un jeu</a>
+                          <a class="dropdown-item" href="/new_games">Proposer un jeu à louer</a>
                           <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
                           <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
                         </div>
