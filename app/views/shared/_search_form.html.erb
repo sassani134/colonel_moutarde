@@ -2,14 +2,17 @@
     <div class="dorne-search-form d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="search-close-btn" id="closeBtn">
-                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
-                    </div>
+               
+                <div class="col-md-12">
                     <form action="/explore" method="get">
                         <input type="search" name="caviarSearch" id="search" placeholder="Pour vérifier si votre jeu existe, entrez son nom ici">
-                        <input type="submit" class="d-none" value="submit">
+                        <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search"> chercher</i>
+                        </button>
                     </form>
+                    <div class="search-close-btn" id="closeBtn">
+                            <i class="pe-7s-close-circle" aria-hidden="true"></i> 
+                    </div>
                 </div>
             </div>
         </div>
