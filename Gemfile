@@ -7,13 +7,14 @@ gem 'active_storage-postgresql'
 gem "aws-sdk-s3", require: false
 gem 'image_processing', '~> 1.2'
 gem 'geocoder'
+gem 'gmaps4rails'
 gem 'mailjet'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'wow'
 gem 'wow-rails'
 group :test, :development do
-  gem 'rspec-rails'
+gem 'rspec-rails'
 end
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'gmail'

@@ -1,0 +1,11 @@
+<h1> Résultat de votre recherche</h1>
+
+<%if @result[0]%>
+  <%@result.each_with_index do |game, index|%>
+    <h3> Résultat <%=index+1%></h3>
+    <h5> <%=link_to "#{game.title}", "/listing/#{game.id}"%> <br/>
+    <%=game.description[0..100]%> [...]</h5>
+  <%end%>
+<%else%>
+  <h3> Votre recherche n'a pas donné de résultat</h3>
+<%end%>

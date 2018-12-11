@@ -15,7 +15,13 @@ class NewGamesController < ApplicationController
 
   # GET /new_games/new
   def new
-    @new_game = Game.new
+    if user_signed_in?
+      @new_game = Game.new
+      @genre = Genre.all
+      @style = Style.all
+      @age = Age.all
+      @player_number = PlayerNumber.all
+    end
   end
 
   # GET /new_games/1/edit
@@ -25,10 +31,17 @@ class NewGamesController < ApplicationController
   # POST /new_games
   # POST /new_games.json
   def create
-    @new_game = Game.new(title: params[:title], description: params[:description])
+    if current_user.admin?
+      @new_game = Game.new(title: params[:title], description: params[:description], confirm: true)
+    elsif user_signed_in?
+      @new_game = Game.new(title: params[:title], description: params[:description], confirm: false)
+    else
+      @new_game = Game.new
+    end
     #image.attach(params[:image])
     respond_to do |format|
       if @new_game.save
+        Category.create(game: @new_game, genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
         Game.last.image.attach(params[:image])
         format.html { redirect_to "/gameshow", notice: 'Add game was successfully created.' }
         format.json { render :show, status: :created, location: @new_game }

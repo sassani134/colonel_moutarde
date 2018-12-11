@@ -2,6 +2,7 @@
   "name": "colonel",
   "private": true,
   "dependencies": {
-    "animate.css": "^3.7.0"
+    "animate.css": "^3.7.0",
+    "underscore": "^1.9.1"
   }
 }

@@ -31,18 +31,18 @@ class CartController < ApplicationController
         @cart.number_week.insert(@order, 1)
         @cart.save
         redirect_to "/listing"
-        flash[:success] = "You successfully added the product to your cart"
+        flash[:success] = "Votre jeu a bien été ajouté à votre panier !"
       else
         @quant = @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)].to_i
         @quant += 1
         @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)] = @quant.to_s
         @cart.save
         redirect_to "/listing" 
-        flash[:alert] = "You successfully added the product to your cart"
+        flash[:alert] = "Votre jeu a bien été ajouté à votre panier !"
       end
     else
       redirect_to "/listing" 
-      flash[:alert] = "You must be connected to have a cart"
+      flash[:alert] = "Vous devez être connecté pour accéder au panier"
     end
   end
 
@@ -78,7 +78,7 @@ class CartController < ApplicationController
       @cart.number_week.delete_at(@ind)
       @cart.save
       @cart.copy_ids = @array
-      @content = @cart.copys
+      @content = @cart.copies
       @price = 0
       @content.each_with_index do |content, index| 
         @price += content.price * @cart.number_week[index]
@@ -102,6 +102,9 @@ class CartController < ApplicationController
         end
         @cart.number_week = []
         @cart.save
+        UserMailer.client_order(current_user).deliver_now!
+        UserMailer.proprio_order(current_user).deliver_now!
+        UserMailer.admin_order.deliver_now!
         Cart.where(:user_id => current_user.id)[0].copy_ids = []
         redirect_to "/"
         flash[:success] = "Vous avez réussi à passer votre commande. Retrouvez là dans votre onglet commande :)"
@@ -113,6 +116,7 @@ class CartController < ApplicationController
   end
 
   def empty
+    @cart = Cart.where(:user_id => current_user.id)[0]
     @cart.number_week = []
     @cart.save
     Cart.where(:user_id => current_user.id)[0].copy_ids = []

@@ -1,0 +1,10 @@
+<%@confirmed_copies.each do |copy|%>
+  <div class='card col-3'>
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%=copy.game.title%></h5>
+      <p class='card-text'><%=copy.orders.last.user.username%></p>
+      <%= link_to "Jeux rendu?", "return/#{copy.id}", :class => "btn btn-primary", method: :put%>
+    </div>
+  </div>
+<%end%>
