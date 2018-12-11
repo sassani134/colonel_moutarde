@@ -90,3 +90,43 @@ button.stripe-button-el>span {
   background-color: #2A2A2A !important;
   font-weight: 600 !important;
 }
+
+
+.right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remenber_box {
+  margin-top : 20px;
+  margin-left: 4px;
+}
+
+.remenber {
+  color : white;
+  font-size : 12px;
+}
+
+.bottom {
+  position : absolute;
+  margin-top: 90px;
+  color : white;
+  font-size : 15px;
+}
+
+.lien {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.lien:hover {
+    color: white;
+    text-decoration: none;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    outline: none;
+    font-weight: 800;
+}
+

@@ -30,14 +30,14 @@ class CartController < ApplicationController
         @order = @new_cart.index(params[:id_add].to_i)
         @cart.number_week.insert(@order, 1)
         @cart.save
-        redirect_to "/listing"
+        redirect_to "/dashboard"
         flash[:success] = "Votre jeu a bien été ajouté à votre panier !"
       else
         @quant = @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)].to_i
         @quant += 1
         @cart.number_week[@cart.copy_ids.index(params[:id_add].to_i)] = @quant.to_s
         @cart.save
-        redirect_to "/listing" 
+        redirect_to "/dashboard" 
         flash[:alert] = "Votre jeu a bien été ajouté à votre panier !"
       end
     else

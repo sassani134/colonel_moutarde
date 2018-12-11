@@ -1,15 +1,14 @@
-<div class = 'card card-tot d-flex flex-column'>
-  <h2>Selection du <%=@order.created_at.localtime.to_date.to_s%></h2>
-  <p>&nbsp;</p>
-	<h4>Vous avez payé <%= @order.price  %> $</h4>
-  <h4> La commande contient :</h4>
-  <div class = "d-flex flex-wrap justify-content-center">
-  <%@order.copies.each_with_index do |copy, index|%>
-    <div id='item_<%index%>' class =' col-3 d-flex flex-row align-items-center card card-command'>
-      <p><%=@order.number_week[index]%> semaine avec  <%= copy.game.title  %></p>
-    </div>&nbsp;
-  <%end%>
+<div class = "card">
+  <div class="card-header">
+    <h5>Selection du <%=@order.created_at.to_s%></h5>
   </div>
-  <p>&nbsp;</p>
-	<h4> <br/>Date de la commande: <%=@order.created_at.to_s%></h4>
+	<div class="card-body">
+    <p class="card-text">La location contient :</p>
+    <%@order.copies.each_with_index do |copy, index|%>
+      <h5 class="card-title" id='item_<%index%>'><%=@order.number_week[index]%> semaine avec  <%= copy.game.title  %></h5>
+    <%end%>
+  </div>
+	<div class="card-footer text-muted">
+    Vous avez payé <%= @order.price  %> €
+  </div>
 </div>

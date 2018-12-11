@@ -1,48 +1,75 @@
- <!DOCTYPE html>
-<html>
-  <body>
-    <div id="map2"></div>
-    <script>
-      var geocoder;
-var map;
-var address = "new york city";
-
-function initMap() {
-    geocoder = new google.maps.Geocoder();
-
-    var uluru = { lat: -25.363, lng: 131.044 };
-    map = new google.maps.Map(document.getElementById('map2'), {
-        zoom: 4,
-        center: uluru
-    });
-    var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
-    codeAddress(address);
-
-}
-
-function codeAddress(address) {
-
-    geocoder.geocode({ 'address': address }, function (results, status) {
-        console.log(results);
-        var latLng = {lat: results[0].geometry.location.lat (), lng: results[0].geometry.location.lng ()};
-        console.log (latLng);
-        if (status == 'OK') {
-            var marker = new google.maps.Marker({
-                position: latLng,
-                map: map
-            });
-            console.log (map);
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
-    });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-    </script>
-  </body>
-</html>
+<!-- ***** Listing Destinations Area Start ***** -->
+    <section class="dorne-listing-destinations-area section-padding-100-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <span></span>
+                        <h4>L'équipe</h4>
+                        <p>The Hacking Project - Moussaillons Session 6 - Grenoble</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <!-- Single Features Area -->
+                <div class="col-6 col-sm-3 col-lg-2">
+                    <div class="single-features-area mb-50">
+                        <img src="http://www.avatarsdb.com/avatars/matrix0444.gif" width="220px" alt="">
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>Romain</h5>
+                                <p>Le véritable concepteur d'Apple</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <!-- Single Features Area -->
+                <div class="col-6 col-sm-3 col-lg-2">
+                    <div class="single-features-area mb-50">
+                        <img src="http://www.avatarsdb.com/avatars/cat_piano.gif" width="220px" alt="">
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>Samuel</h5>
+                                <p>Fondateur de Facebook</p><br/>
+                            </div>
+                        </div>
+                    </div>
+                </div>                <!-- Single Features Area -->
+                <div class="col-6 col-sm-3 col-lg-2">
+                    <div class="single-features-area mb-50">
+                        <img src="http://www.avatarsdb.com/avatars/funny_elite_machine_gun.gif" width="220px" alt="">
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>Guillaume</h5>
+                                <p>Premier programmeur de l'histoire</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <!-- Single Features Area -->
+                <div class="col-6 col-sm-3 col-lg-2">
+                    <div class="single-features-area mb-50">
+                        <img src="http://www.avatarsdb.com/avatars/matrix_rain.gif" width="220px"  alt="">
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>Faycal</h5>
+                                <p>L'homme qui a inventé internet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                <!-- Single Features Area -->
+                <div class="col-6 col-sm-3 col-lg-2">
+                    <div class="single-features-area mb-50">
+                        <img src="http://www.avatarsdb.com/avatars/penguin.gif" width="220px"   alt="">
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>Hai-Dang</h5>
+                                <p>Pionnier de l’intelligence artificielle</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Listing Destinations Area End ***** -->

@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
     def create
       game = Game.find_by_id (params[:game_id])
       if user_signed_in?
-        comment = game.comments.create!(content: params[:comment][:content], user: user)
+        comment = game.comments.create(content: params[:comment][:content], user: user)
         url="/listing/" + @game.id.to_s
         redirect_to(url)
       end

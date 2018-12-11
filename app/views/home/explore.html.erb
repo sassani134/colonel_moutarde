@@ -1,11 +1,30 @@
-<h1> Résultat de votre recherche</h1>
+<div class="row h-100 align-items-center justify-content-center">
+  <div class="col-12 col-md-10">
+		<!-- Hero Search Form -->
+		<div class="hero-search-form">
+			<!-- Tabs Content -->
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+				  <div class="row">
+    				<div class="col">
+							<h2> Résultat de votre recherche :</h2>
+							<%if @result[0]%>
+							  <%@result.each_with_index do |game, index|%>
+							  </br>
+							  <h2> <%=link_to "#{game.title}", "/listing/#{game.id}"%></h2>
+							    <h5><%=game.description[0..100]%> [...]</h5>
+							    </br>
+							    <p> Résultat n°<%=index+1%></p>
+							  <%end%>
+							<%else%>
+							  <h2> Votre recherche n'a pas donné de résultat</h2>
+							<%end%>
+						</div>
 
-<%if @result[0]%>
-  <%@result.each_with_index do |game, index|%>
-    <h3> Résultat <%=index+1%></h3>
-    <h5> <%=link_to "#{game.title}", "/listing/#{game.id}"%> <br/>
-    <%=game.description[0..100]%> [...]</h5>
-  <%end%>
-<%else%>
-  <h3> Votre recherche n'a pas donné de résultat</h3>
-<%end%>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
