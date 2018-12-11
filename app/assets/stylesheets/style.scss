@@ -1073,14 +1073,14 @@ li {
 .contact-form-area {
 	position: relative;
 	z-index: 1;
-	padding: 100px 40px 100px 50px;
+	padding: 0px 40px 40px 50px;
 }
 
 .contact-form-area,
 .dorne-map-area {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+        -ms-flex: 0 0 80%;
+            flex: 0 0 80%;
     width: 50%;
 }
 
