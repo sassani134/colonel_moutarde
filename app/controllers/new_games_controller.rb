@@ -1,10 +1,11 @@
 class NewGamesController < ApplicationController
   before_action :set_new_game, only: [:show, :edit, :update, :destroy]
+  include Rails.application.routes.url_helpers
 
   # GET /new_games
   # GET /new_games.json
   def index
-    @add_games = Game.all
+    @add_games = Game.order(:id)
   end
 
   # GET /new_games/1
