@@ -1,7 +1,12 @@
 
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p> 
 
-<h1>Add Games</h1>
+<div class="d-flex justify-content-center">
+<!-- Contact Form Area -->
+<div class="contact-form-area equal-height">
+  <div class="contact-form">
+
+<h1>Jeux en base de données</h1>
 
 <table>
   <thead>
@@ -14,20 +19,20 @@
     <% @add_games.each do |new_game| %>
       <tr>
      <% if new_game.image.attached? %>
-     <td><p><%= new_game.title %></p></td>
-        <td><%= image_tag url_for(Game.find_by_id([new_game]).image) %> </td>
+      <td><a><%= new_game.title %></a></td>
+        <td><%= image_tag url_for(Game.find_by_id([new_game]).image) %></td>
         <td><p><%= new_game.description %></p></td>
         <td><p><%= new_game.categories %></p></td>
-        <td><%= link_to 'Show', new_game_path(new_game) %></td>
-        <td><%= link_to 'Edit', edit_new_game_path(new_game) %></td>
-        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
+        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>
       <%else%>
-      <td><p><%= new_game.title %></p></td>
-      <td><img src="../assets/no_photo.svg", alt="pas de photos"></td>
+        <td><a><%= new_game.title %></a></td>
+        <td><img src="../assets/no_photo.svg" alt="pas de photos"></td>
         <td><p><%= new_game.description %></p></td>
-        <td><%= link_to 'Show', new_game_path(new_game) %></td>
-        <td><%= link_to 'Edit', edit_new_game_path(new_game) %></td>
-        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
+        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>
       <%end%>
       </tr>
     <% end %>
@@ -35,5 +40,9 @@
 </table>
 
 <br>
+
+</div>
+</div>
+</div>
 
 <%= link_to 'New Game', new_new_game_path %>
