@@ -120,6 +120,26 @@
       </div>
     <% end %>
 
+    <!-- Affichage du comment -->
+    <div class="col-md-6"><br/><br/>
+      <% @good_coms.each do |comment| %>
+        <div class = "card" style = "width: 100%;">
+        <div class="bg-light text-dark">
+        <div class = "card-body">
+        <h6 class = "card-text">
+          <small>Commentaire<br/>L'auteur</small><br/>
+          <%= comment.content %>
+        </h6><br/>
+          <p class= "flex-wrap">
+            <a href="/comment/<%= comment.id%>/edit" class="card-link"><small>Editer le commentaire ici</small></a>           
+          </p>
+        </div>
+        </div>
+        </div><br/><br/>
+      <% end %> 
+    
+    </div>
+
 
                         <div class="listing-reviews-area mt-100">
                             <h4>Avis des joueurs</h4>

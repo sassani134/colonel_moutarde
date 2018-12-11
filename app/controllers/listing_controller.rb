@@ -20,6 +20,7 @@ class ListingController < ApplicationController
 
   def show
     @good_comment = Comment.new
+    @good_coms = []
     @game= Game.find(params[:id])
     if user_signed_in?
       @copies = @game.copies.where.not(:user_id => current_user.id)
