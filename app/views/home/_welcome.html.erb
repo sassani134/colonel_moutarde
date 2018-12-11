@@ -1,67 +1,67 @@
-    <!-- ***** Welcome Area Start ***** -->
-    <section class="dorne-welcome-area bg-img bg-overlay">
-         <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-12 col-md-10">
-                    <div class="hero-content">
-                        <h2>Louez vos jeux préférés !</h2>
-                        <h4>Entre particuliers, partout en France ! </h4>
+<!-- ***** Welcome Area Start ***** -->
+<section class="dorne-welcome-area bg-img bg-overlay">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="hero-content">
+          <h2>Louez vos jeux préférés !</h2>
+          <h4>Entre particuliers, partout en France ! </h4>
+        </div>
+        <% unless user_signed_in? %>
+          <!-- Hero Search Form -->
+          <div class="hero-search-form">
+            <!-- Tabs -->
+            <div class="nav nav-tabs" id="heroTab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</a>
+              <!--     <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;S'enregistrer&nbsp;&nbsp;&nbsp;</a>
+              </div> -->
+              <!-- Tabs Content -->
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "nom@exemple.com", class: "form-control" %>
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="field">
+                    <%= f.label :password %><br />
+                      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Mot de passe", class: "form-control" %>
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <% if devise_mapping.rememberable? -%>
+                    <div class="field">
+                      <br>
+                      <%= f.check_box :remember_me, class: "remenber_box" %>
+                      <%= f.label :remember_me, class: "remenber"%>
                     </div>
-                    <% unless user_signed_in? %>
-                    <!-- Hero Search Form -->
-                    <div class="hero-search-form">
-                        <!-- Tabs -->
-                        <div class="nav nav-tabs" id="heroTab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</a>
-                        <!--     <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;S'enregistrer&nbsp;&nbsp;&nbsp;</a>
-                        </div> -->
-                        <!-- Tabs Content -->
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                        <div class="field">
-                          <%= f.label :email %><br />
-                          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "nom@exemple.com", class: "form-control" %>
-                        </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="field">
-                          <%= f.label :password %><br />
-                          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Mot de passe", class: "form-control" %>
-                        </div>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <% if devise_mapping.rememberable? -%>
-                          <div class="field">
-                            <br>
-                            <%= f.check_box :remember_me, class: "remenber_box" %>
-                            <%= f.label :remember_me, class: "remenber"%>
-                          </div>
-                        <% end -%>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="actions">
-                          <%= f.submit "Se connecter" , :class => 'btna' %>
-                          <br/><br/>
-                        </div>
-                        <div class="bottom">
-                        <span> Pas encore inscrit ? </span>
-                        <a class="lien" data-dismiss="modal" data-toggle="modal" href="#modalUp">Enregistre toi !</a>
-                      </div>
-                    </div>
-                      </div>
-                      <% end %>
-                    </div>
-                    <% end %>
+                  <% end -%>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="actions">
+                    <%= f.submit "Se connecter" , :class => 'btna' %>
+                    <br/><br/>
+                  </div>
+                  <div class="bottom">
+                    <span> Pas encore inscrit ? </span>
+                    <a class="lien" data-dismiss="modal" data-toggle="modal" href="#modalUp">Enregistre toi !</a>
+                  </div>
                 </div>
+              </div>
+              <% end %>
             </div>
+          <% end %>
         </div>
-        <!-- Hero Social Btn -->
-        <div class="hero-social-btn">
-            <div class="social-title d-flex align-items-center">
-              <span></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                <h6>Suivez-nous sur <a href="https://fr-fr.facebook.com/thehackingproject/">Facebook&nbsp;&nbsp;&nbsp;</a></h6>
-                <span></span>&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div class="social-btns">
-            </div>
-        </div>
-    </section>
-    <!-- ***** Welcome Area End ***** -->
+      </div>
+    </div>
+    <!-- Hero Social Btn -->
+    <div class="hero-social-btn">
+      <div class="social-title d-flex align-items-center">
+        <span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <h6>Suivez-nous sur <a href="https://fr-fr.facebook.com/thehackingproject/">Facebook&nbsp;&nbsp;&nbsp;</a></h6>
+        <span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="social-btns">
+    </div>
+  </div>
+</section>
+<!-- ***** Welcome Area End ***** -->

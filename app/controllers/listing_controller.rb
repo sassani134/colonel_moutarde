@@ -25,6 +25,7 @@ class ListingController < ApplicationController
       @copies = @game.copies
     end
     @users = User.all
+    @genres = Genre.all
     @game = Game.find(params[:id])
     @long = []
     @lat = []
