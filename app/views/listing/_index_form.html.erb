@@ -6,10 +6,9 @@
 				  <div class="row">
     				<div class="col">
 							<h6>Choisir un jeu</h6>
-							<%= form_with url: '/search_game', method: :get do |form| %>
-								<%= form.label :game %>
-    						<%= form.collection_select :game_id, Game.all, :id, :title, :prompt => "Titre du jeu" %>
-								<%= button_tag( :class => "btn dorne-btn") do %>
+							<%= form_with url: '/search' do |form| %>
+    						<%= form.collection_select :id, Game.all, :id, :title, :prompt => "Titre du jeu" , class:"custom-select"%>
+								<%= button_tag( type: 'submit', :class => "btn dorne-btn") do %>
  								 <i class="fa fa-search pr-2" aria-hidden="true"></i>Valider
 								<% end %>
 							<%end%>
