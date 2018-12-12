@@ -18,7 +18,7 @@ class ListingController < ApplicationController
   end
 
   def search_game
-    @game = Game.find(params[:id])
+    @game = Game.find(params[:game_id])
     if user_signed_in?
       @copies_other_users = @game.copies.where.not(:user_id => current_user.id)
       @copies = @copies_other_users.where(:available =>true)
@@ -37,6 +37,7 @@ class ListingController < ApplicationController
       @proprio << copy.user.username
       @copy = copy.id.to_s
     end
+    redirect_to "/listing/#{params[:game_id]}"
   end
 
   def show
