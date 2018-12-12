@@ -1,6 +1,6 @@
 <div class="section">
   <% if current_user.admin? %>
-    <%if @games%>
+    <%if @games[0]%>
       <%= render 'games'%>
     <%end%>
     <%if @overdue_copies[0]%>

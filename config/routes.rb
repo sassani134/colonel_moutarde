@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
   get 'users', to: 'admin#users'
   get 'users/:id', to: 'admin#show'
+  get 'games/:id', to: 'admin#game'
   
   resources :charges
   resources :listing
