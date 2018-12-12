@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get '/contact', to: "home#contact"
   get '/explore', to: "home#explore"
-  post '/search', to: 'listing#search'
+  post '/search_game', to: 'listing#search_game'
+  get '/search_cat', to: 'listing#search_cat'
   get '/dashboard', to: "dashboard#index"
   get '/add_copy', to: "dashboard#rent_copy"
   get '/show_orders/:id', to: 'dashboard#toggle_past'

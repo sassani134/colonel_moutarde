@@ -6,7 +6,6 @@ class ListingController < ApplicationController
     @games = Game.where(:confirm => true)
     @users = User.all
     @genres = Genre.all
-    @copies = Copy.where(:available => true).order(1)
     if user_signed_in?
       @cart=Cart.where(:user_id => current_user.id)[0]
       if @cart
@@ -17,8 +16,23 @@ class ListingController < ApplicationController
     end
   end
 
-  def search
+  def search_game
     redirect_to "/listing/#{params[:id]}"
+  end
+
+  def search_cat
+    @category_search = Category.where(:genre_id => params[:id])
+    @games = []
+    @category_search.each do |cat|
+      if cat.game.confirm == true
+        @games << cat.game
+      end
+    end
+    @users = User.all
+    @genres = Genre.all
+    if user_signed_in?
+      @cart=Cart.where(:user_id => current_user.id)[0]
+    end
   end
 
   def show
