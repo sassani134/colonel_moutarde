@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :listing
   resources :new_games
   post "/new_games/new", to: 'new_games#create'
-  get '/gameshow', to: 'new_games#show'
+  get '/gameshow/:id', to: 'new_games#show'
   
   get '/cart', to: "cart#index"
   get '/empty', to: 'cart#empty'

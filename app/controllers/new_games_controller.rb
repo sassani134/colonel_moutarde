@@ -45,7 +45,7 @@ class NewGamesController < ApplicationController
       if @new_game.save
         Category.create(game: @new_game, genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
         Game.last.image.attach(params[:image])
-        format.html { redirect_to "/gameshow", notice: 'Add game was successfully created.' }
+        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully created.' }
         format.json { render :show, status: :created, location: @new_game }
       else
         format.html { render :new }
@@ -57,9 +57,13 @@ class NewGamesController < ApplicationController
   # PATCH/PUT /new_games/1
   # PATCH/PUT /new_games/1.json
   def update
+    Game.find(params[:id]).image.purge
+    @new_game = Game.find(params[:id])
+
     respond_to do |format|
       if @new_game.update(new_game_params)
-        format.html { redirect_to @new_game, notice: 'Add game was successfully updated.' }
+        Game.find(params[:id]).categories[0].update( genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
+        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully updated.' }
         format.json { render :show, status: :ok, location: @new_game }
       else
         format.html { render :edit }
