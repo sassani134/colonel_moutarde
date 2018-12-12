@@ -20,6 +20,7 @@ class ListingController < ApplicationController
     redirect_to "/listing/#{params[:id]}"
   end
 
+
   def search_cat
     @category_search = Category.where(:genre_id => params[:id])
     @games = []
@@ -37,6 +38,7 @@ class ListingController < ApplicationController
 
   def show
     @game= Game.find(params[:id])
+    @games = Game.where(:confirm => true)
     if user_signed_in?
       @copies_other_users = @game.copies.where.not(:user_id => current_user.id)
       @copies = @copies_other_users.where(:available =>true)

@@ -1,12 +1,49 @@
 
 <%= form_for :anything, url: "/add_copy", method: :post do |form| %>
   <div class='text-light'>
-  Jeu        : <%= form.select(:game, options_for_select(@title)) %>
-  Rue        : <%= form.text_field :street %>
-  Ville      : <%= form.text_field :city %>
-  Code postal: <%= form.text_field :postal_code %>
-  Pays       : <%= form.text_field :country %>
-  <%= form.submit value="Confirme ici!" %>
+  <div class="row">
+        <div class="col-12">
+          <div class="field">
+            <%= form.label :jeu %>
+            <%= form.select(:game, options_for_select(@title)) %><br/>
+          </div>
+        </div>
+
+        <div class="col-6 md-6">
+          <div class="field">
+            <%= form.label :rue %>
+            <%= form.text_field :street, class: "form-control"  %>
+          </div>
+        </div>
+
+        <div class="col-6 md-6">
+          <div class="field">
+            <%= form.label :ville %>
+            <%= form.text_field :city, class: "form-control"  %>
+          </div>
+        </div>
+
+        <div class="col-6 md-6">
+          <div class="field">
+            <%= form.label :code_postal %>
+            <%= form.text_field :postal_code, class: "form-control"  %>
+          </div>
+        </div>
+
+        <div class="col-6 md-6">
+          <div class="field">
+            <%= form.label :Pays %>
+            <%= form.text_field :country, class: "form-control"  %>
+          </div>
+        </div>
+
+        <div class="col-6 md-6">
+          <div class="field">
+            <br/><%= form.submit value="Confirme ici !", class: "btn black-btn" %>
+          </div>
+        </div>
+  
+  </div>
   </div>
 <% end  %>
 

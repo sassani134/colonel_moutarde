@@ -8,9 +8,13 @@
 
                         <div class="listing-title">
                             <h1><%= @game.title %></h1>
-                            <h6><%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%> joueurs</h6>
-                            <h4>IMAGES DU JEU</h4>
-                        </div>
+                            <h6>De <%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%></h6>
+                            <%if @game.image.attached?%>
+							<%= image_tag(@game.image, class: "style_image") %>
+						    <%else%>
+							<img class="centerimage" width="350px" height="740px" src="/assets/bg-img/feature-1.jpg" alt=""></a>
+                            <%end%>
+                           
                         <div class="overview-content mt-50">
                         <h4>Description :</h4>
                             <p><%= @game.description %></p>
@@ -69,7 +73,7 @@
 
                                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                     return function() {
-                                      <% if user_signed_in? %>yourContent.open(map,marker) <%end%>;
+                                      <% if user_signed_in? %>yourContent.open(map,marker)<%end%>;
                                     }
                                   })(marker, i));
                                 }
@@ -116,7 +120,7 @@
                                     <img src="img/clients-img/1.jpg" alt="">
                                     <div class="reviewer-content">
                                         <div class="review-title-ratings d-flex justify-content-between">
-                                            <h5>“The best Burger in town”</h5>
+                                            <h5>“Partie de Monopoly entre amis”</h5>
                                             <div class="ratings">
                                                 <img src="img/clients-img/star-fill.png" alt="">
                                                 <img src="img/clients-img/star-fill.png" alt="">
@@ -125,12 +129,12 @@
                                                 <img src="img/clients-img/star-fill.png" alt="">
                                             </div>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                        <p>Mes amis et moi conseillons de jouer avec Monopoly ! C'est un classique dans le genre mais avec les extenstions (Harry-Potter, Mario etc...) on a plus de fun ! La personne qui nous a loué en a plein d'autres comme ça ! On risque de retourner chez elle plus souvent !</p>
                                     </div>
                                 </div>
                                 <div class="reviewer-name">
                                     <h6>Christinne Smith</h6>
-                                    <p>12 November 2017</p>
+                                    <p>15 Décembre 2018</p>
                                 </div>
                             </div>
                             <div class="single-review-area">
@@ -138,7 +142,7 @@
                                     <img src="img/clients-img/1.jpg" alt="">
                                     <div class="reviewer-content">
                                         <div class="review-title-ratings d-flex justify-content-between">
-                                            <h5>“Quality ingredients”</h5>
+                                            <h5>“3 jeux en 1 soirée”</h5>
                                             <div class="ratings">
                                                 <img src="img/clients-img/star-fill.png" alt="">
                                                 <img src="img/clients-img/star-fill.png" alt="">
@@ -147,12 +151,12 @@
                                                 <img src="img/clients-img/star-unfill.png" alt="">
                                             </div>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                        <p>Je viens de déménager et je n'ai plus de jeux. Finalement avec Colonel Moutarde on a pu se louer 3 jeux pour une semaine sans dépenser trop ! Jeux en très bons états et proprios charmants ! </p>
                                     </div>
                                 </div>
                                 <div class="reviewer-name">
                                     <h6>Michael Brown</h6>
-                                    <p>12 November 2017</p>
+                                    <p>16 Decembre 2018</p>
                                 </div>
                             </div>
                         </div>
@@ -176,48 +180,27 @@
                                     <%= render 'modalchoice' %>
                                 <%end%>
                         </div>
-
                         <!-- Book A Table Widget -->
                         <div class="book-a-table-widget mt-50">
-                            <h6>Chercher une autre catégorie</h6>
+                            <h6 style="font-family:pacifico;font-size:30px;">Une autre envie ?</h6>
                             <form action="#" method="get">
-                                <select class="custom-select" id="destinations">
-                                <option selected>Who will be arriving</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
-                            </select>
-                                <select class="custom-select" id="catagories">
-                                <option selected>Guest 1</option>
-                                <option value="1">Guest 2</option>
-                                <option value="3">Guest 3</option>
-                                <option value="3">Guest 4</option>
-                            </select>
-                                <button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                                <a id="search-btn" href="#"><button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher un jeu</button></a>
+                                <br>
                             </form>
                         </div>
 
                         <!-- Book A Table Widget -->
                         <div class="book-a-table-widget mt-50">
-                            <h6>Ajouter un avis</h6>
+                            <h6 style="font-family:pacifico;font-size:30px;"> Suivez-nous !</h6>
                             <form action="#" method="get">
-                                <select class="custom-select" id="destinations">
-                                <option selected>Titre</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
+                                <h6> Plus la communauté est grande plus il y a de fun !<h6>
+                                <a href="https://fr-fr.facebook.com/thehackingproject/" class="iconsize">
+                                <%=image_tag("icon-x.png" )%>
+                                </a>
+                                <a href="https://twitter.com/project_hacking" class="iconsize">
+                                <%=image_tag("icon-y.png" )%>
+                                </a>
                             </select>
-                                <select class="custom-select" id="catagories">
-                                <option selected>Commentaire</option>
-                                <option value="1">Guest 2</option>
-                                <option value="3">Guest 3</option>
-                                <option value="3">Guest 4</option>
-                            </select>
-                                <button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Envoyer</button>
                             </form>
                         </div>
 
