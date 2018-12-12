@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/explore', to: "home#explore"
   post '/search_game', to: 'listing#search_game'
   get '/search_cat', to: 'listing#search_cat'
+  get '/search_cate', to: 'listing#search_cate'
   get '/dashboard', to: "dashboard#index"
   get '/add_copy', to: "dashboard#rent_copy"
   get '/show_orders/:id', to: 'dashboard#toggle_past'
