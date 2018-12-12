@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   get '/add_copy', to: "dashboard#rent_copy"
   get '/show_orders/:id', to: 'dashboard#toggle_past'
   post '/add_copy', to: "dashboard#save_copy"
-  patch 'confirm/:id', to: 'dashboard#confirm_copy'
-  put 'return/:id', to: 'dashboard#return_copy'
-  put 'available/:id', to: 'dashboard#available_copy'
-  get 'admin', to: 'admin#index'
-  get 'users', to: 'admin#users'
-  get 'users/:id', to: 'admin#show'
-  get 'games/:id', to: 'admin#game'
+  patch '/confirm/:id', to: 'dashboard#confirm_copy'
+  put '/return/:id', to: 'dashboard#return_copy'
+  put '/available/:id', to: 'dashboard#available_copy'
+  get '/admin', to: 'admin#index'
+  get '/users', to: 'admin#users'
+  get '/users/:id', to: 'admin#show'
+  get '/games/:id', to: 'admin#game'
   
   resources :charges
   resources :listing

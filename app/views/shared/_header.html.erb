@@ -32,8 +32,12 @@
                     <li class="nav-item">
                       <a class="nav-link" href="/new_games">Proposer un jeu à louer</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/admin">Résumé admin</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Résumé admin<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a><%= link_to "Résumé commande",'/admin', :class=>"dropdown-item" %></a>
+                            <a><%= link_to "Résumé utilisateurs", '/users', :class=>"dropdown-item" %></a>
+                          </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
