@@ -58,8 +58,7 @@ class NewGamesController < ApplicationController
   # PATCH/PUT /new_games/1.json
   def update
     respond_to do |format|
-      @new_game= Game.find(params[:id])
-      if @new_game.update
+      if @new_game.update()
         format.html { redirect_to @new_game, notice: 'Add game was successfully updated.' }
         format.json { render :show, status: :ok, location: @new_game }
       else

@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   resources :new_games
   post "/new_games/new", to: 'new_games#create'
   get '/gameshow', to: 'new_games#show'
-  get '/new_games/:id/edit', to: 'new_games#update'
-  post '/new_games/:id/edit', to: 'new_games#edit'
-  
+  get '/new_games/:id/edit', to: 'new_games#edit'
+  put '/new_games/:id/edit', to: 'new_games#update'
+  patch '/new_games/:id/edit', to: 'new_games#update'
+
   get '/cart', to: "cart#index"
   get '/empty', to: 'cart#empty'
   
