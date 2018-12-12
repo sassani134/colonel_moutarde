@@ -4,6 +4,7 @@ class AdminController < ApplicationController
       @orders=Order.all
       @renting_copies = Copy.where(:rented => true)
       @overdue_copies = Copy.where(:return => Time.now..DateTime::Infinity.new)
+      @games = Game.where(:confirmed => false)
     else
       redirect_to root_path
     end
