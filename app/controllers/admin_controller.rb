@@ -20,6 +20,8 @@ class AdminController < ApplicationController
   def show
     if current_user.admin?
       @user = User.find(param[:id])
+      @past_orders=current_user.orders
+      @active_orders=@past_orders.where("'true' = ANY (renting)")
     else
       redirect_to root_path
     end

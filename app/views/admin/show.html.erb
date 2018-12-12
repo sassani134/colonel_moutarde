@@ -1,10 +1,29 @@
 <h4>Résumé de <%=@user.username%></h4>
 <p>
-  <%=@user.email%><br/>
-  <%=@user.telephone%><br/>
-  <%=@user.address%><br/>
+  Mail: <%=@user.email%><br/>
+  Tel: <%=@user.telephone%><br/>
+  Adresse: <%=@user.address%><br/>
+  Nombre de commandes: <%=@user.orders.count%>
 </p>
+<h4>Jeux présentements empruntés</h4>
+<div class='d-flex flex-wrap rented'>
+  <%if @active_orders[0]%>
+    <%@active_orders.each do |order|%>
+      <%order.games.each_with_index do |copy|%>
+        <%if order.renting[index]%>
+          <div class='card col-3'>
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title"><%=copy.game.title%></h5>
+            <p class='card-text'><%=copy.return%></p>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>
 
 
-<h4>Dernière commande </h4>
+
      
