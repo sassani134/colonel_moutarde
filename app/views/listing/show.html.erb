@@ -113,6 +113,30 @@
 
                         <%end%>
 
+
+<h2>Comments</h2>
+<% @game.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.user_id %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.content %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
                         <div class="listing-reviews-area mt-100">
                             <h4>Avis des joueurs : </h4>
                             <div class="single-review-area">

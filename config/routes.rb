@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/games/:id', to: 'admin#game'
   
   resources :charges
-  resources :listing
+  resources :listing 
   resources :new_games
   post "/new_games/new", to: 'new_games#create'
   get '/gameshow/:id', to: 'new_games#show'
@@ -29,5 +29,7 @@ Rails.application.routes.draw do
   get '/cart', to: "cart#index"
   get '/empty', to: 'cart#empty'
   
+  resources :games do resources :comments end
+  post '/listing/:id/comment', to: "comment#create"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
