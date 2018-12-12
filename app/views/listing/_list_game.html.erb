@@ -3,9 +3,9 @@
 				<div class="col-12 col-sm-6 col-lg-4">
 					<div class="single-features-area mb-50">
 						<%if game.image.attached?%>
-							<a href="/listing/<%=game.id%>" class='img_game'><img class="testo" src='<%=game.image_url%>' alt=""></a>
+							<a href="/listing/<%=game.id%>" class='img_game'><%= image_tag(game.image, class: "style_image") %></a>
 						<%else%>
-							<a href="/listing/<%=game.id%>" class="testo"><img class="testo" src='<%=game.image_url%>' alt=""></a>
+							<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
 						<%end%>
 						<!-- Availability -->
 						<div class="price-start">
@@ -18,8 +18,8 @@
 						<div class="feature-content d-flex align-items-center justify-content-between">
 							<div class="feature-title">
 								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
-									<p> <%=game.genres[0].title%>. Se joue de <%=game.code%>.					
-									</p>
+									<p> <%=game.genres[0].title%>. Se joue de <%=game.player_numbers[0].number_low%> à <%= game.player_numbers[0].number_high%>					
+</p>
 							</div>
 						</div>
 					</div>
