@@ -3,75 +3,8 @@
 <div class="contact-form-area equal-height">
   <div class="contact-form">
     <h3>Ajouter un nouveau jeu</h3>
-
-      <%= form_with(model: @new_games, local: true) do |form| %>
-        <% if @new_game.errors.any? %>
-          <div id="error_explanation">
-            <h6><%= pluralize(new_game.errors.count, "error") %> prohibited this new_game from being saved:</h6>
-            <ul>
-              <% new_game.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-      <div class="row">
-        <div class="col-12">
-          <div class="field">
-            <%= form.label :titre %>
-            <%= form.text_field :title, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="field">
-            <%= form.label :description %>
-            <%= form.text_area :description, class: "form-control" %>
-          </div>
-        </div>
-
-        <div class="col-12 md-6">
-          <div class="field">
-            <%= form.label :image %><br/>
-            <%= form.file_field :image %>
-          </div>
-        </div>
-
-        <div class="col-12 md-6">
-          <div class="field">
-            <%= form.label :age %><br/>
-            <%= form.collection_select :age_id, Age.all, :id, :minimum, :prompt => "Age minimum pour jouer" %>
-          </div>
-        </div>
-
-        <div class="col-12 md-6">
-          <div class="field">
-            <%= form.label :genre %><br/>
-            <%= form.collection_select :genre_id, Genre.all, :id, :title, :prompt => "Genre du jeu" %>
-          </div>
-        </div>
-
-        <div class="col-12 md-6">
-          <div class="field">
-            <%= form.label :nombre_de_joueurs %><br/>
-            <%= form.collection_select :player_number_id, PlayerNumber.all, :id, :number_total, :prompt => "Nombre de joueur" %>
-          </div>
-        </div>
-
-        <div class="col-12 md-6">
-          <div class="field">
-            <%= form.label :style_de_jeu %><br/>
-            <%= form.collection_select :style_id, Style.all, :id, :sort, :prompt => "Style de jeu" %>
-          </div>
-        </div>
-      </div>
-      <div class="actions">
-        <br/>
-        <%= form.submit "Enregistrer ce nouveau jeau", :class => 'dorne-btn'%>
-      </div>
-  </div>
-  <% end %>
+    <%= render  "form", new_game: @new_games %>
+      
   <%= link_to 'Retour', new_games_path, :class => 'black-btn'%>
 </div>
 </div>
