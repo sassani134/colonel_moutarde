@@ -1,0 +1,11 @@
+<div class="section">
+  <% if current_user.admin? %>
+    <%if @overdue_copies%>
+      <%= render 'overdue_copies'%>
+    <%end%>
+    <div class='resume'>
+      <%= render 'layouts/content_admin' %>
+    </div>
+  <% end %>
+</div>
+<p>&nbsp;</p>
