@@ -28,51 +28,15 @@
             </div>
               <% if current_user%>
                 <% if current_user.admin?%>
-                  <ul class="navbar-nav mr-auto" id="dorneMenu">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/new_games">Proposer un jeu à louer</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Résumé admin<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a><%= link_to "Résumé commande",'/admin', :class=>"dropdown-item" %></a>
-                            <a><%= link_to "Résumé utilisateurs", '/users', :class=>"dropdown-item" %></a>
-                          </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/dashboard">Mon historique</a>
-                            <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
-                            <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
-                          </div>
-                    </li>
-                  </ul>
+                  <%=render 'shared/nav_admin'%>
                 <% else user_signed_in? %>
-                  <ul class="navbar-nav mr-auto" id="dorneMenu">
-                    <li class="nav-item dropdown" style="padding-right:10px;">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Mes infos<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/new_games/new">Proposer un jeu</a>
-                          <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
-                          <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
-                        </div>
-                    </li>
-                  </ul>
+                  <%=render 'shared/nav_user'%>
                 <% end %>
 
               <% else %>
-                <!-- Signin btn -->
-                <ul class="navbar-nav mr-auto" id="dorneMenu">
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" href="#modalUp">S'enregistrer</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" href="#modalIn">Se connecter</a>
-                  </li>
-                </ul>
+                <%=render 'shared/nav_anon'%>
               <% end %>
-              </div>
+            </div>
             <!-- Add listings btn -->
             <% if user_signed_in? %>
               <div class="dorne-add-listings-btn" >
