@@ -57,8 +57,9 @@ class NewGamesController < ApplicationController
   # PATCH/PUT /new_games/1
   # PATCH/PUT /new_games/1.json
   def update
+    @new_games= Game.find(params[:id])
     respond_to do |format|
-      if @new_game.update()
+      if @new_games.update_attributes(params.require(:game).permit(:title,:description))
         format.html { redirect_to @new_game, notice: 'Add game was successfully updated.' }
         format.json { render :show, status: :ok, location: @new_game }
       else
