@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   def index
     if current_user.admin?
-      @orders=order.all
+      @orders=Order.all
       @renting_copies = Copy.where(:rented => true)
       @overdue_copies = Copy.where(:return => Time.now..DateTime::Infinity.new)
     else
@@ -19,7 +19,7 @@ class AdminController < ApplicationController
 
   def show
     if current_user.admin?
-      @user = User.find(param[:id])
+      @user = User.find(params[:id])
       @past_orders=current_user.orders
       @active_orders=@past_orders.where("'true' = ANY (renting)")
     else

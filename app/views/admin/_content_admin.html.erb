@@ -1,4 +1,6 @@
-<table class="table" style="color: white;">
+<h3> Résumé des commandes</h3>
+
+<table class="table" style="color: black">
   <thead>
 	  <tr>
       <td>N° de commande</td>
@@ -9,15 +11,15 @@
 		</tr>
 	</thead>
   <tbody>
-  <%if @orders%>
+  <%if @orders[0]%>
     <% @orders.each do |order| %>
 	    <tr id='element_<%=order.id%>', remote: true>
         <td>Commande <%=order.id%></td>
 		    <td> <%=order.user.email%> </td>
 		    <td><%= order.price  %></td>
         <td><p>
-        <%order.items.each_with_index do |item, index|%>
-        <%=order.quantities[index]%> x <%= item.title  %>, 
+        <%order.copies.each_with_index do |copy, index|%>
+        <%= copy.game.title  %>: <%=order.number_week[index]%> semaines , 
         <%end%>
         </p> </td>
 			  <td><%=order.created_at%></td>
