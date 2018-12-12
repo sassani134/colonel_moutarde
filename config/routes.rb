@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   patch 'confirm/:id', to: 'dashboard#confirm_copy'
   put 'return/:id', to: 'dashboard#return_copy'
   put 'available/:id', to: 'dashboard#available_copy'
+  get 'admin', to: 'admin#index'
+  get 'users', to: 'admin#users'
+  get 'users/:id', to: 'admin#show'
   
   resources :charges
   resources :listing
