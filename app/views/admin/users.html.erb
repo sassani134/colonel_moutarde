@@ -1,0 +1,15 @@
+<div class='d-flex flex-wrap rented'>
+  <%@users.each do |user|%>
+    <div class='card col-3'>
+      <div class="card-body">
+        <h5 class="card-title"><%=user.username%></h5>
+        <p class='card-text'>
+        <%=user.email%><br/>
+        <%=user.telephone%><br/>
+        <%=user.address%><br/>
+        </p>
+        <%= link_to "Fiche de l'utilisateur", "users/#{user.id}", :class => "btn btn-primary", method: :get%>
+      </div>
+    </div>
+  <%end%>
+</div>
