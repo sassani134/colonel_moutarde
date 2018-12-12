@@ -1,0 +1,29 @@
+<!-- Hero Search Form -->
+		<div class="hero-search-form">
+			<!-- Tabs Content -->
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+				  <div class="row">
+    				<div class="col">
+							<h6>Choisir un jeu</h6>
+							<%= form_with url: '/search_game' do |form| %>
+    						<%= form.collection_select :id, Game.all, :id, :title ,{:prompt => "Titre du jeu"}, { class:"custom-select"}%>
+								<%= button_tag( type: 'submit', :class => "btn dorne-btn") do %>
+ 								 <i class="fa fa-search pr-2" aria-hidden="true"></i>Valider
+								<% end %>
+							<%end%>
+						</div>
+
+						<div class="col">
+							<h6>Choisir une catégorie</h6>
+							<%= form_with url: '/search_cat', method: :get do |form| %>
+    						<%= form.collection_select :id, Genre.all, :id, :title ,{:prompt => "Genre du jeu"}, { class:"custom-select"}%>
+								<%= button_tag( type: 'submit', :class => "btn dorne-btn") do %>
+ 								 <i class="fa fa-search pr-2" aria-hidden="true"></i>Valider
+								<% end %>
+							<%end%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

@@ -1,4 +1,4 @@
-<h2 class ="text-light">Les jeux que vous louez</h2>
+<h2 class ="text-light"> Mes jeux en location :</h2>
   <br/>
   
   <div class='d-flex flex-wrap rented'>
@@ -10,12 +10,22 @@
           <h5 class="card-title"><%=copy.game.title%></h5>
           <%unless copy.rented%>
             <%if copy.available%>
-              <%= link_to "Rendre indisponible?", "available/#{copy.id}", :class => "btn btn-danger", method: :put, :data => {:confirm => 'Le jeu ne sera plus louable par les autres utilisateurs'}%>
+            <p> Votre jeu est actuellement disponible à la location</p>
+            <label class="switch">
+            <input type="checkbox"checked><%= link_to "Rendre indisponible?", "available/#{copy.id}", :class => "slider round", method: :put, :data => {:confirm => 'Le jeu ne sera plus louable par les autres utilisateurs'}%>
+            </label><br>
+            <span> Rendre indisponible ?</span>
             <%else %>
-              <%= link_to "Rendre disponible?", "available/#{copy.id}", :class => "btn btn-warning", method: :put, :data => {:confirm => 'Le jeu redeviendra accessible à tous les utilisateurs'}%>
+          <p> Votre jeu <b>n'est pas visible</b> par les autres joueurs</p>
+             <label class="switch">
+              <input type="checkbox">
+              <%= link_to "Rendre disponible?", "available/#{copy.id}", :class => "slider round", method: :put, :data => {:confirm => 'Le jeu redeviendra accessible à tous les utilisateurs'}%>
+               </label><br>
+            <span> Rendre disponible ?</span>
             <%end%>
           <%end%>
         </div>
       </div>
     <%end%>  
   </div>
+

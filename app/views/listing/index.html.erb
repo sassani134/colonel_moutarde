@@ -1,40 +1,6 @@
 <div class="row h-100 align-items-center justify-content-center">
   <div class="col-12 col-md-10">
-		<!-- Hero Search Form -->
-		<div class="hero-search-form">
-			<!-- Tabs Content -->
-			<div class="tab-content" id="nav-tabContent">
-				<div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-				  <div class="row">
-    				<div class="col">
-							<h6>Choisir un jeu</h6>
-							<form action="#" method="get">
-								<select class="custom-select">
-									<option selected>Nom du jeu</option>
-									<% @games.each do |game| %>
-										<option value="game.id"><%= game.title %></option>
-									<% end %>
-								</select>
-								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
-							</form>
-						</div>
-
-						<div class="col">
-							<h6>Choisir une catégorie</h6>
-							<form action="#" method="get">
-								<select class="custom-select">
-									<option selected>Catégorie</option>
-									<% @genres.each do |genre| %>
-										<option value="genre.id"><%= genre.title %></option>
-									<% end %>
-								</select>
-								<button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Valider</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%= render 'index_form'%>
 	</div>
 </div>
 
@@ -51,34 +17,8 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<!-- Single Features Area -->
-			<%@games.each do |game|%>
-				<div class="col-12 col-sm-6 col-lg-4">
-					<div class="single-features-area mb-50">
-						<%if game.image.attached?%>
-							<a href="/listing/<%=game.id%>" class='img_game'><%= image_tag(game.image, class: "style_image") %></a>
-						<%else%>
-							<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
-						<%end%>
-						<!-- Availability -->
-						<div class="price-start">
-							<%if user_signed_in?%>
-								<p><%= game.copies.where.not(:user_id => current_user.id).count %> disponible(s)</p>
-							<%else%>
-								<p><%= game.copies.count %> disponible(s)</p>
-							<%end%>
-						</div>
-						<div class="feature-content d-flex align-items-center justify-content-between">
-							<div class="feature-title">
-								<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
-									<p> <%=game.genres[0].title%>. Se joue de <%=game.player_numbers[0].number_low%> à <%= game.player_numbers[0].number_high%>					
-									</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			<% end %>
+		<div class="row list_games">
+			<%= render 'list_game'%>
 		</div>
 	</div>
 	<%= render 'alert_location'  %>

@@ -1,12 +1,11 @@
 class ListingController < ApplicationController
-  require 'bigdecimal'
-  require 'bigdecimal/util'
+  
+  respond_to? :html, :js
 
   def index 
     @games = Game.where(:confirm => true)
     @users = User.all
     @genres = Genre.all
-    @copies = Copy.where(:available => true).order(1)
     if user_signed_in?
       @cart=Cart.where(:user_id => current_user.id)[0]
       if @cart
@@ -14,6 +13,25 @@ class ListingController < ApplicationController
       else
         @cart = Cart.create!(user_id: current_user.id)
       end
+    end
+  end
+
+  def search_game
+    redirect_to "/listing/#{params[:id]}"
+  end
+
+  def search_cat
+    @category_search = Category.where(:genre_id => params[:id])
+    @games = []
+    @category_search.each do |cat|
+      if cat.game.confirm == true
+        @games << cat.game
+      end
+    end
+    @users = User.all
+    @genres = Genre.all
+    if user_signed_in?
+      @cart=Cart.where(:user_id => current_user.id)[0]
     end
   end
 
@@ -28,7 +46,6 @@ class ListingController < ApplicationController
     end
     @users = User.all
     @genres = Genre.all
-    @game = Game.find(params[:id])
     @long = []
     @lat = []
     @proprio = []

@@ -80,8 +80,9 @@ class CartController < ApplicationController
       @cart.copy_ids = @array
       @content = @cart.copies
       @price = 0
-      @content.each_with_index do |content, index| 
-        @price += content.price * @cart.number_week[index]
+      @price = 0
+      @cart.copy_ids.each_with_index do |content, index| 
+        @price += 3.5 * @cart.number_week[index]
       end
       @price
     end
