@@ -21,8 +21,7 @@
      <% if new_game.image.attached? %>
       <td><a><%= new_game.title %></a></td>
         <td><%= image_tag url_for(Game.find_by_id([new_game]).image) %></td>
-        <td><p><%= new_game.description.truncate_words(4) %></p></td>
-        
+        <td><p><%= new_game.description.truncate_words(10) %></p></td>
         <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
         <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>

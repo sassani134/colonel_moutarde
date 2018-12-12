@@ -2,7 +2,7 @@
 
 <strong><%=@games.title %></strong>
 <p><%=@games.description %></p>
-<p><%@games.categories %>
+<p><%@games.ages %></p>
 
 <% if @games.image.attached? %>
     <%= image_tag url_for(@games.image) %>

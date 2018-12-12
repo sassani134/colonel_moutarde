@@ -58,7 +58,8 @@ class NewGamesController < ApplicationController
   # PATCH/PUT /new_games/1.json
   def update
     respond_to do |format|
-      if @new_game.update(Game.find(params[:id]))
+      @new_game= Game.find(params[:id])
+      if @new_game.update
         format.html { redirect_to @new_game, notice: 'Add game was successfully updated.' }
         format.json { render :show, status: :ok, location: @new_game }
       else
@@ -71,7 +72,8 @@ class NewGamesController < ApplicationController
   # DELETE /new_games/1
   # DELETE /new_games/1.json
   def destroy
-    @new_game.destroy
+    @new_games= Game.find(params[:id])
+    @new_games.destroy
     respond_to do |format|
       format.html { redirect_to new_games_url, notice: 'Add game was successfully destroyed.' }
       format.json { head :no_content }
@@ -86,6 +88,6 @@ class NewGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def new_game_params
-      params.require(:game).permit(:title, :description, :image )
+      params.require(:game).permit(:title, :description )
     end
 end
