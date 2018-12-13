@@ -8,11 +8,12 @@
 
                         <div class="listing-title">
                             <h1><%= @game.title %></h1>
-                            <h6>De <%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%></h6>
+                            <h6>De <%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%> joueurs</h6>
+                            <br>
                             <%if @game.image.attached?%>
-							<%= image_tag(@game.image, class: "style_image") %>
-						    <%else%>
-							<img class="centerimage" width="350px" height="740px" src="/assets/bg-img/feature-1.jpg" alt=""></a>
+                            <%= image_tag(@game.image, class: "style_image") %>
+                            <%else%>
+                            <img class="centerimage" width="350px" height="740px" src="/assets/bg-img/feature-1.jpg" alt=""></a>
                             <%end%>
                            
                         <div class="overview-content mt-50">
@@ -20,7 +21,7 @@
                             <p><%= @game.description %></p>
                         </div>
 
-                   
+                        </div>
                     <h4>Disponibilité :</h4>
 
                     <div id="map2"style="width: 700px; height: 500px;"></div>
@@ -210,3 +211,4 @@
             </div>
         </div>
     </section>
+
