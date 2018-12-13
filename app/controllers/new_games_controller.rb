@@ -45,7 +45,8 @@ class NewGamesController < ApplicationController
       if @new_game.save
         Category.create(game: @new_game, genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
         Game.last.image.attach(params[:image])
-        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully created.' }
+        
+        format.html { redirect_to "/gameshow/#{Game.last.id}", notice: 'Add game was successfully created.' }
         format.json { render :show, status: :created, location: @new_game }
       else
         format.html { render :new }
