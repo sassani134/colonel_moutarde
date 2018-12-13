@@ -210,7 +210,12 @@ input:checked + .slider:before {
 
 
 .iconsize {
-  width : 50px;
-  height : 50px;
-  margin-left:60px;
+  width : 130px!important;
+  height : 130px!important;
+  margin-left: 60px;
+}
+
+.background {
+background-image:url(https://www.appesbach.at//images/background/holz_test.jpg);
+background-size: cover;
 }

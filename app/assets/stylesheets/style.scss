@@ -379,12 +379,14 @@ li {
     height: 100%;
     top: 0;
     left: 0;
-    background-image:url(https://www.appesbach.at//images/background/holz_test.jpg);
+    background-image:url(https://www.appesbach.at//images/background/holz_test.jpg) ;
+    background-size: cover;
     z-index: -1;
 }
 
 .bg-overlay-9:after {
     background-image:url(https://www.appesbach.at//images/background/holz_test.jpg);
+    background-size: cover;
 }
 
 .bg-gray {
@@ -1495,8 +1497,8 @@ li {
 }
 
 .style_image {
-  width : 350px;
-  height : 400px;
+  width : 150px;
+  height : 70px;
 }
 
 
