@@ -45,7 +45,7 @@ class NewGamesController < ApplicationController
       if @new_game.save
         Category.create(game: @new_game, genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
         Game.last.image.attach(params[:image])
-        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully created.' }
+        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Le jeu a été crée sans acroc.' }
         format.json { render :show, status: :created, location: @new_game }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class NewGamesController < ApplicationController
     respond_to do |format|
       if @new_game.update(new_game_params)
         Game.find(params[:id]).categories[0].update( genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
-        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully updated.' }
+        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Le jeu a été modifié avec succés' }
         format.json { render :show, status: :ok, location: @new_game }
       else
         format.html { render :edit }
@@ -78,11 +78,10 @@ class NewGamesController < ApplicationController
     @new_games= Game.find(params[:id])
     @new_games.destroy
     respond_to do |format|
-      format.html { redirect_to new_games_url, notice: 'Add game was successfully destroyed.' }
+      format.html { redirect_to new_games_url, notice: 'Le jeu a été suprimer' }
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_new_game
@@ -91,6 +90,6 @@ class NewGamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def new_game_params
-      params.require(:game).permit(:title, :description )
+      params.require(:game).permit(:title, :description, :image )
     end
 end
