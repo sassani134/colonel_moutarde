@@ -27,7 +27,11 @@ class NewGamesController < ApplicationController
 
   # GET /new_games/1/edit
   def edit
-    @new_game = Game.find(params[:id])
+    if current_user.admin?
+      @new_game = Game.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /new_games
