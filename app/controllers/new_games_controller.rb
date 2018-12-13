@@ -58,18 +58,24 @@ class NewGamesController < ApplicationController
   # PATCH/PUT /new_games/1
   # PATCH/PUT /new_games/1.json
   def update
-    Game.find(params[:id]).image.purge
-    @new_game = Game.find(params[:id])
+    if current_user.admin?
+      Game.find(params[:id]).image.purge
+      @new_game = Game.find(params[:id])
 
-    respond_to do |format|
-      if @new_game.update(new_game_params)
-        Game.find(params[:id]).categories[0].update( genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
-        format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @new_game }
-      else
-        format.html { render :edit }
-        format.json { render json: @new_game.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @new_game.update(new_game_params)
+          @new_game.confirm = true
+          @new_game.save
+          Game.find(params[:id]).categories[0].update( genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
+          format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully updated.' }
+          format.json { render :show, status: :ok, location: @new_game }
+        else
+          format.html { render :edit }
+          format.json { render json: @new_game.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path
     end
   end
 
