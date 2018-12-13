@@ -1,9 +1,10 @@
 <div class="dorne-contact-area d-md-flex" id="contact">
   <!-- Contact Form Area -->
-  <div class="contact-form-area equal-height"><div class="contact-form">
+  <div class="contact-form-area equal-height">
+    <div class="contact-form">
     <h5>Se connecter</h5>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -30,5 +31,10 @@
       <p>Pas encore de compte ?
       <a href="/users/sign_up" style="color: grey">Enregistre-toi !</a></p>
     </div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <div class="d-flex justify-content">
+        <p><%= link_to "Mot de passe oublié ?", new_password_path(resource_name), :style => "color: grey" %></p>
+      </div>
+    <% end -%>
   </div>
 </div>
