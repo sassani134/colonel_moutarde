@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
         @game = Game.find(params[:game_id])
         @comment = @game.comments.create!(comment_params)
       end
-      redirect_to "/listing"
+      redirect_to "/listing/#{@game_id}"
     end
    
     def comment_params

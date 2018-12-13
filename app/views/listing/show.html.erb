@@ -8,13 +8,11 @@
 
                         <div class="listing-title">
                             <h1><%= @game.title %></h1>
-                            <h6>De <%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%></h6>
-                            <%if @game.image.attached?%>
-							<%= image_tag(@game.image, class: "style_image") %>
-						    <%else%>
-							<img class="centerimage" width="350px" height="740px" src="/assets/bg-img/feature-1.jpg" alt=""></a>
-                            <%end%>
+                            <h6>De <%=@game.code%></h6>
+                            
+                            <img class="centerimage" width="350px" height="740px" src='<%=@game.image_url%>' alt="">
                            
+                        </div>
                         <div class="overview-content mt-50">
                         <h4>Description :</h4>
                             <p><%= @game.description %></p>
@@ -113,124 +111,14 @@
 
                         <%end%>
 
-
-<h2>Comments</h2>
-<% @game.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.user_id %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.content %>
-  </p>
-<% end %>
- 
-<h2>Add a comment:</h2>
-<%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-                        <div class="listing-reviews-area mt-100">
-                            <h4>Avis des joueurs : </h4>
-                            <div class="single-review-area">
-                                <div class="reviewer-meta d-flex align-items-center">
-                                    <img src="img/clients-img/1.jpg" alt="">
-                                    <div class="reviewer-content">
-                                        <div class="review-title-ratings d-flex justify-content-between">
-                                            <h5>“Partie de Monopoly entre amis”</h5>
-                                            <div class="ratings">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                            </div>
-                                        </div>
-                                        <p>Mes amis et moi conseillons de jouer avec Monopoly ! C'est un classique dans le genre mais avec les extenstions (Harry-Potter, Mario etc...) on a plus de fun ! La personne qui nous a loué en a plein d'autres comme ça ! On risque de retourner chez elle plus souvent !</p>
-                                    </div>
-                                </div>
-                                <div class="reviewer-name">
-                                    <h6>Christinne Smith</h6>
-                                    <p>15 Décembre 2018</p>
-                                </div>
-                            </div>
-                            <div class="single-review-area">
-                                <div class="reviewer-meta d-flex align-items-center">
-                                    <img src="img/clients-img/1.jpg" alt="">
-                                    <div class="reviewer-content">
-                                        <div class="review-title-ratings d-flex justify-content-between">
-                                            <h5>“3 jeux en 1 soirée”</h5>
-                                            <div class="ratings">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-unfill.png" alt="">
-                                            </div>
-                                        </div>
-                                        <p>Je viens de déménager et je n'ai plus de jeux. Finalement avec Colonel Moutarde on a pu se louer 3 jeux pour une semaine sans dépenser trop ! Jeux en très bons états et proprios charmants ! </p>
-                                    </div>
-                                </div>
-                                <div class="reviewer-name">
-                                    <h6>Michael Brown</h6>
-                                    <p>16 Decembre 2018</p>
-                                </div>
-                            </div>
-                        </div>
+                        <%= render "show_comment_ex" %>
                     </div>
                 </div>
 
-                <!-- Listing Sidebar -->
-                <div class="col-12 col-md-8 col-lg-4">
-                    <div class="listing-sidebar">
-
-                        <!-- Listing Verify -->
-                        <div class="listing-verify">
-                            <a data-toggle="modal" href="#modalChoice" class="btn dorne-btn w-100"><i class="fa fa-check pr-3"></i>
-                                <% if @game.copies.count==0 %>
-                                    Aucune copie disponible</a>
-                                <% elsif @game.copies.count==1 %>
-                                    Voir la copie disponible</a>
-                                    <%= render 'modalchoice' %>
-                                <% else %>
-                                    Voir les <%= @game.copies.count %> copies disponibles</a>
-                                    <%= render 'modalchoice' %>
-                                <%end%>
-                        </div>
-                        <!-- Book A Table Widget -->
-                        <div class="book-a-table-widget mt-50">
-                            <h6 style="font-family:pacifico;font-size:30px;">Une autre envie ?</h6>
-                            <form action="#" method="get">
-                                <a id="search-btn" href="#"><button type="submit" class="btn dorne-btn bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher un jeu</button></a>
-                                <br>
-                            </form>
-                        </div>
-
-                        <!-- Book A Table Widget -->
-                        <div class="book-a-table-widget mt-50">
-                            <h6 style="font-family:pacifico;font-size:30px;"> Suivez-nous !</h6>
-                            <form action="#" method="get">
-                                <h6> Plus la communauté est grande plus il y a de fun !<h6>
-                                <a href="https://fr-fr.facebook.com/thehackingproject/" class="iconsize">
-                                <%=image_tag("icon-x.png" )%>
-                                </a>
-                                <a href="https://twitter.com/project_hacking" class="iconsize">
-                                <%=image_tag("icon-y.png" )%>
-                                </a>
-                            </select>
-                            </form>
-                        </div>
-
-
-                    </div>
-                </div>
+                <%= render "show_sidebar" %>
             </div>
+             <%= render "show_comment" %>
         </div>
     </section>
+
+   
