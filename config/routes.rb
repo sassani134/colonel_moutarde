@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/users', to: 'admin#users'
   get '/users/:id', to: 'admin#show'
   get '/games/:id', to: 'admin#game'
-  
+  patch '/confirm/:id', to: 'admin#confirm'
   resources :charges
   resources :listing
   resources :new_games

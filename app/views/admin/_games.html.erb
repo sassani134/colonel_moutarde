@@ -1,3 +1,36 @@
-<%@games.each do |game|%>
-  <p><%= game.title%></p>
+
+<table style=" table-layout: fixed">
+  <thead>
+    <tr>
+      <th colspan="6"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <%@games.each do |game|%>
+      <tr >
+        <td><a><%= game.title %></a></td>
+        <% if game.image.attached? %>
+          <td class= "px-2"><%= image_tag url_for(game.image), size: "200x200" %></td>
+        <%else%> 
+          <td class= "px-2"><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
+        <%end%>
+        <td><p class="text-justify px-2"><%=game.description[0..100]%> [...]</p></td>
+        <%if game.categories[0]%>
+          <td><p><%=game.genres[0].title %>, 
+               <%= game.player_numbers[0].number_total %> joueurs,
+               <%= game.ages[0].minimum %>+ , 
+               <%= game.styles[0].sort %> , 
+          </p></td>
+        <%else%>
+          <td>Catégorie invalide</td>
+        <%end %>
+        <td>Tout est bon? <%= link_to 'Confirmer', "/confirm", :class =>"btn btn-info  mb-15", method: :patch %></td>
+        <td>Des choses manquent? <%= link_to 'Editer', edit_new_game_path(new_game), :class =>"btn btn-light mb-15" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%end%>

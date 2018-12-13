@@ -37,6 +37,16 @@ class DashboardController < ApplicationController
     end
   end
 
+  def confirm
+    @game = Game.find(params[:id])
+    @game.confirm = true
+    if @game.save 
+      redirect_to "/admin"
+    else
+      redirect_to root_path
+    end
+  end
+
   def save_copy
     @address = [params[:anything][:street], params[:anything][:city], params[:anything][:postal_code], params[:anything][:country]].compact.join(', ')
     @game = Game.where(:title => params[:anything][:game])[0]
