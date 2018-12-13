@@ -214,3 +214,34 @@ input:checked + .slider:before {
   height : 50px;
   margin-left:60px;
 }
+
+.white-btn {
+  min-width: 180px !important;
+  height: 52px !important;
+  background-color: white !important;
+  border-radius: 0 !important;
+  padding: 0 15px !important;
+  line-height: 50px !important;
+  color: #DFAA04 !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  -webkit-transition-duration: 500ms !important;
+          transition-duration: 500ms !important;
+}
+
+.white-btn:hover,
+.white-btn:focus {
+  color: #DFAA04 !important;
+  background-color: white !important;
+  font-weight: 600 !important;
+}
+
+.scroll {
+  max-height: 240px;
+  overflow-y: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #DFAA04;
+  padding: 10px;
+  margin-top: 40px;
+}

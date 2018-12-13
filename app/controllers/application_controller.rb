@@ -29,11 +29,17 @@ class ApplicationController < ActionController::Base
 
   module SharedComment
     def create
-        @game = Game.find(params[:game_id])
-        @comment = @game.comments.create!(comment_params)
-        redirect_back(fallback_location: root_path)
+      @game = Game.find(params[:game_id])
+      @comment = @game.comments.create!(comment_params)
+      redirect_back(fallback_location: root_path)
     end
    
+    def destroy
+      @game = Game.find(params[:game_id])
+      @comment = @game.comments.find(params[:id])
+      @comment.destroy
+      redirect_back(fallback_location: root_path)
+    end
     def comment_params
         params.require(:comment).permit(:user, :content)
     end

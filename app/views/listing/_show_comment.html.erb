@@ -1,5 +1,27 @@
-<div class="listing-reviews-area mt-100">
-  <h4>Avis des joueurs : </h4>
+  <div class="row">
+
+
+<div class="col">
+<div class="book-a-table-widget mt-50">
+    <h6 style="font-family:pacifico;font-size:30px;">Ajouter un commentaire</h6>
+      <%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
+        <p>
+          <%= form.text_area :content, class: "form-control"  %>
+        </p>
+        <p>
+          <%= form.submit value="Valider", class: "btn dorne-btn bg-white text-dark"%>
+        </p>
+      <% end %>
+        </div>
+  <h6 style="font-family:pacifico;font-size:30px;"></h6>
+
+ </div>
+
+     <div class="col">
+
+<!-- Book A Table Widget -->
+<div class="scroll">
+  <br/><br/><h4>Avis des joueurs : </h4>
   <% @game.comments.each do |comment| %>
   <div class="single-review-area">
     <div class="reviewer-meta d-flex align-items-center">
@@ -8,30 +30,15 @@
       </div>
     </div>
     <div class="reviewer-name">
-      <h6><%= comment.user_id %></h6>
-      <p><%=comment.created_at.strftime("%d %B %Y") %></p>
+      <h6>Anonyme</h6>
+      <p><%=comment.created_at %></p>
     </div>
+    <%= link_to 'Supprimer le commentaire', [comment.game, comment],
+               class: "btn white-btn",
+               method: :delete,
+               data: { confirm: 'Etes-vous sûrs ?' } %>
   </div>
   <% end %>
-  <div class="single-review-area">
-    <div class="reviewer-meta d-flex align-items-center">
-      <div class="reviewer-content">
-        <p>Je viens de déménager et je n'ai plus de jeux. Finalement avec Colonel Moutarde on a pu se louer 3 jeux pour une semaine sans dépenser trop ! Jeux en très bons états et proprios charmants ! </p>
-      </div>
-    </div>
-    <div class="reviewer-name">
-      <h6>Michael Brown</h6>
-      <p>16 Decembre 2018</p>
-    </div>
   </div>
-  <h4>Ajouter un commentaire :</h4>
-  <%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
-    <p>
-      <%= form.text_area :content, class: "form-control"  %>
-    </p>
-    <p>
-      <%= form.submit value="Valider", class: "btn dorne-btn"%>
-    </p>
-  <% end %>
 </div>
- 
+</div>
