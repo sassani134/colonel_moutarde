@@ -76,6 +76,7 @@ class NewGamesController < ApplicationController
   # DELETE /new_games/1
   # DELETE /new_games/1.json
   def destroy
+    @new_game = Game.find(params[:id])
     @new_game.destroy
     respond_to do |format|
       format.html { redirect_to new_games_url, notice: 'Add game was successfully destroyed.' }
