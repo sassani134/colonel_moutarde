@@ -6,4 +6,5 @@ class Game < ApplicationRecord
   has_many :genres, :through => :categories
   has_many :copies
   has_one_attached :image
+  has_many :comments
 end

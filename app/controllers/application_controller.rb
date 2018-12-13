@@ -26,4 +26,33 @@ class ApplicationController < ActionController::Base
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  module SharedComment
+    def create
+      @game = Game.find(params[:game_id])
+      @comment = @game.comments.create!(comment_params)
+      @comment.user_id = current_user.id
+      if @comment.save
+        redirect_back(fallback_location: root_path)
+      else 
+        flash.now[:danger] = "Le commentaire n'a pas pu être enregistré"
+      end
+    end
+   
+    def destroy
+      @game = Game.find(params[:game_id])
+      @comment = @game.comments.find(params[:id])
+      if @comment.user_id = current_user.id
+          @comment.destroy
+          redirect_back(fallback_location: root_path)
+      else
+        flash.now[:danger] = "Vous ne pouvez pas supprimer ce commentaire"
+      end
+    end
+    
+    def comment_params
+        params.require(:comment).permit(:user, :content)
+    end
+  end
+
 end

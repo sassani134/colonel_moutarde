@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col">
+    <div class="book-a-table-widget mt-50">
+      <h6 style="font-family:pacifico;font-size:30px;">Ajouter un commentaire</h6>
+      <%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
+        <p>
+          <%= form.text_area :content, class: "form-control"  %>
+        </p>
+        <p>
+          <%= form.submit value="Valider", class: "btn dorne-btn bg-white text-dark"%>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="scroll">
+      <br/><br/><h4>Avis des joueurs : </h4>
+      <% if @game.comments.count !=0 %>
+        <% @game.comments.each do |comment| %>
+        <div class="single-review-area">
+          <div class="reviewer-meta d-flex align-items-center">
+            <div class="reviewer-content">
+              <h6><%= comment.content %></h6>
+            </div>
+          </div>
+          <div class="reviewer-name">
+            <a><%= comment.user_id %></a>
+            <p><%=comment.created_at %></p>
+          </div>
+          <%= link_to 'Supprimer le commentaire', [comment.game, comment],
+              class: "btn white-btn",
+              method: :delete,
+              data: { confirm: 'Etes-vous sûr de supprimer ce commentaire ?' } %>
+        </div>
+        <% end %>
+      <% else %>
+        <div class="single-review-area">
+          <p>Aucun commentaire sur ce jeu</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

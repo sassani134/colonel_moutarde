@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :copies
   has_many :orders
   has_one :cart
+  has_many :comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

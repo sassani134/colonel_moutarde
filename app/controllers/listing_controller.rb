@@ -84,4 +84,5 @@ class ListingController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  include SharedComment
 end

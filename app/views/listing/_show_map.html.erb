@@ -1,0 +1,91 @@
+<h4>Disponibilité :</h4>
+
+<div id="map2"style="width: 700px; height: 500px;"></div>
+    <%if @copies[0]%>
+  <script>
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+    var lat = <%= raw @lat %>;
+    var long = <%= raw @long %>;
+    var copy = <%= raw @copy %>;
+    var proprio = <%= raw @proprio %>;
+    var max = lat.lenght;
+    console.log(proprio)
+    console.log(proprio[0])
+    console.log(typeof proprio[0])
+    var map, infoWindow, i, marker;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map2'), {
+        center: {lat: 48.8566, lng: 2.3522},
+        zoom: 14
+      });
+      infoWindow = new google.maps.InfoWindow;
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+  // Marker à la position
+
+              var locations =
+                [proprio, lat, long]
+              ;
+              console.log(locations)
+          var infowindow = new google.maps.InfoWindow();
+          var yourContent = new google.maps.InfoWindow({content:'&nbsp;&nbsp;&nbsp;<%= link_to "Louer", "/cart?id_add="+ @copy, class: "btn btn-warning",  method: :post%>'});
+          var marker, i;
+
+          for (i = 0; i < locations.length; i++) {  
+            marker = new google.maps.Marker({
+              position: new google.maps.LatLng(locations[1][i], locations[2][i]),
+              map: map,
+              animation: google.maps.Animation.DROP
+            });
+
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+              return function() {
+                <% if user_signed_in? %>yourContent.open(map,marker)<%end%>;
+              }
+            })(marker, i));
+          }
+
+  // FIN marker à la position
+
+              infoWindow.open(map);
+              map.setCenter(pos);
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+          });
+
+      } else {
+      // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+
+    
+
+  </script>
+  
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap">
+  </script>
+
+  <%else%>
+  <h3>Le jeu n'a pour le moment pas de copies disponible</h3>
+
+  <%end%>
