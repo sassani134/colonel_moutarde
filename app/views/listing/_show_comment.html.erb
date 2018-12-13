@@ -21,11 +21,11 @@
         <div class="single-review-area">
           <div class="reviewer-meta d-flex align-items-center">
             <div class="reviewer-content">
-              <p><%= comment.content %></p>
+              <h6><%= comment.content %></h6>
             </div>
           </div>
           <div class="reviewer-name">
-            <h6><%= comment.user_id %></h6>
+            <a><%= comment.user_id %></a>
             <p><%=comment.created_at %></p>
           </div>
           <%= link_to 'Supprimer le commentaire', [comment.game, comment],

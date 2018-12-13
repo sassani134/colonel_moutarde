@@ -42,9 +42,14 @@ class ApplicationController < ActionController::Base
     def destroy
       @game = Game.find(params[:game_id])
       @comment = @game.comments.find(params[:id])
-      @comment.destroy
-      redirect_back(fallback_location: root_path)
+      if @comment.user_id = current_user.id
+          @comment.destroy
+          redirect_back(fallback_location: root_path)
+      else
+        flash.now[:danger] = "Vous ne pouvez pas supprimer ce commentaire"
+      end
     end
+    
     def comment_params
         params.require(:comment).permit(:user, :content)
     end
