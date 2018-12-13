@@ -6,34 +6,39 @@
 <div class="contact-form-area equal-height">
   <div class="contact-form">
 
+<h1> Ajouter un nouveau jeu</h1>
+<br/>
+<%= link_to 'New_game', "/new_games/new", :class =>"btn btn-info" %>
+<br/>
+<br/>
 <h1>Jeux en base de données</h1>
 
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="6"></th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @add_games.each do |new_game| %>
       <tr>
-     <% if new_game.image.attached? %>
-      <td><a><%= new_game.title %></a></td>
-        <td><%= image_tag url_for(Game.find_by_id([new_game]).image) %></td>
-        <td><p><%= new_game.description %></p></td>
-        <td><p><%= new_game.categories %></p></td>
-        <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
-        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>
-      <%else%>
         <td><a><%= new_game.title %></a></td>
-        <td><img src="../assets/no_photo.svg" alt="pas de photos"></td>
-        <td><p><%= new_game.description %></p></td>
+        <% if new_game.image.attached? %>
+          <td class= "px-2"><%= image_tag url_for(Game.find_by_id([new_game]).image), size: "200x200" %></td>
+        <%else%> 
+          <td class= "px-2"><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
+        <%end%>
+        <td><p><%=new_game.description[0..100]%> [...]</p></td>
+        <td><p><%=new_game.genres[0].title %>, 
+               <%= new_game.player_numbers[0].number_total %> joueurs,
+               <%= new_game.ages[0].minimum %>+ , 
+               <%= new_game.styles[0].sort %> , 
+        </p></td>
         <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
         <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>
-      <%end%>
       </tr>
     <% end %>
   </tbody>
