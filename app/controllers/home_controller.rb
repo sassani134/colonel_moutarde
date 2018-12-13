@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   def index
     @copies = Copy.all
     @users = User.all
   end
 
-  def contact
-  end
+  def contact; end
 
   def explore
-    @search= params[:caviarSearch]
-    
-    @result= Game.where("title ilike ?", "%#{@search}%")
+    @search = params[:caviarSearch]
+
+    @result = Game.where('title ilike ?', "%#{@search}%")
   end
 
   def listing

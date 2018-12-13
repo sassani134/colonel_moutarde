@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class NewGamesController < ApplicationController
-  before_action :set_new_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_new_game, only: %i[show edit update destroy]
   include Rails.application.routes.url_helpers
 
   # GET /new_games
@@ -16,7 +18,7 @@ class NewGamesController < ApplicationController
   # GET /new_games/1.json
   def show
     if current_user.admin?
-      @games= Game.find(params[:id])
+      @games = Game.find(params[:id])
     else
       redirect_to root_path
     end
@@ -52,12 +54,12 @@ class NewGamesController < ApplicationController
     else
       @new_game = Game.new
     end
-    #image.attach(params[:image])
+    # image.attach(params[:image])
     respond_to do |format|
       if @new_game.save
         Category.create(game: @new_game, genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
         Game.last.image.attach(params[:image])
-        
+
         format.html { redirect_to "/gameshow/#{Game.last.id}", notice: 'Crée avec succès' }
         format.json { render :show, status: :created, location: @new_game }
       else
@@ -78,7 +80,7 @@ class NewGamesController < ApplicationController
         if @new_game.update(new_game_params)
           @new_game.confirm = true
           @new_game.save
-          Game.find(params[:id]).categories[0].update( genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
+          Game.find(params[:id]).categories[0].update(genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
           format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Jeu modifié avec succès' }
           format.json { render :show, status: :ok, location: @new_game }
         else
@@ -106,13 +108,14 @@ class NewGamesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_new_game
-      #@add_game = AddGame.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def new_game_params
-      params.require(:game).permit(:title, :description, :image )
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_new_game
+    # @add_game = AddGame.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def new_game_params
+    params.require(:game).permit(:title, :description, :image)
+  end
 end
