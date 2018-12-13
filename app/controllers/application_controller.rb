@@ -29,11 +29,9 @@ class ApplicationController < ActionController::Base
 
   module SharedComment
     def create
-      if user_signed_in?
-        @game = Game.find(params[:game_id])
-        @comment = @game.comments.create!(comment_params)
-      end
-      redirect_to "/listing/#{@game_id}"
+      @game = Game.find(params[:game_id])
+      @comment = @game.comments.create!(comment_params)
+      redirect_to "/listing"
     end
    
     def comment_params

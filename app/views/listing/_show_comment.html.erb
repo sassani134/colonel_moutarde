@@ -1,23 +1,37 @@
-<h2>Comments</h2>
-<% @game.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.user_id %>
-  </p>
+<div class="listing-reviews-area mt-100">
+  <h4>Avis des joueurs : </h4>
+  <% @game.comments.each do |comment| %>
+  <div class="single-review-area">
+    <div class="reviewer-meta d-flex align-items-center">
+      <div class="reviewer-content">
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+    <div class="reviewer-name">
+      <h6><%= comment.user_id %></h6>
+      <p><%=comment.created_at.strftime("%d %B %Y") %></p>
+    </div>
+  </div>
+  <% end %>
+  <div class="single-review-area">
+    <div class="reviewer-meta d-flex align-items-center">
+      <div class="reviewer-content">
+        <p>Je viens de déménager et je n'ai plus de jeux. Finalement avec Colonel Moutarde on a pu se louer 3 jeux pour une semaine sans dépenser trop ! Jeux en très bons états et proprios charmants ! </p>
+      </div>
+    </div>
+    <div class="reviewer-name">
+      <h6>Michael Brown</h6>
+      <p>16 Decembre 2018</p>
+    </div>
+  </div>
+</div>
  
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.content %>
-  </p>
-<% end %>
- 
-<h2>Add a comment:</h2>
+<h4>Ajouter un commentaire</h4>
 <%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
   <p>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: "form-control"  %>
   </p>
   <p>
-    <%= form.submit %>
+    <%= form.submit value="Ajouter un commentaire", class: "btn dorne-btn"%>
   </p>
 <% end %>
