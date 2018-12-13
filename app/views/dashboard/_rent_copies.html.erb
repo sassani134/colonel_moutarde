@@ -17,7 +17,7 @@
             <span> Rendre indisponible ?</span>
             <%else %>
           <p> Votre jeu <b>n'est pas visible</b> par les autres joueurs</p>
-             <label class="switch">
+            <label class="switch">
               <input type="checkbox">
               <%= link_to "Rendre disponible?", "available/#{copy.id}", :class => "slider round", method: :put, :data => {:confirm => 'Le jeu redeviendra accessible à tous les utilisateurs'}%>
                </label><br>
