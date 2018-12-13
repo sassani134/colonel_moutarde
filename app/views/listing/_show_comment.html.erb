@@ -24,14 +24,14 @@
       <p>16 Decembre 2018</p>
     </div>
   </div>
+  <h4>Ajouter un commentaire :</h4>
+  <%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
+    <p>
+      <%= form.text_area :content, class: "form-control"  %>
+    </p>
+    <p>
+      <%= form.submit value="Valider", class: "btn dorne-btn"%>
+    </p>
+  <% end %>
 </div>
  
-<h4>Ajouter un commentaire</h4>
-<%= form_with(model: [ @game, @game.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.text_area :content, class: "form-control"  %>
-  </p>
-  <p>
-    <%= form.submit value="Ajouter un commentaire", class: "btn dorne-btn"%>
-  </p>
-<% end %>

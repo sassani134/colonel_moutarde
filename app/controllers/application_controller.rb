@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
 
   module SharedComment
     def create
-      @game = Game.find(params[:game_id])
-      @comment = @game.comments.create!(comment_params)
-      redirect_to "/listing"
+        @game = Game.find(params[:game_id])
+        @comment = @game.comments.create!(comment_params)
+        redirect_back(fallback_location: root_path)
     end
    
     def comment_params
