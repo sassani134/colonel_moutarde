@@ -21,7 +21,19 @@
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    
+    <script>
+    document.addEventListener("turbolinks:load", function() {
+      $('document').ready(function(){
+        $("a[href='#']").on('click', function ($) {
+          $.preventDefault();
+        });
+        $('#search-btn, #closeBtn').on('click', function () {
+          $('body').toggleClass('search-form-on');
+        });
+      });
+    });
+    </script>
   </head>
 
   <body>
