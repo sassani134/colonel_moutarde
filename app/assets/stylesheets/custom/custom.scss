@@ -210,9 +210,21 @@ input:checked + .slider:before {
 
 
 .iconsize {
-  width : 130px!important;
-  height : 130px!important;
-  margin-left: 60px;
+  width : 80px!important;
+  height : 80px!important;
+  padding-left : 20px;
+}
+
+.iconsize2 {
+  width : 80px!important;
+  height : 80px!important;
+  padding-left : 20px;
+}
+
+.iconsize3 {
+  display :flex !important;
+  justify-content : space-around;
+  padding-right : 30px;
 }
 
 .background {
