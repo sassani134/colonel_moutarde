@@ -4,5 +4,10 @@
 <p><%=@games.description %></p>
 <p><%@games.categories %>
 
-<%= image_tag url_for(@games.image) %>
+<% if @games.image.attached? %>
+    <%= image_tag url_for(@games.image) %>
+<%else%>
+    <img src="../assets/no_photo.svg" alt="pas de photos">
+<%end%>
+
 
