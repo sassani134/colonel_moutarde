@@ -31,7 +31,12 @@ class ApplicationController < ActionController::Base
     def create
       @game = Game.find(params[:game_id])
       @comment = @game.comments.create!(comment_params)
-      redirect_back(fallback_location: root_path)
+      @comment.user_id = current_user.id
+      if @comment.save
+        redirect_back(fallback_location: root_path)
+      else 
+        flash.now[:danger] = "Le commentaire n'a pas pu être enregistré"
+      end
     end
    
     def destroy
