@@ -4,6 +4,7 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a class="dropdown-item" href="/new_games/new">Proposer un jeu</a>
       <a><%= link_to "Editer mon compte", edit_user_registration_path, :class=>"dropdown-item" %></a>
+      <a class="dropdown-item" href="/contact">Nous contacter</a>
       <a><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, :class=>"dropdown-item" %></a>
     </div>
   </li>
