@@ -31,11 +31,15 @@
           <td class= "px-2"><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
         <%end%>
         <td><p><%=new_game.description[0..100]%> [...]</p></td>
-        <td><p><%=new_game.genres[0].title %>, 
+        <%if new_game.categories[0]%>
+          <td><p><%=new_game.genres[0].title %>, 
                <%= new_game.player_numbers[0].number_total %> joueurs,
                <%= new_game.ages[0].minimum %>+ , 
                <%= new_game.styles[0].sort %> , 
-        </p></td>
+          </p></td>
+        <%else%>
+          <td>Catégorie invalide</td>
+        <%end%>
         <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
         <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>

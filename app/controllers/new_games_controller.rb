@@ -5,13 +5,21 @@ class NewGamesController < ApplicationController
   # GET /new_games
   # GET /new_games.json
   def index
-    @add_games = Game.order(:id)
+    if current_user.admin?
+      @add_games = Game.order(:id)
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /new_games/1
   # GET /new_games/1.json
   def show
-    @games= Game.find(params[:id])
+    if current_user.admin?
+      @games= Game.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /new_games/new
