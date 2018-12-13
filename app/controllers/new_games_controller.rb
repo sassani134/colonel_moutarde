@@ -86,10 +86,14 @@ class NewGamesController < ApplicationController
   # DELETE /new_games/1
   # DELETE /new_games/1.json
   def destroy
-    @new_game.destroy
-    respond_to do |format|
-      format.html { redirect_to new_games_url, notice: 'Add game was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.admin?
+      @new_game.destroy
+      respond_to do |format|
+        format.html { redirect_to new_games_url, notice: 'Add game was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_path
     end
   end
 
