@@ -58,7 +58,7 @@ class NewGamesController < ApplicationController
         Category.create(game: @new_game, genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
         Game.last.image.attach(params[:image])
         
-        format.html { redirect_to "/gameshow/#{Game.last.id}", notice: 'Add game was successfully created.' }
+        format.html { redirect_to "/gameshow/#{Game.last.id}", notice: 'Crée avec succès' }
         format.json { render :show, status: :created, location: @new_game }
       else
         format.html { render :new }
@@ -79,7 +79,7 @@ class NewGamesController < ApplicationController
           @new_game.confirm = true
           @new_game.save
           Game.find(params[:id]).categories[0].update( genre_id: params[:genre_id], style_id: params[:style_id], age_id: params[:age_id], player_number_id: params[:player_number_id])
-          format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Add game was successfully updated.' }
+          format.html { redirect_to "/gameshow/#{params[:id]}", notice: 'Jeu modifié avec succès' }
           format.json { render :show, status: :ok, location: @new_game }
         else
           format.html { render :edit }
@@ -97,7 +97,7 @@ class NewGamesController < ApplicationController
     if current_user.admin?
       @new_game.destroy
       respond_to do |format|
-        format.html { redirect_to new_games_url, notice: 'Add game was successfully destroyed.' }
+        format.html { redirect_to new_games_url, notice: 'Jeu détruit avec succès.' }
         format.json { head :no_content }
       end
     else

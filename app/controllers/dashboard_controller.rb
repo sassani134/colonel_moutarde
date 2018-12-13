@@ -42,7 +42,7 @@ class DashboardController < ApplicationController
     @game = Game.where(:title => params[:anything][:game])[0]
     @copy = Copy.new(user:current_user, game: @game, address:@address, available: true, return:nil, rented:false)
     if @copy.save
-      redirect_to root_path
+      redirect_to '/dashboard'
     else 
       redirect_to "/rent_copy"
     end
@@ -58,7 +58,7 @@ class DashboardController < ApplicationController
         redirect_to '/dashboard'
       end
     else
-      redirect_to root_path
+      redirect_to '/dashboard'
     end
   end
 
@@ -71,7 +71,7 @@ class DashboardController < ApplicationController
       @copy.save
       redirect_to '/dashboard'
     else
-      redirect_to root_path
+      redirect_to '/dashboard'
     end
   end
 

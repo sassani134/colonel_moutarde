@@ -8,11 +8,12 @@
 
                         <div class="listing-title">
                             <h1><%= @game.title %></h1>
-                            <h6>De <%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%></h6>
+                            <h6>De <%=@game.player_numbers[0].number_low%> à <%= @game.player_numbers[0].number_high%> joueurs</h6>
+                            <br>
                             <%if @game.image.attached?%>
-							<%= image_tag(@game.image, class: "style_image") %>
-						    <%else%>
-							<img class="centerimage" width="350px" height="740px" src="/assets/bg-img/feature-1.jpg" alt=""></a>
+                            <%= image_tag(@game.image, class: "style_image") %>
+                            <%else%>
+                            <img class="centerimage" width="350px" height="740px" src="/assets/bg-img/feature-1.jpg" alt=""></a>
                             <%end%>
                            
                         <div class="overview-content mt-50">
@@ -20,7 +21,7 @@
                             <p><%= @game.description %></p>
                         </div>
 
-                   
+                        </div>
                     <h4>Disponibilité :</h4>
 
                     <div id="map2"style="width: 700px; height: 500px;"></div>
@@ -99,8 +100,6 @@
                                                   'Error: Your browser doesn\'t support geolocation.');
                             infoWindow.open(map);
                           }
-
-                         
 
                         </script>
                         
@@ -194,12 +193,16 @@
                             <h6 style="font-family:pacifico;font-size:30px;"> Suivez-nous !</h6>
                             <form action="#" method="get">
                                 <h6> Plus la communauté est grande plus il y a de fun !<h6>
-                                <a href="https://fr-fr.facebook.com/thehackingproject/" class="iconsize">
-                                <%=image_tag("icon-x.png" )%>
-                                </a>
-                                <a href="https://twitter.com/project_hacking" class="iconsize">
-                                <%=image_tag("icon-y.png" )%>
-                                </a>
+                                <div class="iconsize3">
+                                <div class="iconsize">
+                                    <a href="https://fr-fr.facebook.com/thehackingproject/" >
+                                    <%=image_tag("icon-x.png" )%> </a> 
+                                </div>
+                                <div class="iconsize2">
+                                    <a href="https://twitter.com/project_hacking"> 
+                                    <%=image_tag("icon-y.png" )%></a>
+                                </div>
+                                </div>
                             </select>
                             </form>
                         </div>
@@ -210,3 +213,4 @@
             </div>
         </div>
     </section>
+
