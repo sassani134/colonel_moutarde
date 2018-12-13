@@ -13,24 +13,24 @@
 <br/>
 <h1>Jeux en base de données</h1>
 
-<table>
+<table style=" table-layout: fixed">
   <thead>
     <tr>
-      <th colspan="6"></th>
+      <th colspan="7"></th>
 
     </tr>
   </thead>
 
   <tbody>
     <% @add_games.each do |new_game| %>
-      <tr>
+      <tr >
         <td><a><%= new_game.title %></a></td>
         <% if new_game.image.attached? %>
           <td class= "px-2"><%= image_tag url_for(Game.find_by_id([new_game]).image), size: "200x200" %></td>
         <%else%> 
           <td class= "px-2"><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
         <%end%>
-        <td><p><%=new_game.description[0..100]%> [...]</p></td>
+        <td><p class="text-justify px-2"><%=new_game.description[0..100]%> [...]</p></td>
         <%if new_game.categories[0]%>
           <td><p><%=new_game.genres[0].title %>, 
                <%= new_game.player_numbers[0].number_total %> joueurs,
@@ -39,10 +39,11 @@
           </p></td>
         <%else%>
           <td>Catégorie invalide</td>
-        <%end%>
-        <td><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light" %></td>
-        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger" %></td>
+        <%end %>
+        <td class= "px-2"><p><%=new_game.confirm%></p></td>
+        <td class="mb-15"><%= link_to 'Show', new_game_path(new_game), :class =>"btn btn-info  mb-15" %></td>
+        <td><%= link_to 'Edit', edit_new_game_path(new_game), :class =>"btn btn-light mb-15" %></td>
+        <td><%= link_to 'Destroy', "/new_games/"+new_game.id.to_s , method: :delete, data: { confirm: 'Are you sure?' }, :class =>"btn btn-danger  mb-15" %></td>
       </tr>
     <% end %>
   </tbody>

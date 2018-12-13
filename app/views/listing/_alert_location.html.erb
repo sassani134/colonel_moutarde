@@ -1,6 +1,6 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.copies[0]%>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong><a href="/new_games" class="alert-link" style="color: white">Devenir loueur à mon tour !</a></strong>
+    <strong><a href="/add_copy" class="alert-link" style="color: white">Devenir loueur à mon tour !</a></strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
