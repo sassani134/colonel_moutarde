@@ -1,9 +1,9 @@
 <%@confirmed_copies.each do |copy|%>
   <div class='card col-3'>
     <% if copy.game.image.attached? %>
-      <div class='card-img-top'><%= image_tag url_for(copy.game.image), size: "200x200" %></td>
+      <div class='card-img-top'><%= image_tag url_for(copy.game.image), size: "200x200" %></div>
     <%else%> 
-      <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
+      <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></div>
     <%end%>
     <div class="card-body">
       <h5 class="card-title"><%=copy.game.title%></h5>
