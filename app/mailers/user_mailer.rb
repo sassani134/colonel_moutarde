@@ -11,11 +11,10 @@ class UserMailer < ApplicationMailer
 	  mail(to: @user.email, subject: 'Demande de location envoyée')
 	end
 
-	def proprio_order(proprio, loueur)
-		@proprio = proprio
+	def proprio_order(copy, loueur)
+		@copy = copy
 		@loueur = loueur
-		@user = user
-		mail(to: @user.email, subject: 'Location à confirmer')
+		mail(to: @copy.user.email, subject: 'Location à confirmer')
   end
 
   def client_receive(user, copy)
