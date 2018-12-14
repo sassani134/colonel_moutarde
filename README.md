@@ -38,13 +38,13 @@ Colonel Moutarde est une platforme de partage de jeux de société.
 
 [Lien Colonel Moutarde sur Heroku](http://colonel-moutarde.herokuapp.com/)
 
-## Projet réalisé par la team de Grenoble : :trophy: 
+## Projet réalisé par la team de Grenoble : 
 
-* Guillaume Pichot  slack/  @Guillaume    :hear_no_evil:
-* Hai-Dang Ha-Thuc  slack/  @Hai-Dang     :skull:
-* Fayçal Meghzili   slack/  @Fays         :guardsman:
-* Samuel Assani     slack/  @sassani      :cop:
-* Romain Recher     slack/  @RomainRecher :japanese_ogre:
+* Guillaume Pichot  slack/  @Guillaume    
+* Hai-Dang Ha-Thuc  slack/  @Hai-Dang     
+* Fayçal Meghzili   slack/  @Fays         
+* Samuel Assani     slack/  @sassani      
+* Romain Recher     slack/  @RomainRecher 
 
 
 
