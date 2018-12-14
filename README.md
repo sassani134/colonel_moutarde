@@ -1,51 +1,69 @@
-
 # THP PROJET FINAL - Colonel moutarde
 
+Colonel Moutarde est une plateforme de location de jeux de société entre particuliers  
+[Lien Colonel Moutarde en production](http://colonel-moutarde.herokuapp.com/)
 
-##  De quoi ça s'agit :
-Colonel Moutarde est une platforme de partage de jeux de société.
+##  Brief
 
-##  Le cahier des charges :
+Tu en as marre de passer tes soirées devant les Anges / à coder ? Tu connais le bowling, la patinoire et le cinéma du coin ? Arrête tout et invite tes potes à jouer avec toi !  
+En quelques clics, tu pourras louer un jeu fun à tes voisins et en profiter avec tes potes !
 
-- un visiteur doit pouvoir:
-1. s'inscrire 
-2. regardé les jeux de societé mise en ligne.
+##  Modèle de fonctionnement
 
-- un utisateur doit pouvoir:
-1. se connecter/déconecter.
-2. éditer son profil.
-3. reserver des jeux ou en louer.
-4. il peut gérer son panier, passer commande via stripe.
-5. il est le seul à avoir accès à son panier.
-6. il peut commenter les jeux en ligne, supprimer son commentaire.
+La plateforme se veut communautaire et accessible à tous.  
+Un jeu en location coûtera 3.50€ par semaine.   
+Le site prendra une petite commission sur chaque jeu loué et reversera le reste au loueur.  
 
-- un admin doit pouvoir:
-1. Creer, Editer, Suprimer les jeux du catalogue
-2. A tout les droits
+##  Le cahier des charges
 
-- le tout en 14 jours !
+- Un visiteur doit pouvoir :
+  - S'inscrire
+  - Regarder les jeux de societé mis en ligne
 
-[Lien Trello du projet](https://trello.com/b/vtRXsJ3O/projet-final)
+- Un utilisateur doit pouvoir :
+  - Se connecter/déconnecter, éditer son profil
+  - Se géolocaliser
+  - Réserver des jeux ou en proposer en location
+  - Gérer son panier, passer une commande via Stripe, voir l'historique de ses commandes
+  - Valider la disponibilité de son jeu en tant que loueur
+  - Commenter les jeux en ligne et supprimer le commentaire au besoins
 
-## Pour le tester en local
+- Un admin doit pouvoir :
+  - Créer, éditer, supprimer les jeux du catalogue
+  - A tous les droits
+
+- Les jeux :
+  - Tous les jeux seront visibles sur une page globale
+  - Pour chaque jeu, on aura la possibilité de voir combien de loueurs le proposent et où cette copie se trouve à l'aide de Google Maps
+  - Une recherche par nom de jeu ou par catégorie est disponible  
+
+**Le tout en 14 jours !**
+
+- Possibilités d'évolution :
+  - Scraping d'une base de données de jeux
+  - Evolution de la fonction de recherche autour d'un lieu donné
+  - Amélioration de la confidentialité des adresses des loueurs
+  - Notation des loueurs et des utilisateurs
+  - Système de calendrier pour la location de jeux
+  - etc...
+
+## Pour tester le projet en local
 * git clone https://github.com/sassani134/colonel_moutarde
-* faire `bundle install`;
-* créer la base de donnée avec `rails db:create`;
-* faire les migrations avec `rails db:migrate`;
-* seeder la page avec `rails db:seed`.
+* faire `bundle install`
+* créer la base de donnée avec `rails db:create`
+* faire les migrations avec `rails db:migrate`
+* seeder la page avec `rails db:seed`
 
-## Lien Heroku :
+## Projet réalisé par la team de Grenoble
 
-[Lien Colonel Moutarde sur Heroku](http://colonel-moutarde.herokuapp.com/)
+| Nom                | Pseudo Slack      |
+| -------------------|-------------------|
+| Guillaume Pichot   | @Guillaume        |
+| Hai-Dang Ha-Thuc   | @Hai-Dang         |
+| Fayçal Meghzili    | @Fays             |
+| Samuel Assani      | @sassani          |
+| Romain Recher      | @RomainRecher     |
 
-## Projet réalisé par la team de Grenoble : 
+Moussaillons Session 6 de [The Hacking Project](https://www.thehackingproject.org/)
 
-* Guillaume Pichot  slack/  @Guillaume    
-* Hai-Dang Ha-Thuc  slack/  @Hai-Dang     
-* Fayçal Meghzili   slack/  @Fays         
-* Samuel Assani     slack/  @sassani      
-* Romain Recher     slack/  @RomainRecher 
-
-
-
-:end:
+:end::end::end:
