@@ -3,6 +3,7 @@
   <%@active_orders.each do |order|%>
     <%order.renting.each_with_index do |rent, index|%>
       <%if rent%>
+        <%if order.copies[index].return%>
         <%if order.copies[index].return > Time.now%>
           <div class='card col-3'>
             <% if order.copies[index].game.image.attached? %>
@@ -28,6 +29,7 @@
                                      Jeu à rendre /!\</p>
             </div>
           </div>
+        <%end%>
         <%end%>
       <%end%> 
     <%end%>
