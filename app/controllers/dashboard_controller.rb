@@ -80,7 +80,7 @@ class DashboardController < ApplicationController
       @copy.return = (Time.now + @weeks.week).to_date
       @copy.save
       @user_renting = @copy.orders.last.user
-      UserMailer.client_order(@user_renting, @copy, @weeks).deliver_now!
+      UserMailer.client_receive(@user_renting, @copy, @weeks).deliver_now!
       redirect_to '/dashboard'
     else
       redirect_to '/dashboard'

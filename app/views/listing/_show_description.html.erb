@@ -1,6 +1,6 @@
 <div class="listing-title">
   <h1><%= @game.title %></h1>
-  <h6>De <%=@game.player_numbers[0]%></h6>
+  <h6>De <%=@game.player_numbers[0].number_total%></h6>
   <%if @game.image.attached?%>
   	<a href="/listing/<%=@game.id%>" class='centerimage'><%= image_tag(@game.image, class: "style_image") %></a>
 	<%else%>
