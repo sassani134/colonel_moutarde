@@ -26,7 +26,7 @@ Le site prendra une petite commission sur chaque jeu loué et reversera le reste
   - Réserver des jeux ou en proposer en location
   - Gérer son panier, passer une commande via Stripe, voir l'historique de ses commandes
   - Valider la disponibilité de son jeu en tant que loueur
-  - Commenter les jeux en ligne et supprimer le commentaire au besoins
+  - Commenter les jeux en ligne et supprimer le commentaire au besoin
 
 - Un admin doit pouvoir :
   - Créer, éditer, supprimer les jeux du catalogue
