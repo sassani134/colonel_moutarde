@@ -3,18 +3,18 @@
 Colonel Moutarde est une plateforme de location de jeux de société entre particuliers  
 [Lien Colonel Moutarde en production](http://colonel-moutarde.herokuapp.com/)
 
-##  Brief :
+##  Brief
 
 Tu en as marre de passer tes soirées devant les Anges / à coder ? Tu connais le bowling, la patinoire et le cinéma du coin ? Arrête tout et invite tes potes à jouer avec toi !  
 En quelques clics, tu pourras louer un jeu fun à tes voisins et en profiter avec tes potes !
 
-##  Modèle de fonctionnement :
+##  Modèle de fonctionnement
 
 La plateforme se veut communautaire et accessible à tous.  
 Un jeu en location coûtera 3.50€ par semaine.   
 Le site prendra une petite commission sur chaque jeu loué et reversera le reste au loueur.  
 
-##  Le cahier des charges :
+##  Le cahier des charges
 
 - Un visiteur doit pouvoir :
   - S'inscrire
@@ -47,14 +47,14 @@ Le site prendra une petite commission sur chaque jeu loué et reversera le reste
   - Système de calendrier pour la location de jeux
   - etc...
 
-## Pour tester le projet en local : 
+## Pour tester le projet en local
 * git clone https://github.com/sassani134/colonel_moutarde
 * faire `bundle install`
 * créer la base de donnée avec `rails db:create`
 * faire les migrations avec `rails db:migrate`
 * seeder la page avec `rails db:seed`
 
-## Projet réalisé par la team de Grenoble : 
+## Projet réalisé par la team de Grenoble
 
 | Nom                | Pseudo Slack      |
 | -------------------|-------------------|
