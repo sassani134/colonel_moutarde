@@ -35,7 +35,8 @@ class ApplicationController < ActionController::Base
       if @comment.save
         redirect_back(fallback_location: root_path)
       else 
-        flash.now[:danger] = "Le commentaire n'a pas pu être enregistré"
+        redirect_to '/listing'
+        flash[:alert] = "Le commentaire n'a pas pu être enregistré"
       end
     end
    
