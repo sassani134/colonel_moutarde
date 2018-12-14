@@ -97,6 +97,7 @@ class CartController < ApplicationController
         @order = Order.create!(user: @cart.user, number_week: @cart.number_week, price: @price)
         @order.copy_ids = @cart.copy_ids
         @order.renting = Array.new(@cart.copy_ids.count, true)
+        @order.save
         @order.copies.each do |copy|
           copy.rented=true
           copy.save

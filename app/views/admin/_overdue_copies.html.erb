@@ -1,7 +1,11 @@
 <h3>Copies non rendues après date prévue</h3>
 <%@overdue_copies.each do |copy|%>
   <div class='card col-3'>
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <% if copy.game.image.attached? %>
+      <div class='card-image'><%= image_tag url_for(copy.game.image), size: "200x200" %></td>
+    <%else%> 
+      <div class='card-image'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
+    <%end%>
     <div class="card-body">
       <h5 class="card-title"><%=copy.game.title%></h5>
       <p class='card-text'><%=copy.orders.last.user.username%></p>

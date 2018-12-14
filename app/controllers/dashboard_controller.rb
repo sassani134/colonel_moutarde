@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
     @confirmed_copies = @renting_copies.where.not(:return => nil)
     @cart=Cart.where(:user_id => current_user.id)
     @past_orders=current_user.orders
-    @active_orders=@past_orders.where("'true' = ANY (renting)")
+    @active_orders = @past_orders.where("'true' = ANY (renting)")
     @games = Game.all
     @title=[]
     @games.each do |game|
