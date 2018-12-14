@@ -35,18 +35,21 @@ class ApplicationController < ActionController::Base
       if @comment.save
         redirect_back(fallback_location: root_path)
       else 
-        flash.now[:danger] = "Le commentaire n'a pas pu être enregistré"
+        redirect_to '/listing'
+        flash[:alert] = "Le commentaire n'a pas pu être enregistré"
       end
     end
    
     def destroy
       @game = Game.find(params[:game_id])
       @comment = @game.comments.find(params[:id])
-      if @comment.user_id = current_user.id
+      if @comment.user_id == current_user.id
           @comment.destroy
           redirect_back(fallback_location: root_path)
+          flash[:alert] = "Commentaire supprimé"
       else
-        flash.now[:danger] = "Vous ne pouvez pas supprimer ce commentaire"
+        redirect_back(fallback_location: root_path)
+        flash[:alert] = "Vous ne pouvez pas supprimer ce commentaire"
       end
     end
     

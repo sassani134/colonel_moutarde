@@ -14,10 +14,12 @@
             <a><%= comment.user_id %></a>
             <p><%=comment.created_at %></p>
           </div>
-          <%= link_to 'Supprimer le commentaire', [comment.game, comment],
-              class: "btn white-btn",
-              method: :delete,
-              data: { confirm: 'Etes-vous sûr de supprimer ce commentaire ?' } %>
+          <% if user_signed_in? %>
+            <%= link_to 'Supprimer le commentaire', [comment.game, comment],
+                class: "btn white-btn",
+                method: :delete,
+                data: { confirm: 'Etes-vous sûr de supprimer ce commentaire ?' } %>
+          <% end %>
         </div>
         <% end %>
       <% else %>
@@ -35,9 +37,14 @@
         <p>
           <%= form.text_area :content, class: "form-control"  %>
         </p>
-        <p>
-          <%= form.submit value="Valider", class: "btn dorne-btn bg-white text-dark"%>
-        </p>
+        <% if user_signed_in? %>
+          <p>
+            <%= form.submit value="Valider", class: "btn dorne-btn bg-white text-dark"%>
+          </p>
+        <%else%>
+            <a href="#modalNoPossibilityComment" data-dismiss="modal" data-toggle="modal" class="btn dorne-btn bg-white text-dark">Valider</a>
+            <%= render 'modalnocomment' %>
+        <% end %>
       <% end %>
     </div>
   </div>
