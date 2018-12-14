@@ -1,7 +1,9 @@
 <div class="listing-title">
   <h1><%= @game.title %></h1>
   <h6>De <%=@game.code%></h6>
-  <img class="centerimage" width="350px" height="740px" src='<%=@game.image_url%>' alt=""> 
+  <div class="d-flex justify-content-center">
+    <img style="max-height: 300px" src='<%=@game.image_url%>' alt="">
+  </div>
 </div>
 <div class="overview-content mt-50">
   <h4>Description :</h4>
