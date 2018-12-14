@@ -22,10 +22,10 @@
               </li>
             </ul>
             <!-- Search btn -->
-            <div class="right">
-            <div class="dorne-search-btn" style="padding-top:7px;">
-              <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
-            </div>
+   
+              <div class="dorne-search-btn">
+                <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>Chercher</a>
+              </div>
               <% if current_user%>
                 <% if current_user.admin?%>
                   <%=render 'shared/nav_admin'%>
@@ -36,20 +36,19 @@
               <% else %>
                 <%=render 'shared/nav_anon'%>
               <% end %>
-            </div>
             <!-- Add listings btn -->
             <% if user_signed_in? %>
               <div class="dorne-add-listings-btn" >
                 <a href="/dashboard" class="btn dorne-btn">Mon tableau de bord</a>
               </div>
-                <div class="dorne-add-listings-btn">
-                      <a class="nav-link"> </a>
+              <div class="dorne-add-listings-btn">
+                <a class="nav-link"> </a>
               </div>
             <% end %>
-          </div>
           </div>
         </nav>
       </div>
     </div>
+  </div>
 </header>
 <!-- ***** Header Area End ***** -->

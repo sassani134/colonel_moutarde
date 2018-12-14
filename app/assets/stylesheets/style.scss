@@ -1503,14 +1503,15 @@ li {
 
 /* LOGO client homepage
 ---------------------------------*/
+
 .style_image3 {
-  width : 150px;
-  height : 60px;
-}
+    width : 150px;
+    height : 60px;
+    }
 
 .style_image2 {
-  width : 110px;
-  height : 90px;
+    width : 110px;
+    height : 90px;
 }
 
 /* Team
@@ -1521,18 +1522,12 @@ li {
 
 }
 .team-leader-box{
-    width:30.66%;
-    margin-right: 3.82979%;
-    height: 300px;
-    overflow: hidden;
     text-align: center;
-    float: left;
-
 }
+
 .team-leader-box span{
     display:block;
 }
-.team-leader-box:nth-of-type(3n+0){ margin:0;}
 
 .team-leader-shadow{
     transition:all 0.3s ease-in-out;
@@ -1557,7 +1552,6 @@ li {
     border-radius:50%;
     width:150px;
     height:150px;
-    margin-left: 77px;
 }
 
 
