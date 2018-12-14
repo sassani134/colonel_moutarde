@@ -104,11 +104,11 @@ class CartController < ApplicationController
         end
         @cart.number_week = []
         @cart.save
-        UserMailer.client_order(order, current_user).deliver_now!
-        order.copies.each do |copy|
+        UserMailer.client_order(@order, current_user).deliver_now!
+        @order.copies.each do |copy|
           UserMailer.proprio_order(copy, current_user).deliver_now!
         end
-        UserMailer.admin_order.deliver_now!
+        UserMailer.admin_order(@order).deliver_now!
         Cart.where(:user_id => current_user.id)[0].copy_ids = []
         redirect_to "/"
         flash[:success] = "Vous avez réussi à passer votre commande. Retrouvez là dans votre onglet commande :)"

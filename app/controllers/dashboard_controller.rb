@@ -76,7 +76,7 @@ class DashboardController < ApplicationController
     @copy = Copy.find(params[:id])
     if @copy.user == current_user && @copy.rented ==true
       @ind = @copy.orders.last.copy_ids.index(params[:id].to_i)
-      @weeks=@copy.orders.last.number_week[@ind]
+      @weeks = @copy.orders.last.number_week[@ind]
       @copy.return = (Time.now + @weeks.week).to_date
       @copy.save
       @user_renting = @copy.orders.last.user

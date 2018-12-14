@@ -26,10 +26,10 @@ class UserMailerPreview < ActionMailer::Preview
    end
 
 
-    def admin_order
+   def admin_order
       User.last.admin!
       @user= User.last
-      UserMailer.admin_order(@user)
+      UserMailer.admin_order
    end
 
 

@@ -24,10 +24,18 @@ class UserMailer < ApplicationMailer
 	  mail(to: @user.email, subject: 'Location du jeu confirmée')
   end
 
-  def admin_order(user)
+  def admin_order(order)
 	  @users = User.where(role: "admin")
 	  @users.each do | user |
 	  mail(to: user.email, subject: "Nouvelle commande sur le site")
+	  end
+	end
+
+	def admin_game(game)
+		@new_game = game
+	  @users = User.where(role: "admin")
+	  @users.each do | user |
+	  mail(to: user.email, subject: "Nouveau jeu à confirmer")
 	  end
 	end
 
