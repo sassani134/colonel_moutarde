@@ -1,6 +1,6 @@
 # THP PROJET FINAL - Colonel moutarde
 
-Colonel Moutarde est une platforme de location de jeux de société entre particuliers  
+Colonel Moutarde est une plateforme de location de jeux de société entre particuliers  
 [Lien Colonel Moutarde en production](http://colonel-moutarde.herokuapp.com/)
 
 ##  Brief :
@@ -37,7 +37,7 @@ Le site prendra une petite commission sur chaque jeu loué et reversera le reste
   - Pour chaque jeu, on aura la possibilité de voir combien de loueurs le proposent et où cette copie se trouve à l'aide de Google Maps
   - Une recherche par nom de jeu ou par catégorie est disponible  
 
-*Le tout en 14 jours !*  
+**Le tout en 14 jours !**
 
 - Possibilités d'évolution :
   - Scraping d'une base de données de jeux
