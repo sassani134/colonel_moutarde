@@ -1,10 +1,10 @@
 <div class="listing-title">
   <h1><%= @game.title %></h1>
   <h6>De <%=@game.player_numbers[0]%></h6>
-  <%if game.image.attached?%>
-  	<a href="/listing/<%=game.id%>" class='centerimage'><%= image_tag(game.image, class: "style_image") %></a>
+  <%if @game.image.attached?%>
+  	<a href="/listing/<%=@game.id%>" class='centerimage'><%= image_tag(@game.image, class: "style_image") %></a>
 	<%else%>
-		<a href="/listing/<%=game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
+		<a href="/listing/<%=@game.id%>"><img src="/assets/bg-img/feature-1.jpg" alt=""></a>
 	<%end%>
 </div>
 <div class="overview-content mt-50">
