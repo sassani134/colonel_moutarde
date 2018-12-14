@@ -79,6 +79,8 @@ class DashboardController < ApplicationController
       @weeks=@copy.orders.last.number_week[@ind]
       @copy.return = (Time.now + @weeks.week).to_date
       @copy.save
+      @user_renting = @copy.orders.last.user
+      UserMailer.client_order(@user_renting, @copy, @weeks).deliver_now!
       redirect_to '/dashboard'
     else
       redirect_to '/dashboard'

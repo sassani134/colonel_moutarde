@@ -17,9 +17,10 @@ class UserMailer < ApplicationMailer
 		mail(to: @copy.user.email, subject: 'Location à confirmer')
   end
 
-  def client_receive(user, copy)
-	  @copies = copy
+  def client_receive(user, copy, weeks)
+	  @copy = copy
 		@user = user
+		@weeks = weeks
 	  mail(to: @user.email, subject: 'Location du jeu confirmée')
   end
 
