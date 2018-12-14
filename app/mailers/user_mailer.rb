@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
 
 	def client_order(order, loueur) 
 		@order = order
-		@loueur = loueur
+		@user = loueur
 	  mail(to: @user.email, subject: 'Demande de location envoyée')
 	end
 

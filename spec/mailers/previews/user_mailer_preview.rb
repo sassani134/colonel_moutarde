@@ -7,33 +7,22 @@ class UserMailerPreview < ActionMailer::Preview
 
    def client_order 
       @user= User.last
-      UserMailer.client_order(@user)
+      @order = Order.last
+      UserMailer.client_order(@order,@user)
    end
 
    def client_receive
       @game= Game.all
       @copies = @game.copies
-      @proprio = []
-      @proprio_mail = []
-      @copies.each do |copy|
-       @proprio << copy.user.username
-       @proprio_mail << copy.user.email
-      end
-      puts @proprio_mail
-      puts @proprio
-      puts "AAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAA"
+      @number_week = 1
       @user= User.last
-      UserMailer.client_receive(@user, @copies)
+      UserMailer.client_receive(@user, @copies, @number_week)
    end
 
    def proprio_order 
       @user= User.last
-      UserMailer.proprio_order(@user)
+      @order = @user.copy.last
+      UserMailer.proprio_order(@order, @user)
    end
 
 
