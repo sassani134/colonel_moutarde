@@ -20,10 +20,32 @@
      
     <h1> Bonjour <%= @user.username %> !</h1>
     <br/>
-    <h2>Vous venez de louer un jeu</h2>
-    <h2>La demande est en attente du côté du propriétéaire</h2>
-    <h2>Vous allez être contacté par mail dès que la commande sera validée.</h2>
-    <br/>
+    <h2>Vous venez de louer le(s) jeu(x) suivant(s):</h2>
+    <table style=" table-layout: fixed">
+        <thead>
+            <tr>
+                <td>Nom du jeu</td>
+                <td>Image</td>
+                <td>Pseudo du propriétaire</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+        <tbody>
+        <% @order.copies.each do |copy|%>
+            <tr >
+                <td><%= copy.game.title %></td>
+                <% if copy.game.image.attached? %>
+                <td class= "px-2"><%= image_tag url_for(Game.find_by_id([new_game]).image), size: "200x200" %></td>
+                <%else%> 
+                <td class= "px-2"><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
+                <%end %>
+                <td><%copy.user.username%></td>
+                <td><%copy.user.email%></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <h2>Vous pouvez contacter le(s) propriétaire(s) avec leur mail indiqué ci-dessus afin de vous mettre d'accord sur un horaire pour récupérer le(s) jeu(x)</h2>
     <h3>A bientôt sur <a href="https://colonel-moutarde.herokuapp.com" >ColonelMoutarde.com</a></h3>
         </div>
     </center>

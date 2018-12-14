@@ -103,8 +103,10 @@ class CartController < ApplicationController
         end
         @cart.number_week = []
         @cart.save
-        UserMailer.client_order(current_user).deliver_now!
-        UserMailer.proprio_order(current_user).deliver_now!
+        UserMailer.client_order(order, current_user).deliver_now!
+        order.copies.each do |copy|
+          UserMailer.proprio_order(copy.user, current_user).deliver_now!
+        end
         UserMailer.admin_order.deliver_now!
         Cart.where(:user_id => current_user.id)[0].copy_ids = []
         redirect_to "/"
