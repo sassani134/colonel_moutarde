@@ -3,35 +3,33 @@
   <%@active_orders.each do |order|%>
     <%order.renting.each_with_index do |rent, index|%>
       <%if rent%>
-        <%@renting_copies.each do |copy|%>
-          <%if copy.return > Time.now%>
-            <div class='card col-3'>
-              <% if copy.game.image.attached? %>
-                <div class='card-img-top'><%= image_tag url_for(copy.game.image), size: "200x200" %></td>
-              <%else%> 
-                <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
-              <%end%>
-              <div class="card-body">
-                <h5 class="card-title"><%=order.copies[index].game.title%></h5>
-                <p class='card-text'><%=order.copies[index].game.description%></p>
-              </div>
+        <%if order.copies[index].return > Time.now%>
+          <div class='card col-3'>
+            <% if order.copies[index].game.image.attached? %>
+              <div class='card-img-top'><%= image_tag url_for(order.copies[index].game.image), size: "200x200" %></div>
+            <%else%> 
+              <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></div>
+            <%end%>
+            <div class="card-body">
+              <h5 class="card-title"><%=order.copies[index].game.title%></h5>
+              <p class='card-text'><%=order.copies[index].game.description%></p>
             </div>
-          <%else%>
-            <div class='card col-3 bg-dark text-white'>
-              <% if copy.game.image.attached? %>
-                <div class='card-img-top'><%= image_tag url_for(copy.game.image), size: "200x200" %></td>
-              <%else%> 
-                <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
-              <%end%>
-              <div class="card-body">
-                <h5 class="card-title"><%=order.copies[index].game.title%></h5>
-                <p class='card-text'><%=order.copies[index].game.description%><br/>
+          </div>
+        <%else%>
+          <div class='card col-3 bg-dark text-white'>
+            <% if order.copies[index].game.image.attached? %>
+              <div class='card-img-top'><%= image_tag url_for(order.copies[index].game.image), size: "200x200" %></div>
+            <%else%> 
+              <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></div>
+            <%end%>
+            <div class="card-body">
+              <h5 class="card-title"><%=order.copies[index].game.title%></h5>
+              <p class='card-text'><%=order.copies[index].game.description%><br/>
                                      Jeu à rendre /!\</p>
-              </div>
             </div>
-          <%end%>
-        <%end%> 
-      <%end%>
+          </div>
+        <%end%>
+      <%end%> 
     <%end%>
   <%end%>
 </div>
