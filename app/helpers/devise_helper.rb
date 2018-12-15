@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DeviseHelper
   def devise_error_messages!
     return '' if resource.errors.empty?
@@ -9,7 +11,7 @@ module DeviseHelper
         <span aria-hidden="true">&times;</span>
       </button>
       <strong>
-       #{pluralize(resource.errors.count, "erreur")} doivent être résolues
+       #{pluralize(resource.errors.count, 'erreur')} doivent être résolues
       </strong>
       #{messages}
     </div>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePlayerNumbers < ActiveRecord::Migration[5.2]
   def change
     create_table :player_numbers do |t|

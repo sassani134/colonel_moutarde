@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinTableOrderCopy < ActiveRecord::Migration[5.2]
   def change
     create_join_table :orders, :copies do |t|

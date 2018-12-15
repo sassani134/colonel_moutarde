@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from active_storage_postgresql (originally 20180530020601)
 class CreateActiveStoragePostgresqlTables < ActiveRecord::Migration[5.2]
   def change

@@ -1,39 +1,35 @@
-class DashboardController < ApplicationController
+# frozen_string_literal: true
 
+class DashboardController < ApplicationController
   def index
     @all_copies = current_user.copies
-    @renting_copies = current_user.copies.where(:rented => true)
-    @unconfirmed_copies = @renting_copies.where(:return => nil)
-    @confirmed_copies = @renting_copies.where.not(:return => nil)
-    @cart=Cart.where(:user_id => current_user.id)
-    @past_orders=current_user.orders
+    @renting_copies = current_user.copies.where(rented: true)
+    @unconfirmed_copies = @renting_copies.where(return: nil)
+    @confirmed_copies = @renting_copies.where.not(return: nil)
+    @cart = Cart.where(user_id: current_user.id)
+    @past_orders = current_user.orders
     @active_orders = @past_orders.where("'true' = ANY (renting)")
     @games = Game.all
-    @title=[]
+    @title = []
     @games.each do |game|
       @title << game.title
     end
     if user_signed_in?
-      @cart=Cart.where(:user_id => current_user.id)[0]
-      if @cart
-        @cart
-      else
-        @cart = Cart.create!(user_id: current_user.id)
-      end
+      @cart = Cart.where(user_id: current_user.id)[0]
+      @cart || @cart = Cart.create!(user_id: current_user.id)
       @price = 0
       if @cart.copy_ids[0]
-        @cart.copy_ids.each_with_index do |content, index| 
+        @cart.copy_ids.each_with_index do |_content, index|
           @price += 3.5 * @cart.number_week[index]
         end
       end
       @price
-    else
     end
   end
 
   def rent_copy
     @games = Game.all
-    @title=[]
+    @title = []
     @games.each do |game|
       @title << game.title
     end
@@ -42,8 +38,8 @@ class DashboardController < ApplicationController
   def confirm
     @game = Game.find(params[:id])
     @game.confirm = true
-    if @game.save 
-      redirect_to "/admin"
+    if @game.save
+      redirect_to '/admin'
     else
       redirect_to root_path
     end
@@ -51,18 +47,18 @@ class DashboardController < ApplicationController
 
   def save_copy
     @address = [params[:anything][:street], params[:anything][:city], params[:anything][:postal_code], params[:anything][:country]].compact.join(', ')
-    @game = Game.where(:title => params[:anything][:game])[0]
-    @copy = Copy.new(user:current_user, game: @game, address:@address, available: true, return:nil, rented:false)
+    @game = Game.where(title: params[:anything][:game])[0]
+    @copy = Copy.new(user: current_user, game: @game, address: @address, available: true, return: nil, rented: false)
     if @copy.save
       redirect_to '/dashboard'
-    else 
-      redirect_to "/rent_copy"
+    else
+      redirect_to '/rent_copy'
     end
   end
-  
+
   def available_copy
     @copy = Copy.find(params[:id])
-    if @copy.user == current_user && @copy.rented ==false
+    if @copy.user == current_user && @copy.rented == false
       @copy.toggle(:available)
       if @copy.save
         redirect_to '/dashboard'
@@ -76,7 +72,7 @@ class DashboardController < ApplicationController
 
   def confirm_copy
     @copy = Copy.find(params[:id])
-    if @copy.user == current_user && @copy.rented ==true
+    if @copy.user == current_user && @copy.rented == true
       @ind = @copy.orders.last.copy_ids.index(params[:id].to_i)
       @weeks = @copy.orders.last.number_week[@ind]
       @copy.return = (Time.now + @weeks.week).to_date
@@ -91,7 +87,7 @@ class DashboardController < ApplicationController
 
   def return_copy
     @copy = Copy.find(params[:id])
-    if @copy.user == current_user && @copy.rented ==true
+    if @copy.user == current_user && @copy.rented == true
       @copy.rented = false
       @copy.return = nil
       @copy.save
@@ -106,7 +102,6 @@ class DashboardController < ApplicationController
   end
 
   def toggle_past
-  @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 end
-
