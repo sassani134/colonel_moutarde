@@ -23,7 +23,8 @@ class ChargesController < ApplicationController
     )
   
     checkout
-
+  end
+  
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
@@ -56,14 +57,12 @@ class ChargesController < ApplicationController
         end
         @cart.number_week = []
         @cart.save
+        Cart.where(:user_id => current_user.id)[0].copy_ids = []
         UserMailer.client_order(@order, current_user).deliver_now!
         @order.copies.each do |copy|
           UserMailer.proprio_order(copy, current_user).deliver_now!
         end
         UserMailer.admin_order(@order).deliver_now!
-        Cart.where(:user_id => current_user.id)[0].copy_ids = []
-        #redirect_to "/"
-        #flash[:success] = "Vous avez réussi à passer votre commande. Retrouvez là dans votre onglet commande :)"
       else
         redirect_to "/cart"
         flash[:alert] = "Vous devez avoir des éléments dans votre panier pour commander"

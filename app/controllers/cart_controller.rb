@@ -87,37 +87,7 @@ class CartController < ApplicationController
       @price
     end
   end
-  
-  def checkout
-    if user_signed_in?
-      @cart = Cart.where(:user_id => current_user.id)[0]
-      @content = @cart.copies
-      @price = 3.5 * @content.count
-      if @cart.copy_ids != []
-        @order = Order.create!(user: @cart.user, number_week: @cart.number_week, price: @price)
-        @order.copy_ids = @cart.copy_ids
-        @order.renting = Array.new(@cart.copy_ids.count, true)
-        @order.save
-        @order.copies.each do |copy|
-          copy.rented=true
-          copy.save
-        end
-        @cart.number_week = []
-        @cart.save
-        UserMailer.client_order(@order, current_user).deliver_now!
-        @order.copies.each do |copy|
-          UserMailer.proprio_order(copy, current_user).deliver_now!
-        end
-        UserMailer.admin_order(@order).deliver_now!
-        Cart.where(:user_id => current_user.id)[0].copy_ids = []
-        redirect_to "/"
-        flash[:success] = "Vous avez réussi à passer votre commande. Retrouvez là dans votre onglet commande :)"
-      else
-        redirect_to "/cart"
-        flash[:alert] = "Vous devez avoir des éléments dans votre panier pour commander"
-      end
-    end
-  end
+
 
   def empty
     @cart = Cart.where(:user_id => current_user.id)[0]

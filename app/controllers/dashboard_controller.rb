@@ -21,8 +21,10 @@ class DashboardController < ApplicationController
         @cart = Cart.create!(user_id: current_user.id)
       end
       @price = 0
-      @cart.copy_ids.each_with_index do |content, index| 
-        @price += 3.5 * @cart.number_week[index]
+      if @cart.copy_ids[0]
+        @cart.copy_ids.each_with_index do |content, index| 
+          @price += 3.5 * @cart.number_week[index]
+        end
       end
       @price
     else
