@@ -17,14 +17,14 @@
             <%if copy.available%>
             <p> Votre jeu est actuellement disponible à la location</p>
             <label class="switch">
-            <input type="checkbox"checked><%= link_to "Rendre indisponible?", "available/#{copy.id}", :class => "slider round", method: :put, :data => {:confirm => 'Le jeu ne sera plus louable par les autres utilisateurs'}%>
+            <input type="checkbox"checked><%= link_to "Rendre indisponible?", "available/#{copy.id}",:remote => true , :class => "slider round", method: :put, :data => {:confirm => 'Le jeu ne sera plus louable par les autres utilisateurs'}%>
             </label><br>
             <span> Rendre indisponible ?</span>
             <%else %>
           <p> Votre jeu <b>n'est pas visible</b> par les autres joueurs</p>
             <label class="switch">
               <input type="checkbox">
-              <%= link_to "Rendre disponible?", "available/#{copy.id}", :class => "slider round", method: :put, :data => {:confirm => 'Le jeu redeviendra accessible à tous les utilisateurs'}%>
+              <%= link_to "Rendre disponible?", "available/#{copy.id}", :class => "slider round",:remote => true , method: :put, :data => {:confirm => 'Le jeu redeviendra accessible à tous les utilisateurs'}%>
                </label><br>
             <span> Rendre disponible ?</span>
             <%end%>

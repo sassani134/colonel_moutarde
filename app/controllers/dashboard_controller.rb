@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class DashboardController < ApplicationController
+
+  respond_to? :html, :js
+
   def index
     @all_copies = current_user.copies
     @renting_copies = current_user.copies.where(rented: true)
@@ -57,17 +60,13 @@ class DashboardController < ApplicationController
   end
 
   def available_copy
+    @all_copies = current_user.copies
     @copy = Copy.find(params[:id])
     if @copy.user == current_user && @copy.rented == false
       @copy.toggle(:available)
-      if @copy.save
-        redirect_to '/dashboard'
-      else
-        redirect_to '/dashboard'
-      end
-    else
-      redirect_to '/dashboard'
+      @copy.save
     end
+    @copy
   end
 
   def confirm_copy

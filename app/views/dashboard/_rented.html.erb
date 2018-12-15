@@ -12,10 +12,11 @@
   </div>
 <%end%>
 <%if @all_copies[0]%>
+  <div class = "availability">
   <%=render 'rent_copies'%>
   <br/>
   <h4 class ="text-light"><%= link_to "Cliquez pour ajouter un autre jeu", "add_copy", :class =>"btn btn-info"%></h2>
-
+  </div>
   
 <%else%>
   <h2 class ="text-light">Vous voulez louer des jeux?</h2>
