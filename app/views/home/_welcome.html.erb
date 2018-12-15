@@ -7,17 +7,58 @@
           <h2>Louez vos jeux préférés !</h2>
           <h4>Entre particuliers, partout en France ! </h4>
         </div>
-        <% unless user_signed_in? %>
+        <% if user_signed_in? %>
+          <!-- Hero Search Form -->
+          <div class="hero-search-form">
+          <div class="row d-flex justify-content-around">
+            <!-- Tabs -->
+            <div class="nav nav-tabs" id="heroTab" role="tablist">
+              <!-- Tabs Content -->
+              <div class="tab-content" id="nav-tabContent" style="width: 350px">
+                <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab" >
+                  <div class="pb-1" style="color: white">
+                    <a class="font-weight-bold">Joueur</a>
+                  </div>
+                  <div class="pb-1" style="color: white">
+                    <a>Loue un jeu pour 3.50€ / semaine !</a>
+                  </div>
+                  <div class="mt-2">
+                    <a class="btn dorne-btn" style="color: white" href="/listing">Voir les jeux</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Tabs -->
+            <div class="nav nav-tabs" id="heroTab" role="tablist">
+              <!-- Tabs Content -->
+              <div class="tab-content" id="nav-tabContent" style="width: 350px">
+                <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab" >
+                  <div class="pb-1" style="color: white">
+                    <a class="font-weight-bold">Loueur</a>
+                  </div>
+                  <div class="pb-1" style="color: white">
+                    <a>Gagne jusqu'à 2.75€ par jeu loué !</a>
+                  </div>
+                  <div class="mt-2">
+                    <a class="btn dorne-btn" style="color: white" href="/dashboard">Devenir loueur</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        <% else %>
           <!-- Hero Search Form -->
           <div class="hero-search-form"  id="content-desktop">
             <!-- Tabs -->
             <div class="nav nav-tabs" id="heroTab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</a>
-              <!--     <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">&nbsp;&nbsp;&nbsp;S'enregistrer&nbsp;&nbsp;&nbsp;</a>
-              </div> -->
               <!-- Tabs Content -->
               <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab" >
+                  <div class="pb-1" style="color: white">
+                    <a class="font-weight-bold">Connexion</a>
+                  </div>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="field">
                     <%= f.label :email %><br />
@@ -47,11 +88,11 @@
                     <span>ou</span>
                     <a class="lien" href="/users/password/new">Mot de passe oublié ?</a>
                   </div>
+                <% end %>
                 </div>
               </div>
-              <% end %>
             </div>
-          <% end %>
+        <% end %>
         </div>
       </div>
     </div>
