@@ -1,6 +1,7 @@
 <table class="table">
   <thead>
 	  <tr>
+      <td></td>
       <td>Nom du jeu :</td>
       <td>Prêt pendant :</td>
 			<td></td>
@@ -10,6 +11,7 @@
   <%if @cart.copies%>
     <% @cart.copies.each_with_index do |copy, index| %>
 	    <tr id='element_<%=copy.id%>', remote: true>
+        <td><%=index+1%></td>
 		    <td><%= link_to "#{copy.game.title}", "/listing/#{copy.game.id}" %></td>
         <td>
         <div class="d-flex flex-row align-items-center">

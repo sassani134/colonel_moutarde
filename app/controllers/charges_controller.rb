@@ -2,7 +2,22 @@
 
 class ChargesController < ApplicationController
   def new
-    get_price if user_signed_in?
+    if user_signed_in?
+      @cart = Cart.where(user_id: current_user.id)[0]
+      @game_rented = ""
+      @cart.copies.each_with_index do |copy, index|
+        if copy.rented == true
+          @game_rented = @game_rented + "#{copy.game.title} en position #{index+1}, "
+        end
+      end
+
+      if @game_rented[0]
+        redirect_to '/dashboard'
+        flash[:alert] = "Le(s) jeu(x) #{@game_rented} du panier est (sont) actuellement louée, veuillez en prendre d'autres"
+      else
+        get_price
+      end
+    end 
   end
 
   def create
