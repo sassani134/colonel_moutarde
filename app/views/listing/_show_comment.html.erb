@@ -4,15 +4,15 @@
       <br/><br/><h4>Avis des joueurs : </h4>
       <% if @game.comments.count !=0 %>
         <% @game.comments.each do |comment| %>
-        <div class="single-review-area">
-          <div class="reviewer-meta d-flex align-items-center">
+        <div class="single-review-area d-flex flex-column">
+          <div class="reviewer-meta ">
             <div class="reviewer-content">
               <h6><%= comment.content %></h6>
             </div>
           </div>
           <div class="reviewer-name">
             <a><%= comment.user.username %></a>
-            <p><%=comment.created_at %></p>
+            <p><%=comment.created_at.in_time_zone("Europe/Paris").strftime("Crée le %d/%m/%Y à %Hh%M") %></p>
           </div>
           <% if user_signed_in? %>
             <%= link_to 'Supprimer le commentaire', [comment.game, comment],
