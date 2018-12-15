@@ -13,23 +13,24 @@ class UserMailerPreview < ActionMailer::Preview
 
    def client_receive
       @game= Game.all
-      @copies = @game.copies
+      @copy= Order.last.copies.first
       @number_week = 1
       @user= User.last
-      UserMailer.client_receive(@user, @copies, @number_week)
+      UserMailer.client_receive(@user, @copy, @number_week)
    end
 
    def proprio_order 
       @user= User.last
-      @order = @user.copy.last
+      @order = Order.last.copies.last
       UserMailer.proprio_order(@order, @user)
    end
 
 
    def admin_order
       User.last.admin!
+      @order = Order.last
       @user= User.last
-      UserMailer.admin_order
+      UserMailer.admin_order(@order)
    end
 
 

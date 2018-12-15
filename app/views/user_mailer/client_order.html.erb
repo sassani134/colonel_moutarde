@@ -25,7 +25,6 @@
         <thead>
             <tr>
                 <td>Nom du jeu</td>
-                <td>Image</td>
                 <td>Pseudo du propriétaire</td>
                 <td>Email</td>
             </tr>
@@ -34,13 +33,8 @@
         <% @order.copies.each do |copy|%>
             <tr >
                 <td><%= copy.game.title %></td>
-                <% if copy.game.image.attached? %>
-                <td class= "px-2"><%= image_tag url_for(Game.find_by_id([new_game]).image), size: "200x200" %></td>
-                <%else%> 
-                <td class= "px-2"><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
-                <%end %>
-                <td><%copy.user.username%></td>
-                <td><%copy.user.email%></td>
+                <td><%= copy.user.username%></td>
+                <td><%= copy.user.email%></td>
             </tr>
             <% end %>
         </tbody>
