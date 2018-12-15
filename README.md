@@ -48,11 +48,16 @@ Le site prendra une petite commission sur chaque jeu loué et reversera le reste
   - etc...
 
 ## Pour tester le projet en local
-* git clone https://github.com/sassani134/colonel_moutarde
-* faire `bundle install`
-* créer la base de donnée avec `rails db:create`
-* faire les migrations avec `rails db:migrate`
-* seeder la page avec `rails db:seed`
+* Dans le terminal : `$ git clone` https://github.com/sassani134/colonel_moutarde
+* Puis `$ bundle install`
+* Créer la base de données avec `$ rails db:create`
+* Réaliser les migrations avec `$ rails db:migrate`
+* Décommenter les lignes du fichier `app/db/seeds.rb` puis exécuter la commande `$ rails db:seed`
+* Pour Stripe :
+  * la carte de crédit test est `4242 4242 4242 4242` 
+  * la date d'expiration doit être ultérieure à la date du jour
+  * le numéro de vérification (CVV) est composé de 3 chiffres au hasard
+* NB Heroku : pour pouvoir accéder à la page admin sur Heroku, vous pouvez nous contacter via Slack pour vous créer un compte
 
 ## Projet réalisé par la team de Grenoble
 
