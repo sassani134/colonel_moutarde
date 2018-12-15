@@ -16,10 +16,14 @@
 				<%end%>	
 				<div class="feature-content d-flex align-items-center justify-content-between">
 					<div class="feature-title">
-						<a href="/listing/<%=game.id%>"><h5><%= game.title %></h5>
-						<p> 
-						<%=game.genres[0].title%>. Se joue <%=game.player_numbers[0].number_total%> joueurs.				
-						</p>
+						<a href="/listing/<%=game.id%>">
+							<h5><%= game.title %></h5>
+						</a>
+						
+						<a href="/listing/<%=game.id%>">
+							<h6 class ="font-weight-light text-secondary pt-1"> 
+							<%=game.genres[0].title%>. Se joue <%=game.player_numbers[0].number_total%> joueurs.				
+							</h6>
 						</a>
 					</div>		
 				</div>
