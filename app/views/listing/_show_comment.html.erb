@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="reviewer-name">
-            <a><%= comment.user_id %></a>
+            <a><%= comment.user.username %></a>
             <p><%=comment.created_at %></p>
           </div>
           <% if user_signed_in? %>

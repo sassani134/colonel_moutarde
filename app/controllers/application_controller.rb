@@ -30,12 +30,11 @@ class ApplicationController < ActionController::Base
   module SharedComment
     def create
       @game = Game.find(params[:game_id])
-      @comment = @game.comments.create!(comment_params)
-      @comment.user_id = current_user.id
+      @comment = Comment.new(user:current_user, game: @game, content: params[:comment][:content])
       if @comment.save
         redirect_back(fallback_location: root_path)
       else 
-        redirect_to '/listing'
+        redirect_back(fallback_location: root_path)
         flash[:alert] = "Le commentaire n'a pas pu être enregistré"
       end
     end
@@ -53,9 +52,6 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def comment_params
-        params.require(:comment).permit(:user, :content)
-    end
   end
 
 end
