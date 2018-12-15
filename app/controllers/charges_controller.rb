@@ -23,8 +23,7 @@ class ChargesController < ApplicationController
     )
   
     checkout
-  end
-  
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
@@ -63,6 +62,8 @@ class ChargesController < ApplicationController
           UserMailer.proprio_order(copy, current_user).deliver_now!
         end
         UserMailer.admin_order(@order).deliver_now!
+        
+
       else
         redirect_to "/cart"
         flash[:alert] = "Vous devez avoir des éléments dans votre panier pour commander"
