@@ -13,7 +13,10 @@
             <%end%>
             <div class="card-body">
               <h5 class="card-title"><%=order.copies[index].game.title%></h5>
-              <p class='card-text'>Contact propriétaire: <%=order.copies[index].user.username%>, <%=order.copies[index].user.email%>.</p>
+              <p class='card-text'>
+                A retourner avant le <%=order.return%>
+                <br/>Contact propriétaire: <%=order.copies[index].user.username%>, <%=order.copies[index].user.email%>.
+                </p>
             </div>
           </div>
         <%else%>
