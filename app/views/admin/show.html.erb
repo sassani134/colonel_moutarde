@@ -9,7 +9,7 @@
 <div class='d-flex flex-wrap rented'>
   <%if @active_orders[0]%>
     <%@active_orders.each do |order|%>
-      <%order.games.each_with_index do |copy|%>
+      <%order.copies.each_with_index do |copy, index|%>
         <%if order.renting[index]%>
           <div class='card col-3'>
             <img class="card-img-top" src="..." alt="Card image cap">
