@@ -14,7 +14,7 @@
             <div class="card-body">
               <h5 class="card-title"><%=order.copies[index].game.title%></h5>
               <p class='card-text'>
-                A retourner avant le <%=order.return%>
+                A retourner avant le <%=order.copies[index].return%>
                 <br/>Contact propriétaire: <%=order.copies[index].user.username%>, <%=order.copies[index].user.email%>.
                 </p>
             </div>
