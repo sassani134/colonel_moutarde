@@ -9,7 +9,11 @@
     <div class="row h-100">
       <div class="col-12 h-100">
         <nav class="h-100 navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/home/index"><%=image_tag("custom/logo2.png", :style => "width: 160px; height: 150px;")%></a>
+          <!-- Desktop version -->
+          <a class="navbar-brand" href="/home/index" id="content-desktop"><%=image_tag("custom/logo2.png", :style => "width: 160px; height: 150px;")%></a>
+          <!-- Mobile version -->
+          <a class="navbar-brand" href="/home/index" id="content-mobile"><%=image_tag("custom/logo2.png", :style => "width: 110px; height: 100px;")%></a>
+          <!-- End Desktop/Mobile version -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
           <!-- Nav -->
           <div class="collapse navbar-collapse" id="dorneNav">
