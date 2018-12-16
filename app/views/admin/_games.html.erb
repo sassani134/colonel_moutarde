@@ -11,8 +11,8 @@
     <%@games.each do |game|%>
       <tr >
         <td><a><%= game.title %></a></td>
-        <%if copy.game.image.attached? %>
-          <div class='card-img-top'><%= image_tag url_for(copy.game.image), size: "200x200" %></td>
+        <%if game.image.attached? %>
+          <div class='card-img-top'><%= image_tag url_for(game.image), size: "200x200" %></td>
         <%else%> 
           <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
         <%end%>
