@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
   respond_to? :html, :js
 
   def index
-    @all_copies = current_user.copies
+    @all_copies = current_user.copies.order(1)
     @renting_copies = current_user.copies.where(rented: true)
     @unconfirmed_copies = @renting_copies.where(return: nil)
     @confirmed_copies = @renting_copies.where.not(return: nil)
@@ -60,13 +60,13 @@ class DashboardController < ApplicationController
   end
 
   def available_copy
-    @all_copies = current_user.copies
     @copy = Copy.find(params[:id])
     if @copy.user == current_user && @copy.rented == false
       @copy.toggle(:available)
       @copy.save
     end
     @copy
+    @all_copies = current_user.copies.order(1)
   end
 
   def confirm_copy
