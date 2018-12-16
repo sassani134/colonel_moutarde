@@ -271,3 +271,24 @@ background-size: cover;
 #content-mobile {display: block;}
 
 }
+
+.dorne-mobile-btn {
+  min-width: 50px;
+  height: 52px;
+  background-color: #DFAA04;
+  border-radius: 0 !important;
+  line-height: 50px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+}
+
+.dorne-mobile-btn:hover,
+.dorne-mobile-btn:focus {
+  color: #fff;
+  background-color: #DFAA04;
+  font-weight: 600;
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
+}
