@@ -12,9 +12,9 @@
       <tr >
         <td><a><%= game.title %></a></td>
         <%if game.image.attached? %>
-          <div class='card-img-top'><%= image_tag url_for(game.image), size: "200x200" %></td>
+          <td ><%= image_tag url_for(game.image), size: "200x200" %></td>
         <%else%> 
-          <div class='card-img-top'><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
+          <td ><img src="../assets/no_photo.svg" height="200" width="200" alt="pas de photos"></td>
         <%end%>
         <td><p class="text-justify px-2"><%=game.description[0..100]%> [...]</p></td>
         <%if game.categories[0]%>
@@ -26,8 +26,13 @@
         <%else%>
           <td>Catégorie invalide</td>
         <%end %>
-        <td>Tout est bon? <%= link_to 'Confirmer', "/confirm", :class =>"btn btn-info  mb-15", method: :patch %></td>
-        <td>Des choses manquent? <%= link_to 'Editer', edit_new_game_path(new_game), :class =>"btn btn-light mb-15" %></td>
+        <td class= "p-2"><p>Tout est bon?</p> 
+            <p><%= link_to 'Confirmer', "/confirm", :class =>"btn btn-info  mb-15", method: :patch %></p>
+        </td>
+        <td>
+          <p>Des choses manquent?</p> 
+          <p>&nbsp;&nbsp;&nbsp;<%= link_to 'Editer', edit_new_game_path(game), :class =>"btn btn-info   mb-15" %></p>
+        </td>
       </tr>
     <% end %>
   </tbody>
