@@ -5,7 +5,7 @@ class AdminController < ApplicationController
     if current_user.admin?
       @orders = Order.all
       @renting_copies = Copy.where(rented: true)
-      @overdue_copies = Copy.where(return: Time.now..DateTime::Infinity.new)
+      @overdue_copies = Copy.where(Copy.arel_table[:return].lt(Time.now))
       @games = Game.where(confirm: false)
     else
       redirect_to root_path
